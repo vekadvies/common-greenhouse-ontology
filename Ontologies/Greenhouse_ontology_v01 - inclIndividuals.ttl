@@ -7,11 +7,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix om: <https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf> .
 @base <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> .
 
 <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> rdf:type owl:Ontology ;
                                                                     owl:versionIRI <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#0.1> ;
-                                                                    owl:imports <http://www.ontology-of-units-of-measure.org/resource/om-2/> ,
+                                                                    owl:imports om: ,
                                                                                 sosa: ,
                                                                                 ssn: .
 
