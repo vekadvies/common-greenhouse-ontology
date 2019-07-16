@@ -116,5 +116,8 @@ Wat is bak in NL?
 Bak bevat de verzamling planten en deze verzameling planten bevat planten met metingen
 De plantset heeft averages
 
+16-07-2019
 
+Added: Temperature below Property (Temperature can be a property of different features of interest)
+Added: Boiler circuit valve 
 
