@@ -1,0 +1,9 @@
+24-06-2019
+-	We hebben veel te maken met delen van gehelen: kas – block, bloem – blaadje, boiler – boiler temperature sensor, etc. Om die aan elkaar te verbinden gebruiken we een algemene partOf en hasPart relatie.
+-	we kiezen voor 'onze' classes die beter aansluiten bij het domein equivalent maken met geïmporteerde classes. We gaan geen andere labels gebruiken. VB: Observation (SOSA) == Measurement (Crop)
+-	We hebben classes die op zichzelf niets zijn beschreven met een comment ‘model-technical term’. Daardoor zouden we deze termen eruit kunnen filteren bij een eventuele demo.
+-   We gebruiken webprotege niet vanwege de beperking in vast te leggen relaties
+
+11-07-2019
+
+- Recipe is een vorm van een procedure in sosa: 'Procedure - A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation.. or make a change to the state of the world'

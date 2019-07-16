@@ -1,0 +1,379 @@
+@prefix : <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology> .
+
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology> rdf:type owl:Ontology ;
+                                                                              owl:versionIRI <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology_v1> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Sensor_pH_check_type
+:Sensor_pH_check_type rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_pH_check> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Sensor_pH_dose_type
+:Sensor_pH_dose_type rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_pH_dose> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad_parts
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad_parts> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad> ,
+                                                                                                         <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Cooling_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler_parts
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler_parts> rdf:type owl:ObjectProperty ;
+                                                                                                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Evaporative_pad
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Evaporative_pad> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts> rdf:type owl:ObjectProperty ;
+                                                                                                    rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_compartment_heating_parts
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_compartment_heating_parts> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heat_water_compartment_mixing_valve
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heat_water_compartment_mixing_valve> rdf:type owl:ObjectProperty ;
+                                                                                                                 rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_compartment_heating_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heat_water_mixing_valve
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heat_water_mixing_valve> rdf:type owl:ObjectProperty ;
+                                                                                                     rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heat_water_transport_pump
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heat_water_transport_pump> rdf:type owl:ObjectProperty ;
+                                                                                                       rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_feed_pump
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_feed_pump> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                                  rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ,
+                                                                                                              <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                  rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                  rdfs:comment "Is the pump which supplies water to the Fertigation unit. To distinguish from the pump which supplys the irrigation water is called Feed pump. Ussually is a part of the Fertigation Unit but can be also apart from it." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_feed_water_mixing_valve
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_feed_water_mixing_valve> rdf:type owl:ObjectProperty ;
+                                                                                                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                                                rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system> ;
+                                                                                                                rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system> ;
+                                                                                                                rdfs:comment "It is the mixing valve which regulates the ratio of the water from clean water tank and from disinfected water tank will be fed to the fertigation unit. Usually this ratio is based on a measurement of EC just after the mixing valve towards the fertigation unit." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_pump
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_pump> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                             rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                             rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                             rdfs:comment "It is the pump which supplies irrigation water to the greenhouse compartments in the case that no Fertigation Unit exist." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_supply_pump
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_supply_pump> rdf:type owl:ObjectProperty ;
+                                                                                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                                    rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ,
+                                                                                                                <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                    rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                    rdfs:comment "It is the pump which supplies irrigation water to the greenhouse compartments when a Fertigation Unit exist." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_check
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_check> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts> ;
+                                                                                             rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ;
+                                                                                             rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                             rdfs:comment "In the case that the Fertigation unit has 2 EC sensors, it is the sensor which check the EC of the water recirculated inside the mixing tank of the fertigation unit. The unit of EC is mS/cm (Milli-siemens per centimeter)." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_check_type
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_check_type> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_check> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_dose
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_dose> rdf:type owl:ObjectProperty ;
+                                                                                            rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts> ;
+                                                                                            rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ;
+                                                                                            rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                            rdfs:comment "In the case that the Fertigation unit has 2 EC sensors, it is the sensor which check the EC of the water supllied by the irrigation supply pump. The unit of EC is mS/cm (Milli-siemens per centimeter)." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_dose_type
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_dose_type> rdf:type owl:ObjectProperty ;
+                                                                                                 rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_dose> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_mixing_vlave
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_mixing_vlave> rdf:type owl:ObjectProperty ;
+                                                                                                    rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_feed_water_mixing_valve> ;
+                                                                                                    rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ,
+                                                                                                                <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                    rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                    rdfs:comment "It is the EC just after the mixing valve towards the fertigation unit. Based on this measurement the ratio between clean water and disinfected water is calculated." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_liter_counter
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_liter_counter> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts> ;
+                                                                                                  rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                  rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                                  rdfs:comment "It is the sensor which measures the liters per time which are supplied as irrigation solution to the greenhouse compartments. Can be also mentioned as water flow but because it usually measures liters per pulse the common name is liter counter. The unit depends on the configuration of the Fertigation unit is the choise of the grower. Can be liter/min or m3/hr." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_liter_counter_type
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_liter_counter_type> rdf:type owl:ObjectProperty ;
+                                                                                                       rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_liter_counter> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_pH_check
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_pH_check> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts> ;
+                                                                                             rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ;
+                                                                                             rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> ;
+                                                                                             rdfs:comment "In the case that the Fertigation unit has 2 pH sensors, it is the sensor which check the pH of the water recirculated inside the mixing tank of the fertigation unit." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_pH_dose
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_pH_dose> rdf:type owl:ObjectProperty ;
+                                                                                            rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_unit_parts> ;
+                                                                                            rdfs:domain <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> ;
+                                                                                            rdfs:range <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_type> ;
+                                                                                            rdfs:comment "In the case that the Fertigation unit has 2 pH sensors, it is the sensor which check the EC of the water supllied by the irrigation supply pump." .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_substrate_temperature
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_substrate_temperature> rdf:type owl:ObjectProperty ;
+                                                                                                          rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_compartment_heating_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_water_temperature_return_manifold
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_water_temperature_return_manifold> rdf:type owl:ObjectProperty ;
+                                                                                                                      rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_water_temperature_suply_manifold
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_water_temperature_suply_manifold> rdf:type owl:ObjectProperty ;
+                                                                                                                     rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_water_temperature_supply
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_water_temperature_supply> rdf:type owl:ObjectProperty ;
+                                                                                                             rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_compartment_heating_parts> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_supply_pad_pump
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_supply_pad_pump> rdf:type owl:ObjectProperty ;
+                                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad_parts> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_value_measured
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_value_measured> rdf:type owl:DatatypeProperty ;
+                                                                                                      rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_value_set
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_EC_value_set> rdf:type owl:DatatypeProperty ;
+                                                                                                 rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_air_RH_value_set
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_air_RH_value_set> rdf:type owl:DatatypeProperty ;
+                                                                                                     rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_air_temperature_value_measured
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_air_temperature_value_measured> rdf:type owl:DatatypeProperty ;
+                                                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_air_temperature_value_set
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_air_temperature_value_set> rdf:type owl:DatatypeProperty ;
+                                                                                                              rdfs:subPropertyOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Sensor_values> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Fan_&_Pad> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Cooling_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Pest_&_diseases
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Pest_&_diseases> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Screens_&_nets
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Screens_&_nets> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Burner_boiler> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heating_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction_unit
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction_unit> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Cooling_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Cooling_system> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Crop
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Crop> rdf:type owl:Class ;
+                                                                                  rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Cultivation_sytem
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Cultivation_sytem> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Growing_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfected_water_tank
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfected_water_tank> rdf:type owl:Class ;
+                                                                                                    rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_system> rdf:type owl:Class ;
+                                                                                                 rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_unit
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_unit> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Drain_collection_tray
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Drain_collection_tray> rdf:type owl:Class ;
+                                                                                                   rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Disinfection_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Energy_screens
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Energy_screens> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Screens_&_nets> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fertigation_Unit> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fogging_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Fogging_system> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_cover
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_cover> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_type
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Greenhouse_type> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Construction> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Growing_media
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Growing_media> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Growing_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Growing_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Growing_system> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heating_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Heating_system> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Insect_nets
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Insect_nets> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Screens_&_nets> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_type
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_type> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_valve
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_valve> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_zone> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_zone
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_zone> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Irrigation_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Labor
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Labor> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Shading_screens
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Shading_screens> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/greenhouse_ontology#Screens_&_nets> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Tomato_Trait_Ontology
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Tomato_Trait_Ontology> rdf:type owl:Class ;
+                                                                                                   rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Crop> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_storage
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_storage> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf <http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system> .
+
+
+###  http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system
+<http://www.semanticweb.org/sapounasa/ontologies/2019/2/untitled-ontology-5#Water_system> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf owl:Thing ;
+                                                                                          rdfs:comment "The class of the Irrigation System" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

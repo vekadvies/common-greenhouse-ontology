@@ -1,0 +1,382 @@
+@prefix : <http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example> .
+
+<http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#detects
+:detects rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#has_part
+:has_part rdf:type owl:ObjectProperty ;
+          owl:inverseOf :part_of ;
+          rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#has_property
+:has_property rdf:type owl:ObjectProperty ;
+              owl:inverseOf :is_property_of .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#has_result
+:has_result rdf:type owl:ObjectProperty ;
+            owl:inverseOf :is_result_of .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#has_unit_of_measure
+:has_unit_of_measure rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#implemented_by
+:implemented_by rdf:type owl:ObjectProperty ;
+                owl:inverseOf :implements .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#implements
+:implements rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#is_feature_of_interest
+:is_feature_of_interest rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :observed_property .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#is_observed_by
+:is_observed_by rdf:type owl:ObjectProperty ;
+                owl:inverseOf :observes .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#is_property_of
+:is_property_of rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#is_proxy_for
+:is_proxy_for rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#is_result_of
+:is_result_of rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#is_unit_of_measure_of
+:is_unit_of_measure_of rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#made_by
+:made_by rdf:type owl:ObjectProperty ;
+         owl:inverseOf :made_observation .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#made_observation
+:made_observation rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#observed_property
+:observed_property rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#observes
+:observes rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#part_of
+:part_of rdf:type owl:ObjectProperty ,
+                  owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#was_originated_by
+:was_originated_by rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#has_numerical_value
+:has_numerical_value rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#has_simple_result
+:has_simple_result rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#result_time
+:result_time rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Centimetre
+:Centimetre rdf:type owl:Class ;
+            rdfs:subClassOf :MetricUnit .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Color
+:Color rdf:type owl:Class ;
+       rdfs:subClassOf :ObservableProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Computation
+:Computation rdf:type owl:Class ;
+             rdfs:subClassOf :Method .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Crop
+:Crop rdf:type owl:Class ;
+      rdfs:subClassOf :Plant .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#FeatureOfInterest
+:FeatureOfInterest rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_property ;
+                                     owl:allValuesFrom :Property
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_property ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :Property
+                                   ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Flower
+:Flower rdf:type owl:Class ;
+        rdfs:subClassOf :Plant .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#FlowerPart
+:FlowerPart rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :part_of ;
+                                  owl:someValuesFrom :Flower
+                                ] ;
+            rdfs:subClassOf :PlantPart .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Greenhouse
+:Greenhouse rdf:type owl:Class ;
+            rdfs:subClassOf :Part ,
+                            owl:Thing .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Height
+:Height rdf:type owl:Class ;
+        rdfs:subClassOf :ObservableProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Human
+:Human rdf:type owl:Class ;
+       rdfs:subClassOf :Sensor .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Leaf
+:Leaf rdf:type owl:Class ;
+      rdfs:subClassOf :PlantPart .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Lisianthus
+:Lisianthus rdf:type owl:Class ;
+            rdfs:subClassOf :Flower .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Measure
+:Measure rdf:type owl:Class ;
+         rdfs:subClassOf :Result ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :has_unit_of_measure ;
+                           owl:allValuesFrom :UnitOfMeasure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :is_result_of ;
+                           owl:allValuesFrom :FeatureOfInterest
+                         ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Measurement
+:Measurement rdf:type owl:Class ;
+             rdfs:subClassOf :Method .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Method
+:Method rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :implemented_by ;
+                          owl:allValuesFrom :Sensor
+                        ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Metre
+:Metre rdf:type owl:Class ;
+       rdfs:subClassOf :MetricUnit .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#MetricUnit
+:MetricUnit rdf:type owl:Class ;
+            rdfs:subClassOf :UnitOfMeasure .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#ObservableProperty
+:ObservableProperty rdf:type owl:Class ;
+                    rdfs:subClassOf :Property .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Observation
+:Observation rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :has_result ;
+                               owl:allValuesFrom :Result
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :made_by ;
+                               owl:allValuesFrom :Sensor
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :observed_property ;
+                               owl:allValuesFrom :ObservableProperty
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :has_result ;
+                               owl:minCardinality "1"^^xsd:nonNegativeInteger
+                             ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Part
+:Part rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :part_of ;
+                            owl:someValuesFrom owl:Thing
+                          ] ;
+      rdfs:subClassOf :FeatureOfInterest ,
+                      owl:Thing .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Petal
+:Petal rdf:type owl:Class ;
+       rdfs:subClassOf :FlowerPart ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :part_of ;
+                         owl:someValuesFrom :Pistil
+                       ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Pistil
+:Pistil rdf:type owl:Class ;
+        rdfs:subClassOf :FlowerPart .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Plant
+:Plant rdf:type owl:Class ;
+       rdfs:subClassOf :FeatureOfInterest ,
+                       owl:Thing ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :part_of ;
+                         owl:someValuesFrom :Greenhouse
+                       ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#PlantPart
+:PlantPart rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :part_of ;
+                                 owl:someValuesFrom :Plant
+                               ] ;
+           rdfs:subClassOf :Part .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Property
+:Property rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :is_property_of ;
+                            owl:allValuesFrom :FeatureOfInterest
+                          ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Result
+:Result rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :is_result_of ;
+                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :FeatureOfInterest
+                        ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Sensor
+:Sensor rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :detects ;
+                          owl:allValuesFrom :Stimulus
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :made_observation ;
+                          owl:allValuesFrom :Observation
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :observes ;
+                          owl:allValuesFrom :ObservableProperty
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :implements ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger
+                        ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Stem
+:Stem rdf:type owl:Class ;
+      rdfs:subClassOf :PlantPart .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Stimulus
+:Stimulus rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :is_proxy_for ;
+                            owl:allValuesFrom :ObservableProperty
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf :detects
+                                           ] ;
+                            owl:allValuesFrom :Sensor
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf :was_originated_by
+                                           ] ;
+                            owl:allValuesFrom :Observation
+                          ] .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#TechnicalSensor
+:TechnicalSensor rdf:type owl:Class ;
+                 rdfs:subClassOf :Sensor .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Thickness
+:Thickness rdf:type owl:Class ;
+           rdfs:subClassOf :ObservableProperty .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#Tomato
+:Tomato rdf:type owl:Class ;
+        rdfs:subClassOf :Crop .
+
+
+###  http://www.semanticweb.org/bakkerrm/ontologies/2019/3/simple_example#UnitOfMeasure
+:UnitOfMeasure rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :is_unit_of_measure_of ;
+                                 owl:allValuesFrom :Measure
+                               ] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

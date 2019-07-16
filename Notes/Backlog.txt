@@ -1,0 +1,120 @@
+Meeting 16-04-2019
+
+Sensor accuracy
+Sensor range
+Data from greenhouses in greece?
+
+Observation is a measurement by eye
+Measurement is a numerical measure
+Different label for observation?
+'Sensor has accuracy and certain specification, therefore a human can't be a sensor'
+Ontology is technical terminology, maybe we can translate to the frontend?
+Worth time to investigate how to best organize it, but it needs to be useable for data science.
+We should get the defined terms for greenhouses, and use a generic structure, and link them. Make sure they are reco…
+
+Own classes equivalent with SOSA classes
+
+Crop is a set of plants with the same genotype, from a genetical point of view identical
+Tomate genome 123 is a crop, tomato genome 234 a different crop
+Make different labels for instance sensor/observer/measurer, or observation
+Technical ontology + interface with other labels?
+Present ontology to standaardwerkgroep: terminology has to be right
+We need a good reference and base the terms/structure on that (disease ontology)
+Disease ontology - cooling sys ontology, etc.  Build it bottom up
+
+Acties
+Diseaseplant ontologie opzoeken en importeren
+
+
+
+
+
+26-04-2019 overleg met Barry
+
+Webprotege: als je een object prop binnen een restrictie toevoegt maakt hij er zelf SOME van, andere waardes worden behouden maar niet getoond. Let op: Het wordt een subclass of restrictie en niet een equivalent to.
+Imports worden behouden maar niet getoond.
+
+Design choice: we kiezen voor 'onze' classes die beter aansluiten bij het domein equivalent maken met geïmporteerde classes. We gaan geen andere labels gebruiken. Visualisatie mag niet gebeuren door middel van protege direct openen maar door screenshots en plaatjes en slides voor te bereiden. Dat vereist voorbereiding.
+	Technische uitdaging: kan de reasoner ermee dealen.
+Observation by human eye laten we weg omdat het niks oplevert voor de datahub
+Measurement class is toegevoegd om numerical measure uit te drukken. Deze is equivalent met de sosa observation
+We hebben een eigen sensor class die alleen technische sensoren bevat. Dit is een subclass van sosa sensor en staat ook op topniveau.
+We hebben een crop class met daarin plantenclasses. Een andere mogelijkheid is een crop class maken die enkel classes bevat, zoals owl:class. Daarin zitten dan 'individuen' die verwijzen naar een class zoals de tomatenplant class, die op zijn beurt de individual tomatenplant1 bevat. We kiezen ervoor dat niet te doen vanwege de complexiteit.
+
+
+
+24-5-2019 overleg met Barry
+
+Bak-block block-zone hoe verhoudt zich dit?
+Op dit moment representeert de has_part property alle relaties die iets te maken hebben met deel-geheel, maar has_part kan verwarring zorgen bij domein experts. Vooral als we het gebruiken om bijvoorbeeld de relaties tussen een zone en de lisianthus die erin staat willen leggen, dan zou bijvoorbeeld contains property een betere naam zijn. Ook de relatie tussen Greenhouse en Zone zou eigenlijk iets als 'hasZone' moeten zijn, omdat dit beter aansluit bij de domein experts. Door deze een subproperty te maken van 'has_part' behouden we de generieke deel-geheel relaties, maar kunnen we toch de domein experts 'tegemoet' komen.
+	- Has_part
+		○ hasZone
+		○ Contains?
+		○ Consistsof?
+
+Misschien iets doen aan ' feature of interest'
+
+Wat is bak en blok in de whc data?
+
+
+
+11-06-2019
+
+Connectie SIOM DDINGS: use case heating pipe temperature, greenhouse temperature, heating pipe power
+Welke heating pipe? The afgifte heating pipe. Er is een  aanvoer heating pipe, afvoer heating pipe, en afgifte heating pipe. Deze metingen hebben ook timestamps, dus we moeten tijd toevoegen aan de ontologie, bij voorkeur zoals in sosa.
+
+Acties:
+	- Heatingpipe specificeren
+	- Time bekijken in sosa
+	- Time eventueel integreren in ontologie
+	- Energy emission unit bekijken in om
+	- Eventueel energy emission unit toevoegen aan ontologie
+
+Veranderingen:
+	- Toegevoegd:
+		○ ReleaseHeatingPipe
+		○ SupplyHeatingPipe
+		○ DrainHeatingPipe
+
+03-07-2019
+
+	- Termen van Athanasios toelichten + definitie
+	- Systems verder in detail uitwerken, rest oppervlakkig laten
+	- Met Athanasios iedere week aan de excel sheet werken/kortsluiten
+	- Iedere nieuwe versie beschikbaar stellen, in git zetten -> DDINGS new project ontology dev
+
+11-7-2019
+
+Toevoegen classes en dingen van Barry om connectie siom te maken
+	- Greenhouse air
+	- Dissipated heating power (Term up to debate)
+
+Nutrition/fertigation/fertilizer
+fertigation recipe == nutrition recipe?
+
+	- FertigationSystemPart
+	- FertigationTank
+	- FertigationWater
+
+Leaf -> FoI juice -> Prop aluminiumlevel, B level, etc. See jacks ontology
+
+Open:
+	Nutrition Recipe? Hoe past dit recept erin? Het is iets wat boven de analyses zit -> Het is een vorm van een procedure want het is een 'plan' van een actuation namelijk de watertank inrichten
+
+
+Bladsap analyse ~ Water analyse
+
+Length van de plant uit om halen ipv zelf
+Andere measurements dan om uitzoeken?
+
+Block = afdeling = met wanden afgescheiden stuk kas, helemaal afgesloten voor een apart klimaat, heeft dezelfde planten
+Bak = Grote tafel met dezelfde planten in rijen, bak bevat meerdere bakken, elke bak heeft een verzameling planten. Verschil tussen bakken is een aparte fertigatie strategie, of substraat, of levensfase
+Compartment = ? Misschien hetzelfde als block, vragen aan google en athanasios
+
+Wat is bak in NL?
+
+Bak bevat de verzamling planten en deze verzameling planten bevat planten met metingen
+De plantset heeft averages
+
+
+
