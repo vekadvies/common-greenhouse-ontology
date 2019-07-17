@@ -1,11 +1,11 @@
 Version 0.1:
 
 - System finished
-    - HeatingSystemParts 80%
+    - HeatingSystemParts LoD (Level of Detail):80%
 
 - All the data of Jacks ontology can be put in the ontology
 
-- Gather and decide literature which we are going to use
+- Have a list of literature which we can use to determine the main classes
     - Athanasios sends a list with books
 
 DEADLINE: end of July
@@ -13,22 +13,23 @@ DEADLINE: end of July
 Version 0.2:
 
 - Work out more systems:
-    - CoolingsystemParts 90 - 100%
-    - FertilizationSystemParts 10%
-    - IrrigationSystemParts 10%
-- Crop 20%
-- Nutrition 10%
-- Construction of the Greenhouse but not properties of the materials 50%
-
+    - CoolingsystemParts LoD: 90 - 100%
+    - FertilizationSystemParts LoD: 10%
+    - IrrigationSystemParts LoD: 10%
+- Crop LoD: 20%
+- Nutrition LoD: 10%
+- Construction of the Greenhouse but not properties of the materials LoD: 50%
 
 DEADLINE: end of October
 
 Version 0.3:
 
-
-All the main classes are in the ontology with references, preferably well known books
+- All the main classes are in the ontology with references, preferably well known books
+- System subclasses are worked out in a middle to high LoD
 
 DEADLINE: end of the year
+
+---------------------------------------------------------------------------------------------------------------------
 
 Final Version Wishes:
 - not an ultimate ontology

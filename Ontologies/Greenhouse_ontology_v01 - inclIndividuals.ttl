@@ -137,7 +137,7 @@ cgo:Anti-insectNet rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Bench
 cgo:Bench rdf:type owl:Class ;
-          rdfs:subClassOf cgo:GreenhousePart ,
+          rdfs:subClassOf cgo:GrowingSystemPart ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty cgo:hasPart ;
                             owl:someValuesFrom cgo:PlantSet
@@ -563,6 +563,12 @@ cgo:HeatExchanger rdf:type owl:Class ;
                   rdfs:subClassOf cgo:HeatingSystem ;
                   rdfs:comment "uses hot water, can be used for both heating and cooling" ;
                   rdfs:label "Heat Exchanger" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatPumpSystem
+cgo:HeatPumpSystem rdf:type owl:Class ;
+                   rdfs:subClassOf ssn:System ;
+                   rdfs:label "Heat Pump System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatWaterMixingValve
