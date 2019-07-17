@@ -119,5 +119,63 @@ De plantset heeft averages
 16-07-2019
 
 Added: Temperature below Property (Temperature can be a property of different features of interest)
-Added: Boiler circuit valve 
+Added: Boiler circuit valve
+
+17-07-2019
+
+Meeting Roos, Athanasios
+Goals:  - Make a version roadmap
+        - Extend excel file
+        - Agree on content in version 0.1
+
+Agenda:
+    1. What is currently in the Ontology?
+        a. Protégé
+        b. Powerpoint
+        c. Excel file
+    2. What are the current use cases?
+        a. WHC data: stem thickness, leaf nutrition value
+        b. SIOM DDINGS connection: heating pipe power calculation
+    3. What are the most important greenhouse concepts for DDINGS?
+    4. What needs to be in the ontology based on the current use cases?
+    5. What needs to be in version 0.1 of the ontology?
+    6. What does the rest of 2019 look like in terms of ontology development?
+    6. Add answers from 3 to excel sheet.
+
+
+Completed:
+    Boiler
+
+Added:
+    BoilerCapacity
+    Boiler Water Temperature Sensor
+    Burner
+    CHPSystemPart
+    Descriptions for circuit pump and transport pump
+    bench
+    heat pump system
+
+Removed:
+    BoilerCircuitPump
+    BoilerCircuitValve == HeatWaterMixingValve
+
+todo:
+more info about:
+    heat exchangers
+    heat pumps
+    hybrid systems
+    heat storage systems
+    CHP
+    passive systems*
+
+Think about:
+    set levels/values of parts
+
+Put everything from excel in comments
+
+
+
+
+
+
 

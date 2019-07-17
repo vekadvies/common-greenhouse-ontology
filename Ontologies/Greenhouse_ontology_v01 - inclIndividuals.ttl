@@ -100,14 +100,14 @@ sosa:Sensor rdfs:comment "Humans can also be sensors in this definition but not 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#AirHeater
 cgo:AirHeater rdf:type owl:Class ;
-              rdfs:subClassOf cgo:HeatingSystem ;
+              rdfs:subClassOf cgo:HeatExchanger ;
               rdfs:comment "Device which heats the air of the greenhouse by burning certain type of fuel, are used in clusters, is autonomous" ;
               rdfs:label "Air Heater" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#AirToAirHeatExchanger
 cgo:AirToAirHeatExchanger rdf:type owl:Class ;
-                          rdfs:subClassOf cgo:HeatingSystem ;
+                          rdfs:subClassOf cgo:HeatExchanger ;
                           rdfs:label "Air to Air Heat Exchanger" .
 
 
@@ -135,13 +135,13 @@ cgo:Anti-insectNet rdf:type owl:Class ;
                    rdfs:comment "This class represents anti-insect nets that are used in greenhouses" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Bak
-cgo:Bak rdf:type owl:Class ;
-        rdfs:subClassOf cgo:GreenhousePart ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty cgo:hasPart ;
-                          owl:someValuesFrom cgo:PlantSet
-                        ] .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Bench
+cgo:Bench rdf:type owl:Class ;
+          rdfs:subClassOf cgo:GreenhousePart ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty cgo:hasPart ;
+                            owl:someValuesFrom cgo:PlantSet
+                          ] .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BiowasteProducts
@@ -172,23 +172,9 @@ cgo:Boiler rdf:type owl:Class ;
                         "Sometimes also named \"Burner\"" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerCircuitPump
-cgo:BoilerCircuitPump rdf:type owl:Class ;
-                      rdfs:subClassOf cgo:Boiler ;
-                      rdfs:label "Boiler Circuit Pump" .
-
-
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerCircuitValve
-cgo:BoilerCircuitValve rdf:type owl:Class ;
-                       rdfs:subClassOf cgo:Boiler ;
-                       rdfs:label "Boiler Circuit Valve" .
-
-
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerSensor
-cgo:BoilerSensor rdf:type owl:Class ;
-                 rdfs:subClassOf cgo:Boiler ,
-                                 cgo:TemperatureSensor ;
-                 rdfs:label "Boiler Sensor" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerCapacity
+cgo:BoilerCapacity rdf:type owl:Class ;
+                   rdfs:subClassOf cgo:Boiler .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerSupplySensor
@@ -196,6 +182,13 @@ cgo:BoilerSupplySensor rdf:type owl:Class ;
                        rdfs:subClassOf cgo:Boiler ,
                                        cgo:TemperatureSensor ;
                        rdfs:label "Boiler Supply Sensor" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerWaterTemperatureSensor
+cgo:BoilerWaterTemperatureSensor rdf:type owl:Class ;
+                                 rdfs:subClassOf cgo:Boiler ,
+                                                 cgo:TemperatureSensor ;
+                                 rdfs:label "Boiler water temperature sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Buffer
@@ -215,6 +208,19 @@ cgo:BufferWaterTemperatureSensor rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Builder
 cgo:Builder rdf:type owl:Class ;
             rdfs:subClassOf cgo:Person .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Burner
+cgo:Burner rdf:type owl:Class ;
+           rdfs:subClassOf cgo:Boiler .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CHPSystemPart
+cgo:CHPSystemPart rdf:type owl:Class ;
+                  rdfs:subClassOf cgo:HeatingSystemPart ;
+                  rdfs:comment "Unit which produces heat and electrical power" ;
+                  rdfs:label "Cogeneration Heat and Power" ,
+                             "Combined Heat and Power" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CentralHeatingSystem
@@ -315,18 +321,18 @@ cgo:DissipatedHeatingPower rdf:type owl:Class ;
                            rdfs:comment "This term might be changed" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DistributorReturnTemperature
-cgo:DistributorReturnTemperature rdf:type owl:Class ;
-                                 owl:equivalentClass cgo:ReturnManifold ;
-                                 rdfs:subClassOf cgo:HeatingSystemPart ;
-                                 rdfs:label "Dsitributor Return Temperature" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DistributorReturn
+cgo:DistributorReturn rdf:type owl:Class ;
+                      owl:equivalentClass cgo:ReturnManifold ;
+                      rdfs:subClassOf cgo:HeatingSystemPart ;
+                      rdfs:label "Dsitributor Return" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DistributorSupplyTemperature
-cgo:DistributorSupplyTemperature rdf:type owl:Class ;
-                                 owl:equivalentClass cgo:SupplyManifold ;
-                                 rdfs:subClassOf cgo:HeatingSystemPart ;
-                                 rdfs:label "Distributor Supply Temperature" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DistributorSupply
+cgo:DistributorSupply rdf:type owl:Class ;
+                      owl:equivalentClass cgo:SupplyManifold ;
+                      rdfs:subClassOf cgo:HeatingSystemPart ;
+                      rdfs:label "Distributor Supply" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DrainCollectionTray
