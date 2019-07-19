@@ -1,838 +1,885 @@
-# baseURI: https://www.tno.nl/agrifood/ontology/greenhouse-model/
-# imports: https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf
-# prefix: ghm
-
-@prefix MathM: <http://www.w3.org/1998/Math/MathML> .
+@prefix : <https://www.tno.nl/agrifood/ontology/greenhouse-model/> .
+@prefix um: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix ghm: <https://www.tno.nl/agrifood/ontology/greenhouse-model/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix spin: <http://spinrdf.org/spin#> .
-@prefix um: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix MathM: <http://www.w3.org/1998/Math/MathML> .
+@base <https://www.tno.nl/agrifood/ontology/greenhouse-model/> .
 
-owl:Thing
-  rdf:type owl:Class ;
-.
-ghm:
-  rdf:type owl:Ontology ;
-  spin:imports <http://topbraid.org/spin/owlrl-all> ;
-  owl:imports <https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf> ;
-.
-ghm:Block
-  rdf:type owl:Class ;
-  rdfs:comment "A block contains only a single crop (this is a requirement)" ;
-  rdfs:comment "A block is part of a compartment in the greenhouse in which the plants are treated equally wrt nutrition, climate etc." ;
-  rdfs:comment "Each block has a unique identifier in the greenhouse or compartment in the greenhouse" ;
-  rdfs:comment "This class represents blocks that are part of a greenhouse and contain a set of plants" ;
-  rdfs:label "Block" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasBlockIdentifier ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ghm:Crop ;
-      owl:onProperty ghm:contains ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-.
-ghm:Builder
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents builders that build greenhouses and possibly support growers in their crop management activities" ;
-  rdfs:label "Builder" ;
-  rdfs:subClassOf owl:Thing ;
-.
-ghm:Compartment
-  rdf:type owl:Class ;
-  rdfs:comment "A compartment is a part of the greenhouse" ;
-  rdfs:comment "Each compartment has a unique identifier in the greenhouse" ;
-  rdfs:comment "This class represents compartments that are part of a greenhouse and contain a set of plants" ;
-  rdfs:label "Block" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:contains ;
-      owl:someValuesFrom ghm:Block ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:contains ;
-      owl:someValuesFrom ghm:Zone ;
-    ] ;
-.
-ghm:Crop
-  rdf:type owl:Class ;
-  rdfs:comment "More characteristics of a crop can be defined using the guideline for creating a crop ontology published here: http://www.cropontology.org" ;
-  rdfs:comment "This class represents crops that are produced in a greenhouse operated by a grower" ;
-  rdfs:label "Crop" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasName ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:isGrownBy ;
-      owl:someValuesFrom ghm:Grower ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:isGrownIn ;
-      owl:someValuesFrom ghm:Greenhouse ;
-    ] ;
-.
-ghm:DisinfectionSystem
-  rdf:type owl:Class ;
-  rdfs:label "Disinfection system" ;
-  rdfs:subClassOf ghm:WaterSystem ;
-.
-ghm:Greenhouse
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents greenhouses in which crop is being grown by a grower" ;
-  rdfs:label "Greenhouse" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ghm:Builder ;
-      owl:onProperty ghm:isBuildBy ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ghm:Grower ;
-      owl:onProperty ghm:isOperatedBy ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:contains ;
-      owl:someValuesFrom ghm:Compartment ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:contains ;
-      owl:someValuesFrom ghm:System ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:containsBlocks ;
-      owl:someValuesFrom ghm:Block ;
-    ] ;
-.
-ghm:Grower
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents growers that operate and possibly own a greenhouse to produce one or more crops as efficient and effective as possible" ;
-  rdfs:label "Grower" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:grows ;
-      owl:someValuesFrom ghm:Crop ;
-    ] ;
-.
-ghm:IrrigationValve
-  rdf:type owl:Class ;
-  rdfs:comment "An irrigation valve is a switch that steers the amount of water in a zone" ;
-  rdfs:label "Irrigation valve" ;
-  rdfs:subClassOf ghm:Valve ;
-.
-ghm:IrrigtationSystem
-  rdf:type owl:Class ;
-  rdfs:label "Irrigtation system" ;
-  rdfs:subClassOf ghm:WaterSystem ;
-.
-ghm:LeafJuiceAnalysis
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents analysis on nutritions in a sample of leaf juice of plants in a greenhouse" ;
-  rdfs:label "Leaf juice analysis" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasDate ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasNutritionRecipe ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasSampleName ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasWeekNumber ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:ofCropPart ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ghm:NutritionLevel ;
-      owl:onProperty ghm:hasNutritionLevel ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:ofCrop ;
-      owl:someValuesFrom ghm:Crop ;
-    ] ;
-.
-ghm:NutritionLevel
-  rdf:type owl:Class ;
-  rdfs:comment "This represents the class of nutrition levels in a sample of a fluid, e.g. water or leaf juice" ;
-  rdfs:label "Nutrition level" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasAl_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasB_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasCa_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasCl_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasCu_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasEC ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasFe_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasHCO3_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasK_Ca_ratio ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasK_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasMg_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasMn_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasMo_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasNH4_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasNO3_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasNa_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasP_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasS_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasSi_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasZn_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:haspH ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasN_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasN_total_level ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasSugar_concentration ;
-    ] ;
-.
-ghm:PlantGrowth
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents growth measurements of a single plant" ;
-  rdfs:label "plant growth" ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasLength ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasNumberOfLeavesPerStem ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasPlantNumber ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasStemThickness ;
-    ] ;
-.
-ghm:PlantGrowthMeasurement
-  rdf:type owl:Class ;
-  rdfs:comment "This represents a measurement of the individual growth of a set of plants as well as some general parameters over the entire set, such as average length or color. " ;
-  rdfs:label "Plant growth measurement" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasAverageLength ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasAverageNumberOfLeavesPerStem ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasAverageStemThickness ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasDate ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasLeafColor ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasRootColor ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasRootDevelopment ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasUniformity ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ghm:Block ;
-      owl:onProperty ghm:isMeasuredInBlock ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:hasPlantGrowth ;
-      owl:someValuesFrom ghm:PlantGrowth ;
-    ] ;
-.
-ghm:System
-  rdf:type owl:Class ;
-  rdfs:label "System" ;
-  rdfs:subClassOf owl:Thing ;
-.
-ghm:Trait
-  rdf:type owl:Class ;
-  rdfs:comment "A trait is a characteristic of an individual plant or a group of plants that can be observed and that results from the expression of its genes and their interaction with the environment." ;
-  rdfs:comment "Examples of a trait are: fruit shape, seed color, stem diameter, seed length, ...." ;
-  rdfs:label "Trait" ;
-  rdfs:subClassOf owl:Thing ;
-.
-ghm:Valve
-  rdf:type owl:Class ;
-  rdfs:label "Valve" ;
-  rdfs:subClassOf owl:Thing ;
-.
-ghm:WaterAnalysis
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents analysis on nutritions in a sample of water that is used to irrigate plants in a greenhouse" ;
-  rdfs:label "Water analysis" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasDate ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasNutritionRecipe ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasSampleName ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasWeekDay ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ghm:hasWeekNumber ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ghm:NutritionLevel ;
-      owl:onProperty ghm:hasNutritionLevel ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-.
-ghm:WaterStorageSystem
-  rdf:type owl:Class ;
-  rdfs:label "Water storage system" ;
-  rdfs:subClassOf ghm:WaterSystem ;
-.
-ghm:WaterSystem
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents the systems in the greenhouse that deal with water. This includes the infrastructure of the systems as well as the management functionality." ;
-  rdfs:label "Water system" ;
-  rdfs:subClassOf ghm:System ;
-.
-ghm:Zone
-  rdf:type owl:Class ;
-  rdfs:comment "A zone is an area in which the same irrigation and fertilization strategy is applied" ;
-  rdfs:label "Zone" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ghm:contains ;
-      owl:someValuesFrom ghm:IrrigationValve ;
-    ] ;
-.
-ghm:builds
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Builder ;
-  rdfs:label "builds" ;
-  rdfs:range ghm:Greenhouse ;
-  owl:inverseOf ghm:isBuildBy ;
-.
-ghm:contains
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "contains" ;
-.
-ghm:containsBlocks
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Greenhouse ;
-  rdfs:label "contains blocks" ;
-  rdfs:range ghm:Block ;
-  rdfs:subPropertyOf ghm:contains ;
-.
-ghm:grows
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Grower ;
-  rdfs:label "grows" ;
-  rdfs:range ghm:Crop ;
-  owl:inverseOf ghm:isGrownBy ;
-.
-ghm:hasAl_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of aluminium in a sample of water measured in µmol/l" ;
-  rdfs:label "has al level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasAverageLength
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The average length of all the plants in a measurement in centimeters" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "Average length" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasAverageNumberOfLeavesPerStem
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The average number of leaves per stem of all the plants in a measurement" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has average number of leaves per stem" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasAverageStemThickness
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The average thickness of the stem of all plants in a measurement in centimeters with 2 decimals measured 5 centimeters below the knot of the plant" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has average stem thickness" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasB_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of boron in a sample of water measured in µmol/l" ;
-  rdfs:label "has B level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasBlockIdentifier
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "Each block has a unique identifier in the greenhouse or compartment in the greenhouse" ;
-  rdfs:label "has block identifier" ;
-  rdfs:range xsd:string ;
-.
-ghm:hasCa_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of calcium in a sample of water measured in mmol/l" ;
-  rdfs:label "has ca level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasCl_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of chloride in a sample of water measured in mmol/l" ;
-  rdfs:label "has cl level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasCu_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of copper in a sample of water measured in µmol/l" ;
-  rdfs:label "has cu level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasDate
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The date at which a measurement in the greenhouse has been executed, e.g. on the growth of a plant, the quality of the water etc." ;
-  rdfs:label "has date" ;
-  rdfs:range xsd:date ;
-.
-ghm:hasEC
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the electrical conductivity of a sample of water measured in milliSiemens per centimeter (mS/cm)" ;
-  rdfs:label "has EC" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasFe_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of iron in a sample of water measured in µmol/l" ;
-  rdfs:label "has fe level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasFlowerConstruction
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The preception of the flower construction of a plant as a number between 1 and 10 from bad to good" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has flower construction" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasHCO3_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of bicarbonate in a sample of water measured in mmol/l" ;
-  rdfs:label "has HCO3 level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasK_Ca_ratio
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the ratio between the levels of kalium and calcium in a sample of water" ;
-  rdfs:label "has k Ca ratio" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasK_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of kalium in a sample of water measured in mmol/l" ;
-  rdfs:label "has k level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasLeafColor
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The preception of the greenness of the leafs of a plant as a number between 1 and 10 from yellow to dark green" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has leaf color" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasLength
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The length of a plant in centimeters" ;
-  rdfs:domain ghm:PlantGrowth ;
-  rdfs:label "Length" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasMg_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of magnesium in a sample of water measured in mmol/l" ;
-  rdfs:label "has mg level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasMn_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of manganese in a sample of water measured in µmol/l" ;
-  rdfs:label "has k level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasMo_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of molybdenum in a sample of water measured in µmol/l" ;
-  rdfs:label "has mo level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasNH4_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of ammonium in a sample of water measured in mmol/l" ;
-  rdfs:label "has NH4 level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasNO3_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of nitrate in a sample of water measured in mmol/l" ;
-  rdfs:label "has NO3 level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasN_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of nitrogen as part of nitrate in a sample of a fluid measured in mmol/l" ;
-  rdfs:label "has N level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasN_total_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the total level of nitrogen in a sample of a fluid measured in mmol/l" ;
-  rdfs:label "has N total level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasNa_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of natrium in a sample of water measured in mmol/l" ;
-  rdfs:label "has na level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasName
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the property that assigns a name to a class" ;
-  rdfs:label "has name" ;
-  rdfs:range xsd:integer ;
-  rdfs:range xsd:string ;
-.
-ghm:hasNumberOfLeavesPerStem
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The number of leaves per stem of the plant" ;
-  rdfs:domain ghm:PlantGrowth ;
-  rdfs:label "has number of leaves per stem" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasNutritionLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:WaterAnalysis ;
-  rdfs:label "has nutrition level" ;
-  rdfs:range ghm:NutritionLevel ;
-.
-ghm:hasNutritionRecipe
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the name of the nutrition recipe that is used to irrigate plants in a greenhouse" ;
-  rdfs:label "has nutrition recipe" ;
-  rdfs:range xsd:string ;
-.
-ghm:hasP_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of phosphorus in a sample of water measured in mmol/l" ;
-  rdfs:label "has P level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasPlantGrowth
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has plant growth" ;
-  rdfs:range ghm:PlantGrowth ;
-.
-ghm:hasPlantNumber
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The number of the plant as part of a measurement performed on its growth" ;
-  rdfs:domain ghm:PlantGrowth ;
-  rdfs:label "has plant number" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasRootColor
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The preception of the level of development of the root of a plant as a number between 1 and 10 from bad to good" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has root color" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasRootDevelopment
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The preception of the level of development of the root of a plant as a number between 1 and 10 from bad to good" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has root development" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasS_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of sulfur in a sample of water measured in mmol/l" ;
-  rdfs:label "has S level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasSampleName
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the name of a sample for analysis on nutritions in water that is used to irrigate plants in a greenhouse" ;
-  rdfs:label "has sample name" ;
-  rdfs:range xsd:string ;
-.
-ghm:hasSi_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of silicon in a sample of water measured in mmol/l" ;
-  rdfs:label "has si level" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasStemThickness
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The thickness of the stem in centimeters with 2 decimals measured 5 centimeters below the knot of the plant" ;
-  rdfs:domain ghm:PlantGrowth ;
-  rdfs:label "has stem thickness" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasSugar_concentration
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the concentration of sugar in a sample of a fluid measured in a percentage" ;
-  rdfs:label "has sugar concentration" ;
-  rdfs:range xsd:float ;
-.
-ghm:hasUniformity
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The preception of the uniformity of a plant as a number between 1 and 10 from bad to good" ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "has uniformity" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasWeekDay
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The name of the day in the week in which a measurement in the greenhouse has been executed" ;
-  rdfs:label "has week day" ;
-  rdfs:range xsd:gDay ;
-.
-ghm:hasWeekNumber
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "The calendar number of the week in which a measurement in the greenhouse has been executed" ;
-  rdfs:label "has week number" ;
-  rdfs:range xsd:integer ;
-.
-ghm:hasZn_level
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This is the level of zinc in a sample of water measured in µmol/l" ;
-  rdfs:label "has zn level" ;
-  rdfs:range xsd:float ;
-.
-ghm:haspH
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "hasp HLevel" ;
-  rdfs:range xsd:float ;
-.
-ghm:isBuildBy
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Greenhouse ;
-  rdfs:label "is build by" ;
-  rdfs:range ghm:Builder ;
-  owl:inverseOf ghm:builds ;
-.
-ghm:isGrownBy
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Crop ;
-  rdfs:label "is grown by" ;
-  rdfs:range ghm:Grower ;
-  owl:inverseOf ghm:grows ;
-.
-ghm:isGrownIn
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Crop ;
-  rdfs:label "is grown in" ;
-  rdfs:range ghm:Greenhouse ;
-.
-ghm:isMeasuredInBlock
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:PlantGrowthMeasurement ;
-  rdfs:label "is located in block" ;
-  rdfs:range ghm:Block ;
-.
-ghm:isOperatedBy
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Greenhouse ;
-  rdfs:label "is operated by" ;
-  rdfs:range ghm:Grower ;
-.
-ghm:ofCrop
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "This property represents the relation between an analysis and the crop that is analyzed" ;
-  rdfs:domain ghm:LeafJuiceAnalysis ;
-  rdfs:label "of crop" ;
-  rdfs:range ghm:Crop ;
-.
-ghm:ofCropPart
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This property represents the relation between an analysis and the part of the crop that is analyzed, e.g. young or old" ;
-  rdfs:domain ghm:LeafJuiceAnalysis ;
-  rdfs:label "of crop" ;
-  rdfs:range xsd:string ;
-.
-ghm:operates
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ghm:Grower ;
-  rdfs:label "operates" ;
-  rdfs:range ghm:Greenhouse ;
-  owl:inverseOf ghm:isOperatedBy ;
-.
-ghm:snoeptomaatje
-  rdf:type ghm:Crop ;
-  rdfs:label "snoeptomaatje" ;
-.
+<https://www.tno.nl/agrifood/ontology/greenhouse-model/> rdf:type owl:Ontology ;
+                                                          owl:imports <https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf> ;
+                                                          spin:imports <http://topbraid.org/spin/owlrl-all> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://spinrdf.org/spin#imports
+spin:imports rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#gDay
+xsd:gDay rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/builds
+ghm:builds rdf:type owl:ObjectProperty ;
+           owl:inverseOf ghm:isBuildBy ;
+           rdfs:domain ghm:Builder ;
+           rdfs:range ghm:Greenhouse ;
+           rdfs:label "builds" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/contains
+ghm:contains rdf:type owl:ObjectProperty ;
+             rdfs:label "contains" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/containsBlocks
+ghm:containsBlocks rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf ghm:contains ;
+                   rdfs:domain ghm:Greenhouse ;
+                   rdfs:range ghm:Block ;
+                   rdfs:label "contains blocks" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/grows
+ghm:grows rdf:type owl:ObjectProperty ;
+          owl:inverseOf ghm:isGrownBy ;
+          rdfs:domain ghm:Grower ;
+          rdfs:range ghm:Crop ;
+          rdfs:label "grows" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasNutritionLevel
+ghm:hasNutritionLevel rdf:type owl:ObjectProperty ;
+                      rdfs:domain ghm:WaterAnalysis ;
+                      rdfs:range ghm:NutritionLevel ;
+                      rdfs:label "has nutrition level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasPlantGrowth
+ghm:hasPlantGrowth rdf:type owl:ObjectProperty ;
+                   rdfs:domain ghm:PlantGrowthMeasurement ;
+                   rdfs:range ghm:PlantGrowth ;
+                   rdfs:label "has plant growth" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/isBuildBy
+ghm:isBuildBy rdf:type owl:ObjectProperty ;
+              rdfs:domain ghm:Greenhouse ;
+              rdfs:range ghm:Builder ;
+              rdfs:label "is build by" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/isGrownBy
+ghm:isGrownBy rdf:type owl:ObjectProperty ;
+              rdfs:domain ghm:Crop ;
+              rdfs:range ghm:Grower ;
+              rdfs:label "is grown by" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/isGrownIn
+ghm:isGrownIn rdf:type owl:ObjectProperty ;
+              rdfs:domain ghm:Crop ;
+              rdfs:range ghm:Greenhouse ;
+              rdfs:label "is grown in" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/isMeasuredInBlock
+ghm:isMeasuredInBlock rdf:type owl:ObjectProperty ;
+                      rdfs:domain ghm:PlantGrowthMeasurement ;
+                      rdfs:range ghm:Block ;
+                      rdfs:label "is located in block" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/isOperatedBy
+ghm:isOperatedBy rdf:type owl:ObjectProperty ;
+                 owl:inverseOf ghm:operates ;
+                 rdfs:domain ghm:Greenhouse ;
+                 rdfs:range ghm:Grower ;
+                 rdfs:label "is operated by" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/ofCrop
+ghm:ofCrop rdf:type owl:ObjectProperty ;
+           rdfs:domain ghm:LeafJuiceAnalysis ;
+           rdfs:range ghm:Crop ;
+           rdfs:comment "This property represents the relation between an analysis and the crop that is analyzed" ;
+           rdfs:label "of crop" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/operates
+ghm:operates rdf:type owl:ObjectProperty ;
+             rdfs:domain ghm:Grower ;
+             rdfs:range ghm:Greenhouse ;
+             rdfs:label "operates" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasAl_level
+ghm:hasAl_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of aluminium in a sample of water measured in µmol/l" ;
+                rdfs:label "has al level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasAverageLength
+ghm:hasAverageLength rdf:type owl:DatatypeProperty ;
+                     rdfs:domain ghm:PlantGrowthMeasurement ;
+                     rdfs:range xsd:integer ;
+                     rdfs:comment "The average length of all the plants in a measurement in centimeters" ;
+                     rdfs:label "Average length" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasAverageNumberOfLeavesPerStem
+ghm:hasAverageNumberOfLeavesPerStem rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain ghm:PlantGrowthMeasurement ;
+                                    rdfs:range xsd:integer ;
+                                    rdfs:comment "The average number of leaves per stem of all the plants in a measurement" ;
+                                    rdfs:label "has average number of leaves per stem" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasAverageStemThickness
+ghm:hasAverageStemThickness rdf:type owl:DatatypeProperty ;
+                            rdfs:domain ghm:PlantGrowthMeasurement ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment "The average thickness of the stem of all plants in a measurement in centimeters with 2 decimals measured 5 centimeters below the knot of the plant" ;
+                            rdfs:label "has average stem thickness" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasB_level
+ghm:hasB_level rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:float ;
+               rdfs:comment "This is the level of boron in a sample of water measured in µmol/l" ;
+               rdfs:label "has B level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasBlockIdentifier
+ghm:hasBlockIdentifier rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Each block has a unique identifier in the greenhouse or compartment in the greenhouse" ;
+                       rdfs:label "has block identifier" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasCa_level
+ghm:hasCa_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of calcium in a sample of water measured in mmol/l" ;
+                rdfs:label "has ca level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasCl_level
+ghm:hasCl_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of chloride in a sample of water measured in mmol/l" ;
+                rdfs:label "has cl level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasCu_level
+ghm:hasCu_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of copper in a sample of water measured in µmol/l" ;
+                rdfs:label "has cu level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasDate
+ghm:hasDate rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:date ;
+            rdfs:comment "The date at which a measurement in the greenhouse has been executed, e.g. on the growth of a plant, the quality of the water etc." ;
+            rdfs:label "has date" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasEC
+ghm:hasEC rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:float ;
+          rdfs:comment "This is the electrical conductivity of a sample of water measured in milliSiemens per centimeter (mS/cm)" ;
+          rdfs:label "has EC" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasFe_level
+ghm:hasFe_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of iron in a sample of water measured in µmol/l" ;
+                rdfs:label "has fe level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasFlowerConstruction
+ghm:hasFlowerConstruction rdf:type owl:DatatypeProperty ;
+                          rdfs:domain ghm:PlantGrowthMeasurement ;
+                          rdfs:range xsd:integer ;
+                          rdfs:comment "The preception of the flower construction of a plant as a number between 1 and 10 from bad to good" ;
+                          rdfs:label "has flower construction" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasHCO3_level
+ghm:hasHCO3_level rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:float ;
+                  rdfs:comment "This is the level of bicarbonate in a sample of water measured in mmol/l" ;
+                  rdfs:label "has HCO3 level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasK_Ca_ratio
+ghm:hasK_Ca_ratio rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:float ;
+                  rdfs:comment "This is the ratio between the levels of kalium and calcium in a sample of water" ;
+                  rdfs:label "has k Ca ratio" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasK_level
+ghm:hasK_level rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:float ;
+               rdfs:comment "This is the level of kalium in a sample of water measured in mmol/l" ;
+               rdfs:label "has k level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasLeafColor
+ghm:hasLeafColor rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ghm:PlantGrowthMeasurement ;
+                 rdfs:range xsd:integer ;
+                 rdfs:comment "The preception of the greenness of the leafs of a plant as a number between 1 and 10 from yellow to dark green" ;
+                 rdfs:label "has leaf color" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasLength
+ghm:hasLength rdf:type owl:DatatypeProperty ;
+              rdfs:domain ghm:PlantGrowth ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "The length of a plant in centimeters" ;
+              rdfs:label "Length" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasMg_level
+ghm:hasMg_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of magnesium in a sample of water measured in mmol/l" ;
+                rdfs:label "has mg level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasMn_level
+ghm:hasMn_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of manganese in a sample of water measured in µmol/l" ;
+                rdfs:label "has k level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasMo_level
+ghm:hasMo_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of molybdenum in a sample of water measured in µmol/l" ;
+                rdfs:label "has mo level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasNH4_level
+ghm:hasNH4_level rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "This is the level of ammonium in a sample of water measured in mmol/l" ;
+                 rdfs:label "has NH4 level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasNO3_level
+ghm:hasNO3_level rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "This is the level of nitrate in a sample of water measured in mmol/l" ;
+                 rdfs:label "has NO3 level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasN_level
+ghm:hasN_level rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:float ;
+               rdfs:comment "This is the level of nitrogen as part of nitrate in a sample of a fluid measured in mmol/l" ;
+               rdfs:label "has N level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasN_total_level
+ghm:hasN_total_level rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment "This is the total level of nitrogen in a sample of a fluid measured in mmol/l" ;
+                     rdfs:label "has N total level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasNa_level
+ghm:hasNa_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of natrium in a sample of water measured in mmol/l" ;
+                rdfs:label "has na level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasName
+ghm:hasName rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:integer ,
+                       xsd:string ;
+            rdfs:comment "This is the property that assigns a name to a class" ;
+            rdfs:label "has name" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasNumberOfLeavesPerStem
+ghm:hasNumberOfLeavesPerStem rdf:type owl:DatatypeProperty ;
+                             rdfs:domain ghm:PlantGrowth ;
+                             rdfs:range xsd:integer ;
+                             rdfs:comment "The number of leaves per stem of the plant" ;
+                             rdfs:label "has number of leaves per stem" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasNutritionRecipe
+ghm:hasNutritionRecipe rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "This is the name of the nutrition recipe that is used to irrigate plants in a greenhouse" ;
+                       rdfs:label "has nutrition recipe" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasP_level
+ghm:hasP_level rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:float ;
+               rdfs:comment "This is the level of phosphorus in a sample of water measured in mmol/l" ;
+               rdfs:label "has P level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasPlantNumber
+ghm:hasPlantNumber rdf:type owl:DatatypeProperty ;
+                   rdfs:domain ghm:PlantGrowth ;
+                   rdfs:range xsd:integer ;
+                   rdfs:comment "The number of the plant as part of a measurement performed on its growth" ;
+                   rdfs:label "has plant number" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasRootColor
+ghm:hasRootColor rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ghm:PlantGrowthMeasurement ;
+                 rdfs:range xsd:integer ;
+                 rdfs:comment "The preception of the level of development of the root of a plant as a number between 1 and 10 from bad to good" ;
+                 rdfs:label "has root color" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasRootDevelopment
+ghm:hasRootDevelopment rdf:type owl:DatatypeProperty ;
+                       rdfs:domain ghm:PlantGrowthMeasurement ;
+                       rdfs:range xsd:integer ;
+                       rdfs:comment "The preception of the level of development of the root of a plant as a number between 1 and 10 from bad to good" ;
+                       rdfs:label "has root development" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasS_level
+ghm:hasS_level rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:float ;
+               rdfs:comment "This is the level of sulfur in a sample of water measured in mmol/l" ;
+               rdfs:label "has S level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasSampleName
+ghm:hasSampleName rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "This is the name of a sample for analysis on nutritions in water that is used to irrigate plants in a greenhouse" ;
+                  rdfs:label "has sample name" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasSi_level
+ghm:hasSi_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of silicon in a sample of water measured in mmol/l" ;
+                rdfs:label "has si level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasStemThickness
+ghm:hasStemThickness rdf:type owl:DatatypeProperty ;
+                     rdfs:domain ghm:PlantGrowth ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment "The thickness of the stem in centimeters with 2 decimals measured 5 centimeters below the knot of the plant" ;
+                     rdfs:label "has stem thickness" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasSugar_concentration
+ghm:hasSugar_concentration rdf:type owl:DatatypeProperty ;
+                           rdfs:range xsd:float ;
+                           rdfs:comment "This is the concentration of sugar in a sample of a fluid measured in a percentage" ;
+                           rdfs:label "has sugar concentration" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasUniformity
+ghm:hasUniformity rdf:type owl:DatatypeProperty ;
+                  rdfs:domain ghm:PlantGrowthMeasurement ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "The preception of the uniformity of a plant as a number between 1 and 10 from bad to good" ;
+                  rdfs:label "has uniformity" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasWeekDay
+ghm:hasWeekDay rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:gDay ;
+               rdfs:comment "The name of the day in the week in which a measurement in the greenhouse has been executed" ;
+               rdfs:label "has week day" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasWeekNumber
+ghm:hasWeekNumber rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:integer ;
+                  rdfs:comment "The calendar number of the week in which a measurement in the greenhouse has been executed" ;
+                  rdfs:label "has week number" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/hasZn_level
+ghm:hasZn_level rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:float ;
+                rdfs:comment "This is the level of zinc in a sample of water measured in µmol/l" ;
+                rdfs:label "has zn level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/haspH
+ghm:haspH rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:float ;
+          rdfs:label "hasp HLevel" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/ofCropPart
+ghm:ofCropPart rdf:type owl:DatatypeProperty ;
+               rdfs:domain ghm:LeafJuiceAnalysis ;
+               rdfs:range xsd:string ;
+               rdfs:comment "This property represents the relation between an analysis and the part of the crop that is analyzed, e.g. young or old" ;
+               rdfs:label "of crop" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdf:type owl:Class .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Block
+ghm:Block rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty ghm:contains ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass ghm:Crop
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty ghm:hasBlockIdentifier ;
+                            owl:cardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
+          rdfs:comment "A block contains only a single crop (this is a requirement)" ,
+                       "A block is part of a compartment in the greenhouse in which the plants are treated equally wrt nutrition, climate etc." ,
+                       "Each block has a unique identifier in the greenhouse or compartment in the greenhouse" ,
+                       "This class represents blocks that are part of a greenhouse and contain a set of plants" ;
+          rdfs:label "Block" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Builder
+ghm:Builder rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing ;
+            rdfs:comment "This class represents builders that build greenhouses and possibly support growers in their crop management activities" ;
+            rdfs:label "Builder" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Compartment
+ghm:Compartment rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty ghm:contains ;
+                                  owl:someValuesFrom ghm:Block
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty ghm:contains ;
+                                  owl:someValuesFrom ghm:Zone
+                                ] ;
+                rdfs:comment "A compartment is a part of the greenhouse" ,
+                             "Each compartment has a unique identifier in the greenhouse" ,
+                             "This class represents compartments that are part of a greenhouse and contain a set of plants" ;
+                rdfs:label "Block" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Crop
+ghm:Crop rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty ghm:isGrownBy ;
+                           owl:someValuesFrom ghm:Grower
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty ghm:isGrownIn ;
+                           owl:someValuesFrom ghm:Greenhouse
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty ghm:hasName ;
+                           owl:cardinality "1"^^xsd:nonNegativeInteger
+                         ] ;
+         rdfs:comment "More characteristics of a crop can be defined using the guideline for creating a crop ontology published here: http://www.cropontology.org" ,
+                      "This class represents crops that are produced in a greenhouse operated by a grower" ;
+         rdfs:label "Crop" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/DisinfectionSystem
+ghm:DisinfectionSystem rdf:type owl:Class ;
+                       rdfs:subClassOf ghm:WaterSystem ;
+                       rdfs:label "Disinfection system" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Greenhouse
+ghm:Greenhouse rdf:type owl:Class ;
+               rdfs:subClassOf owl:Thing ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ghm:contains ;
+                                 owl:someValuesFrom ghm:Compartment
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ghm:contains ;
+                                 owl:someValuesFrom ghm:System
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ghm:containsBlocks ;
+                                 owl:someValuesFrom ghm:Block
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ghm:isBuildBy ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass ghm:Builder
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ghm:isOperatedBy ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass ghm:Grower
+                               ] ;
+               rdfs:comment "This class represents greenhouses in which crop is being grown by a grower" ;
+               rdfs:label "Greenhouse" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Grower
+ghm:Grower rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ghm:grows ;
+                             owl:someValuesFrom ghm:Crop
+                           ] ;
+           rdfs:comment "This class represents growers that operate and possibly own a greenhouse to produce one or more crops as efficient and effective as possible" ;
+           rdfs:label "Grower" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/IrrigationValve
+ghm:IrrigationValve rdf:type owl:Class ;
+                    rdfs:subClassOf ghm:Valve ;
+                    rdfs:comment "An irrigation valve is a switch that steers the amount of water in a zone" ;
+                    rdfs:label "Irrigation valve" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/IrrigtationSystem
+ghm:IrrigtationSystem rdf:type owl:Class ;
+                      rdfs:subClassOf ghm:WaterSystem ;
+                      rdfs:label "Irrigtation system" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/LeafJuiceAnalysis
+ghm:LeafJuiceAnalysis rdf:type owl:Class ;
+                      rdfs:subClassOf owl:Thing ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:ofCrop ;
+                                        owl:someValuesFrom ghm:Crop
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:hasNutritionLevel ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass ghm:NutritionLevel
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:hasDate ;
+                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:hasNutritionRecipe ;
+                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:hasSampleName ;
+                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:hasWeekNumber ;
+                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ghm:ofCropPart ;
+                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                      ] ;
+                      rdfs:comment "This class represents analysis on nutritions in a sample of leaf juice of plants in a greenhouse" ;
+                      rdfs:label "Leaf juice analysis" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/NutritionLevel
+ghm:NutritionLevel rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasAl_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasB_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasCa_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasCl_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasCu_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasEC ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasFe_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasHCO3_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasK_Ca_ratio ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasK_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasMg_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasMn_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasMo_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasNH4_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasNO3_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasNa_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasP_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasS_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasSi_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasZn_level ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:haspH ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasN_level ;
+                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasN_total_level ;
+                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ghm:hasSugar_concentration ;
+                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ;
+                   rdfs:comment "This represents the class of nutrition levels in a sample of a fluid, e.g. water or leaf juice" ;
+                   rdfs:label "Nutrition level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/PlantGrowth
+ghm:PlantGrowth rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty ghm:hasLength ;
+                                  owl:cardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty ghm:hasNumberOfLeavesPerStem ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty ghm:hasPlantNumber ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty ghm:hasStemThickness ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ;
+                rdfs:comment "This class represents growth measurements of a single plant" ;
+                rdfs:label "plant growth" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/PlantGrowthMeasurement
+ghm:PlantGrowthMeasurement rdf:type owl:Class ;
+                           rdfs:subClassOf owl:Thing ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasPlantGrowth ;
+                                             owl:someValuesFrom ghm:PlantGrowth
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:isMeasuredInBlock ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass ghm:Block
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasAverageLength ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasAverageNumberOfLeavesPerStem ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasAverageStemThickness ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasDate ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasLeafColor ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasRootColor ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasRootDevelopment ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ghm:hasUniformity ;
+                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                           ] ;
+                           rdfs:comment "This represents a measurement of the individual growth of a set of plants as well as some general parameters over the entire set, such as average length or color. " ;
+                           rdfs:label "Plant growth measurement" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/System
+ghm:System rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing ;
+           rdfs:label "System" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Trait
+ghm:Trait rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ;
+          rdfs:comment "A trait is a characteristic of an individual plant or a group of plants that can be observed and that results from the expression of its genes and their interaction with the environment." ,
+                       "Examples of a trait are: fruit shape, seed color, stem diameter, seed length, ...." ;
+          rdfs:label "Trait" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Valve
+ghm:Valve rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ;
+          rdfs:label "Valve" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/WaterAnalysis
+ghm:WaterAnalysis rdf:type owl:Class ;
+                  rdfs:subClassOf owl:Thing ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ghm:hasNutritionLevel ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass ghm:NutritionLevel
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ghm:hasDate ;
+                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ghm:hasNutritionRecipe ;
+                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ghm:hasSampleName ;
+                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ghm:hasWeekDay ;
+                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ghm:hasWeekNumber ;
+                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                  ] ;
+                  rdfs:comment "This class represents analysis on nutritions in a sample of water that is used to irrigate plants in a greenhouse" ;
+                  rdfs:label "Water analysis" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/WaterStorageSystem
+ghm:WaterStorageSystem rdf:type owl:Class ;
+                       rdfs:subClassOf ghm:WaterSystem ;
+                       rdfs:label "Water storage system" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/WaterSystem
+ghm:WaterSystem rdf:type owl:Class ;
+                rdfs:subClassOf ghm:System ;
+                rdfs:comment "This class represents the systems in the greenhouse that deal with water. This includes the infrastructure of the systems as well as the management functionality." ;
+                rdfs:label "Water system" .
+
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/Zone
+ghm:Zone rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty ghm:contains ;
+                           owl:someValuesFrom ghm:IrrigationValve
+                         ] ;
+         rdfs:comment "A zone is an area in which the same irrigation and fertilization strategy is applied" ;
+         rdfs:label "Zone" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://www.tno.nl/agrifood/ontology/greenhouse-model/snoeptomaatje
+ghm:snoeptomaatje rdf:type owl:NamedIndividual ,
+                           ghm:Crop ;
+                  rdfs:label "snoeptomaatje" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
