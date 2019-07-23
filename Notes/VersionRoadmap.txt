@@ -13,7 +13,7 @@ DEADLINE: end of July
 Version 0.2:
 
 - Work out more systems:
-    - CoolingsystemParts LoD: 90 - 100%
+    - CoolingSystemParts LoD: 90 - 100%
     - FertilizationSystemParts LoD: 10%
     - IrrigationSystemParts LoD: 10%
 - Crop LoD: 20%

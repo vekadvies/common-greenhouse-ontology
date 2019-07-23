@@ -173,6 +173,17 @@ Think about:
 
 Put everything from excel in comments
 
+23-07-2019
+
+Added:
+    - Plant, Plant Part without having the class Plant wouldn't be possible since the Plant Part then can't have a part of relation.
+    - Root Development Level (Jack)
+    - Uniformity Level (Jack)
+    - Root
+
+In Progress:
+    - Identifier, where to put it? block identifier, zone identifier, etc.
+
 
 
 

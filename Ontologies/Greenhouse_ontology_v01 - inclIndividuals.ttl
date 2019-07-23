@@ -239,7 +239,9 @@ cgo:BufferWaterTemperatureSensor rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Builder
 cgo:Builder rdf:type owl:Class ;
-            rdfs:subClassOf cgo:Person .
+            rdfs:subClassOf cgo:Person ;
+            rdfs:comment "This class represents builders that build greenhuses and possibly support growers in their crop management activities" ;
+            rdfs:label "Builder" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Burner
@@ -291,7 +293,14 @@ cgo:Compartment rdf:type owl:Class ;
                 rdfs:subClassOf cgo:GreenhousePart ;
                 rdfs:comment "A compartment is a part of the greenhouse" ,
                              "Each compartment has a unique identifier in the greenhouse" ,
-                             "This class represents compartments that are part of a greenhouse and contain a set of plants" .
+                             "This class represents compartments that is an area that is controlled in the same way regarding the climate. A compartment can be separated with walls or screens but not neccessarily." ;
+                rdfs:label "Compartment" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CompartmentPart
+cgo:CompartmentPart rdf:type owl:Class ;
+                    rdfs:subClassOf cgo:GreenhousePart ;
+                    rdfs:label "Compartment Part" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ConstructionPart
@@ -336,7 +345,8 @@ cgo:Cover rdf:type owl:Class ;
 cgo:Crop rdf:type owl:Class ;
          rdfs:comment "Een individual van gewas is een plantensoort. Gewas is een metaklasse die enkel klasses bevat, deze klasses kunnen wel individuals bevatten. Zoals we hier crop gebruiken is dus niet helemaal accuraat maar hebben we omwille van begrijpelijkheid zo gehouden." ,
                       "More characteristics of a crop can be defined using the guideline for creating a crop ontology published here: http://www.cropontology.org" ,
-                      "This class represents crops that are produced in a greenhouse operated by a grower" .
+                      "This class represents crops that are produced in a greenhouse operated by a grower" ;
+         rdfs:label "Crop" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CultivationSystem
@@ -576,7 +586,8 @@ cgo:Gas rdf:type owl:Class ;
 cgo:Greenhouse rdf:type owl:Class ;
                rdfs:subClassOf owl:Thing ,
                                cgo:Part ;
-               rdfs:comment "This class represents greenhouses in which crop is being grown by a grower" .
+               rdfs:comment "This class represents greenhouses in which crop is being grown by a grower" ;
+               rdfs:label "Greenhouse" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GreenhouseAir
@@ -617,7 +628,9 @@ cgo:GroundCoverNet rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Grower
 cgo:Grower rdf:type owl:Class ;
-           rdfs:subClassOf cgo:Person .
+           rdfs:subClassOf cgo:Person ;
+           rdfs:comment "This class represents growers that operate and possibly own a greenhouse to produce one or more crops as efficient and effective as possible" ;
+           rdfs:label "Grower" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GrowingMedia
@@ -908,7 +921,8 @@ cgo:NitrogenTotalLevel rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#NumberOfLeaves
 cgo:NumberOfLeaves rdf:type owl:Class ;
-                   rdfs:subClassOf sosa:ObservableProperty .
+                   rdfs:subClassOf sosa:ObservableProperty ;
+                   rdfs:label "Number of Leaves" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Nutrition
@@ -1006,9 +1020,21 @@ cgo:Pistil rdf:type owl:Class ;
            rdfs:comment "This class represents the pistil of a flower" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Plant
+cgo:Plant rdf:type owl:Class ;
+          rdfs:comment "A plant, multiple plants, or plant parts can be crops." ,
+                       "Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae. Historically, plants were treated as one of two kingdoms including all living things that were not animals, and all algae and fungi were treated as plants. However, all current definitions of Plantae exclude the fungi and some algae, as well as the prokaryotes (the archaea and bacteria). By one definition, plants form the clade Viridiplantae (Latin name for \"green plants\"), a group that includes the flowering plants, conifers and other gymnosperms, ferns and their allies, hornworts, liverworts, mosses and the green algae, but excludes the red and brown algae." ;
+          rdfs:label "Plant" ;
+          rdfs:seeAlso "https://en.wikipedia.org/wiki/Plant" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PlantPart
 cgo:PlantPart rdf:type owl:Class ;
-              rdfs:subClassOf cgo:Part ;
+              rdfs:subClassOf cgo:Part ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty cgo:partOf ;
+                                owl:someValuesFrom cgo:Plant
+                              ] ;
               rdfs:comment "Model-technical term" ,
                            "This class represents the different parts of a plant" ;
               rdfs:label "Plant Part" .
@@ -1029,6 +1055,19 @@ cgo:ReturnManifold rdf:type owl:Class ;
                    rdfs:subClassOf cgo:HeatingSystemPart ;
                    rdfs:comment "component that measures the overall temperature of the water coming back from the greenhouse" ;
                    rdfs:label "Return Manifold" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Root
+cgo:Root rdf:type owl:Class ;
+         rdfs:subClassOf cgo:PlantPart ;
+         rdfs:label "Root" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#RootDevelopmentLevel
+cgo:RootDevelopmentLevel rdf:type owl:Class ;
+                         rdfs:subClassOf sosa:ObservableProperty ;
+                         rdfs:comment "The preception of the level of development of the root of a plant as a number between 1 and 10 from bad to good" ;
+                         rdfs:label "Root Development Level" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Screen
@@ -1162,6 +1201,13 @@ cgo:Tomatoplant rdf:type owl:Class ;
                 rdfs:subClassOf cgo:Crop .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#UniformityLevel
+cgo:UniformityLevel rdf:type owl:Class ;
+                    rdfs:subClassOf sosa:ObservableProperty ;
+                    rdfs:comment "The preception of the uniformity of a plant as a number between 1 and 10 from bad to good" ;
+                    rdfs:label "Uniformity Level" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Valve
 cgo:Valve rdf:type owl:Class ;
           rdfs:subClassOf cgo:ConstructionPart ;
@@ -1246,8 +1292,10 @@ cgo:ZincLevel rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Zone
 cgo:Zone rdf:type owl:Class ;
-         rdfs:subClassOf cgo:GreenhousePart ;
-         rdfs:comment "A zone is an area in which the same irrigation and fertilization strategy is applied" .
+         rdfs:subClassOf cgo:CompartmentPart ;
+         rdfs:comment "A zone is an area in which the same irrigation and fertilization strategy is applied" ,
+                      "A zone is located inside a compartment. Therefore the climate is controlled in the same way. Inside a zone, the irrigation and fertilization is also controlled in the same way." ;
+         rdfs:label "Zone" .
 
 
 #################################################################
