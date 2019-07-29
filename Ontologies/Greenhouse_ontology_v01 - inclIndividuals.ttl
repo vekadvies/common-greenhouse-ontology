@@ -198,19 +198,25 @@ cgo:Boiler rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerCapacity
 cgo:BoilerCapacity rdf:type owl:Class ;
-                   rdfs:subClassOf cgo:Boiler .
+                   rdfs:subClassOf cgo:BoilerPart .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerPart
+cgo:BoilerPart rdf:type owl:Class ;
+               rdfs:subClassOf cgo:HeatingSystemPart ;
+               rdfs:label "Boiler Part" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerSupplySensor
 cgo:BoilerSupplySensor rdf:type owl:Class ;
-                       rdfs:subClassOf cgo:Boiler ,
+                       rdfs:subClassOf cgo:BoilerPart ,
                                        cgo:TemperatureSensor ;
                        rdfs:label "Boiler Supply Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerWaterTemperatureSensor
 cgo:BoilerWaterTemperatureSensor rdf:type owl:Class ;
-                                 rdfs:subClassOf cgo:Boiler ,
+                                 rdfs:subClassOf cgo:BoilerPart ,
                                                  cgo:TemperatureSensor ;
                                  rdfs:label "Boiler water temperature sensor" .
 
@@ -246,7 +252,7 @@ cgo:Builder rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Burner
 cgo:Burner rdf:type owl:Class ;
-           rdfs:subClassOf cgo:Boiler .
+           rdfs:subClassOf cgo:BoilerPart .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CHPSystemPart
@@ -263,6 +269,11 @@ cgo:CalciumLevel rdf:type owl:Class ;
                  rdfs:comment "This is the level of calcium in a sample of water measured in µmol/l" ;
                  rdfs:label "Ca Level" ,
                             "Calcium Level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Capacity
+cgo:Capacity rdf:type owl:Class ;
+             rdfs:subClassOf sosa:ObservableProperty .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CentralHeatingSystem
@@ -309,6 +320,14 @@ cgo:ConstructionPart rdf:type owl:Class ;
                      rdfs:comment "Model-technical term" ,
                                   "This class represents the different parts of a construction of a building" ;
                      rdfs:label "Construction Part" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ControlSystem
+cgo:ControlSystem rdf:type owl:Class ;
+                  rdfs:subClassOf ssn:System ;
+                  rdfs:comment "The control system controls different functions and processes inside the greenhouse. In Dutch it is usually known as the climate computer, in English it is called control system." ;
+                  rdfs:label "Climate Computer" ,
+                             "Control System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CoolingSystem
@@ -407,6 +426,14 @@ cgo:DistributorSupply rdf:type owl:Class ;
                       rdfs:label "Distributor Supply" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DoubleScreeningSystem
+cgo:DoubleScreeningSystem rdf:type owl:Class ;
+                          rdfs:subClassOf cgo:ScreeningSystem ;
+                          rdfs:comment "The improved characteristics of the screens make for an accurate climate regulation. A double screening system has become more and more applied, as it has proven to provide growers with the flexibility they need.  Double screens are installed above each other and are always fitted with different type of climate screens. The layers can be opened and closed to complement the functionality of both." ;
+                          rdfs:label "Double Screening System" ;
+                          rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DrainCollectionTray
 cgo:DrainCollectionTray rdf:type owl:Class ;
                         rdfs:subClassOf cgo:DisinfectionSystemPart ;
@@ -440,11 +467,24 @@ cgo:ECMixingValveSensor rdf:type owl:Class ;
                                         ] .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Efficiency
+cgo:Efficiency rdf:type owl:Class ;
+               rdfs:subClassOf sosa:ObservableProperty .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ElectricalConductivity
 cgo:ElectricalConductivity rdf:type owl:Class ;
                            rdfs:subClassOf cgo:NutritionProperty ;
                            rdfs:comment "This is the electrical conductivity of a sample of water measured in milliSiemens per centimeter (mS/cm)" ;
                            rdfs:label "Electrical Conductivity" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#EmbeddedHeatingPipe
+cgo:EmbeddedHeatingPipe rdf:type owl:Class ;
+                        rdfs:subClassOf cgo:HeatingPipe ;
+                        rdfs:comment "The floor heating pipe is a heating pipe that is embedded in the floor of the greenhouse such that we warm up the floor. Usually this floor is made of concrete. The temperature of this pipe isaround 30 degrees to not burn the roots of the plants" ;
+                        rdfs:label "Embedded Heating Pipe" ,
+                                   "Floor Heating Pipe" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#EnergyScreen
@@ -574,12 +614,19 @@ cgo:Frame rdf:type owl:Class ;
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Fuel
-cgo:Fuel rdf:type owl:Class .
+cgo:Fuel rdf:type owl:Class ;
+         rdfs:subClassOf cgo:PowerSource .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Gas
 cgo:Gas rdf:type owl:Class ;
         rdfs:subClassOf cgo:Fuel .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GeothermalEnergy
+cgo:GeothermalEnergy rdf:type owl:Class ;
+                     rdfs:subClassOf cgo:PowerSource ;
+                     rdfs:label "Geothermal Energy" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Greenhouse
@@ -633,6 +680,13 @@ cgo:Grower rdf:type owl:Class ;
            rdfs:label "Grower" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GrowingHeatingPipe
+cgo:GrowingHeatingPipe rdf:type owl:Class ;
+                       rdfs:subClassOf cgo:HeatingPipe ;
+                       rdfs:comment "The growing heating pipe is the heating pipe which has a diameter less than the primary heating pipe, and is installed in the middle of the canopy and operates with relatively lower water temperatures around 40 degrees" ;
+                       rdfs:label "Growing Heating Pipe" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GrowingMedia
 cgo:GrowingMedia rdf:type owl:Class ;
                  rdfs:subClassOf cgo:GrowingSystem .
@@ -661,6 +715,13 @@ cgo:HeatExchanger rdf:type owl:Class ;
                   rdfs:label "Heat Exchanger" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatPump
+cgo:HeatPump rdf:type owl:Class ;
+             rdfs:subClassOf cgo:HybridSystem ;
+             rdfs:comment "Hybrid system that can be used for both cooling and heating, and uses multiple sources (e.g. ground warmth + fuel)." ;
+             rdfs:label "Heat Pump" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatPumpSystem
 cgo:HeatPumpSystem rdf:type owl:Class ;
                    rdfs:subClassOf ssn:System ;
@@ -669,12 +730,12 @@ cgo:HeatPumpSystem rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatWaterMixingValve
 cgo:HeatWaterMixingValve rdf:type owl:Class ;
-                         rdfs:subClassOf cgo:Boiler .
+                         rdfs:subClassOf cgo:BoilerPart .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatWaterTransportPump
 cgo:HeatWaterTransportPump rdf:type owl:Class ;
-                           rdfs:subClassOf cgo:Boiler .
+                           rdfs:subClassOf cgo:BoilerPart .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatingPipe
@@ -709,6 +770,14 @@ cgo:HighPressureFogging rdf:type owl:Class ;
                         rdfs:comment "\"Similar to the Pad and Fan system, High Pressure Fogging works on the principal of evaporative cooling. Under a high pressure, water is introduced to a nozzle with a miniscule opening. In essence, water is divided into tiny particles, creating fog. When the temperature and humidity-levels in the greenhouse allow it, these water particles are absorbed into the surrounding air before they hit the leave of the crop. Just like Pad & Fan, the humidity is increased and the greenhouse air is chilled.\"" ;
                         rdfs:label "High Pressure Fogging" ;
                         rdfs:seeAlso "https://dutchgreenhouses.com/technology/cooling" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HybridSystem
+cgo:HybridSystem rdf:type owl:Class ;
+                 rdfs:subClassOf cgo:CoolingSystem ,
+                                 cgo:HeatingSystem ;
+                 rdfs:comment "Combines different energy sources for heat. For example: Geothermal energy and fuel." ;
+                 rdfs:label "Hybrid System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#InnerFoundation
@@ -972,6 +1041,13 @@ cgo:Part rdf:type owl:Class ;
                       "This class represents parts of wholes" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PassiveSystem
+cgo:PassiveSystem rdf:type owl:Class ;
+                  rdfs:subClassOf ssn:System ;
+                  rdfs:comment "system where you store energy without any device. An example is a thick wall to store warmth" ;
+                  rdfs:label "Passive System" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PerimeterFoundation
 cgo:PerimeterFoundation rdf:type owl:Class ;
                         rdfs:subClassOf cgo:Foundation ;
@@ -1050,6 +1126,35 @@ cgo:PlantSet rdf:type owl:Class ;
              rdfs:label "Plant Set" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PowerSource
+cgo:PowerSource rdf:type owl:Class ;
+                rdfs:label "Power Source" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PrimaryHeatingPipe
+cgo:PrimaryHeatingPipe rdf:type owl:Class ;
+                       rdfs:subClassOf cgo:HeatingPipe ;
+                       rdfs:comment "The Primary Heating Pipe is used inside the greenhouse compartment to distribute the heated water. This pipe is around 60 degrees," ;
+                       rdfs:label "Primary Heating Pipe" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PullWireSystem
+cgo:PullWireSystem rdf:type owl:Class ;
+                   rdfs:subClassOf cgo:ScreeningSystem ;
+                   rdfs:comment "has minimal light interception and requires minimal maintenance during the years of operation. The screening system is partially integrated into the greenhouse steel frame. Proper fixation points are provided in the greenhouse design to ensure trouble free installation." ;
+                   rdfs:label "Pull Wire System" ;
+                   rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PushPullMechanism
+cgo:PushPullMechanism rdf:type owl:Class ;
+                      rdfs:subClassOf cgo:VentilationSystem ;
+                      rdfs:comment "When it comes to Venlo greenhouses, the push-pull mechanism is the mechanism of choice. The push-pull-tube slides above the upperside of the tellis. The push-pull-tube is connected to the lower aluminium profile of the ventilation-window section by means of push-rods. The amount of push-rods that are required is dependent of the ventilation window size and the windspeeds that are taken into account. Drive motors allow the push-pull-tube to move back and forward and with that, regulating the opening of the vents." ;
+                      rdfs:label "Push-Pull Mechanism" ,
+                                 "Push-Pull System" ;
+                      rdfs:seeAlso "https://dutchgreenhouses.com/technology/ventilation" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ReturnManifold
 cgo:ReturnManifold rdf:type owl:Class ;
                    rdfs:subClassOf cgo:HeatingSystemPart ;
@@ -1074,6 +1179,16 @@ cgo:RootDevelopmentLevel rdf:type owl:Class ;
 cgo:Screen rdf:type owl:Class ;
            rdfs:subClassOf cgo:ConstructionPart ;
            rdfs:comment "This class represents different kind of screens that are used in greenhouses" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ScreeningSystem
+cgo:ScreeningSystem rdf:type owl:Class ;
+                    rdfs:subClassOf ssn:System ;
+                    rdfs:comment "Energy is one of the largest operational expenditures for all greenhouse operations. To improve the energy efficiency of a greenhouse, horizontal screens have been installed in greenhouses for decades now. The horizontal screening system forms an insulating layer suspended over the crop. Depending on the type of screening fabric installed, the screening system can have energy saving-, diffusing-, shading- and also black-out properties. Due to the impact on the climate the screens have, they are also referred to as climate screens." ;
+                    rdfs:label "Climate Screens" ,
+                               "Horizontal Screening System" ,
+                               "Screening System" ;
+                    rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Semi-ClosedGreenhouse
@@ -1108,6 +1223,12 @@ cgo:SiliconLevel rdf:type owl:Class ;
                  rdfs:comment "This is the level of silicon in a sample of water measured in µmol/l" ;
                  rdfs:label "Si Level" ,
                             "Silicon Level" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SolarPower
+cgo:SolarPower rdf:type owl:Class ;
+               rdfs:subClassOf cgo:PowerSource ;
+               rdfs:label "Solar Power" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SolutionSensor
@@ -1201,6 +1322,13 @@ cgo:Tomatoplant rdf:type owl:Class ;
                 rdfs:subClassOf cgo:Crop .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#TransportHeatingPipe
+cgo:TransportHeatingPipe rdf:type owl:Class ;
+                         rdfs:subClassOf cgo:HeatingPipe ;
+                         rdfs:comment "Heating pipe that transports the heated water from the main heating system to the greenhouse compartment" ;
+                         rdfs:label "Transport Heating Pipe" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#UniformityLevel
 cgo:UniformityLevel rdf:type owl:Class ;
                     rdfs:subClassOf sosa:ObservableProperty ;
@@ -1212,6 +1340,16 @@ cgo:UniformityLevel rdf:type owl:Class ;
 cgo:Valve rdf:type owl:Class ;
           rdfs:subClassOf cgo:ConstructionPart ;
           rdfs:comment "This class represents different kind of valves of greenhouses" .
+
+
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#VentilationSystem
+cgo:VentilationSystem rdf:type owl:Class ;
+                      rdfs:subClassOf ssn:System ;
+                      rdfs:comment """Ventilation is a crucial tool for growers to create a good growing climate in their greenhouses. Opening from the ridge, the ventilation vents are positioned at the highest place of the Dutch Venlo greenhouse, making it the best position to discharge hot air from the greenhouse.
+There are several options regarding the ventilation capacity of a Venlo greenhouse, choices can be made between 1 pane-, 2 pane, 3 pane- and 4 pane-ventialtion. The depth of the windows also largely influence the ventilation capacity of the greenhouse.""" ;
+                      rdfs:label "Ventilation Mechanism" ,
+                                 "Ventilation System" ;
+                      rdfs:seeAlso "https://dutchgreenhouses.com/technology/ventilation" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#VentilationVents
@@ -1282,6 +1420,12 @@ cgo:WaterTemperatureSupplyManifoldSensor rdf:type owl:Class ;
                                          rdfs:label "Water Temperature Supply Manifold Sensor" .
 
 
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WindEnergy
+cgo:WindEnergy rdf:type owl:Class ;
+               rdfs:subClassOf cgo:PowerSource ;
+               rdfs:label "Wind Energy" .
+
+
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ZincLevel
 cgo:ZincLevel rdf:type owl:Class ;
               rdfs:subClassOf cgo:NutritionProperty ;
@@ -1295,7 +1439,9 @@ cgo:Zone rdf:type owl:Class ;
          rdfs:subClassOf cgo:CompartmentPart ;
          rdfs:comment "A zone is an area in which the same irrigation and fertilization strategy is applied" ,
                       "A zone is located inside a compartment. Therefore the climate is controlled in the same way. Inside a zone, the irrigation and fertilization is also controlled in the same way." ;
-         rdfs:label "Zone" .
+         rdfs:label "Greenhouse Zone" ,
+                    "Irrigation Zone" ,
+                    "Zone" .
 
 
 #################################################################

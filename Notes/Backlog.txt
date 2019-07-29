@@ -184,6 +184,34 @@ Added:
 In Progress:
     - Identifier, where to put it? block identifier, zone identifier, etc.
 
+29-07-2019
+
+Added:
+    - Screening System
+    - Horizontal screening system
+    - Ventilation System
+    - Push-Pull mechanism
+    - Pull wire system
+    - climate computer/ control system
+    - floor heating pipe
+    - growing heating pipe
+    - primary heating pipe
+    - transport heating pipe
+    - Boiler Part (model technical term)
+    - Efficiency (Property (of boiler))
+    - Capacity (Property (of boiler))
+    - Hybrid System
+    - Heat Pump
+    - Power Source
+    - Solar Power
+    - Geothermal Energy
+    - Wind Energy
+    - Passive System
+
+Replaced:
+
+    - Fuel under Power source
+
 
 
 
