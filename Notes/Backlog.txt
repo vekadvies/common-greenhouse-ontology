@@ -212,6 +212,14 @@ Replaced:
 
     - Fuel under Power source
 
+Todo:
+
+    - Clean up the part whole relation, that is, make sure everything is in the correct place
+    - Look into all the axioms of a part whole relation, that is, meronomy
+        - Transitive (if A is part of B and B is part of C, then A is part of C.)
+        - Reflexive (A is part of A.)
+        - Antisymmetric (if A is part of B and A ≠ B then B is not part of A.)
+    - See also http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/
 
 
 
