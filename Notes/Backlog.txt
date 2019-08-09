@@ -222,6 +222,27 @@ Todo:
     - See also http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/
 
 
+Done:
+    - Give every class labels
+    - Make sure there are no -'s in the ontology
+
+
+09-09-2019
+
+Added:
+    - Labels for everything unlabelled
+    - Boiler Part
+    - part of relations for sensors
+
+Deleted:
+    - WaterHeatTemperature something, to non descriptive. Supply manifold and return manifold are better.
+
+Todo:
+
+    - The properties of the import classes are not in the ttl file, is this important?
+
+
+
 
 
 

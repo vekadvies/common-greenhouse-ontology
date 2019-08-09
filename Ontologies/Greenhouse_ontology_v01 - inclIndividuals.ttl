@@ -78,12 +78,14 @@ cgo:prevents rdf:type owl:ObjectProperty .
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity
 <http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity> rdf:type owl:Class ;
-                                                                     rdfs:subClassOf ssn:Property .
+                                                                     rdfs:subClassOf ssn:Property ;
+                                                                     rdfs:label "Quantity" .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Thickness
 <http://www.ontology-of-units-of-measure.org/resource/om-2/Thickness> rdf:type owl:Class ;
-                                                                      rdfs:subClassOf sosa:ObservableProperty .
+                                                                      rdfs:subClassOf sosa:ObservableProperty ;
+                                                                      rdfs:label "Thickness" .
 
 
 ###  http://www.w3.org/ns/sosa/FeatureOfInterest
@@ -93,14 +95,6 @@ sosa:FeatureOfInterest rdfs:label "Feature of Interest" .
 ###  http://www.w3.org/ns/sosa/ObservableProperty
 sosa:ObservableProperty rdfs:subClassOf ssn:Property ;
                         rdfs:label "Observable Property" .
-
-
-###  http://www.w3.org/ns/sosa/Observation
-sosa:Observation owl:equivalentClass cgo:Measurement .
-
-
-###  http://www.w3.org/ns/sosa/Sensor
-sosa:Sensor rdfs:comment "Humans can also be sensors in this definition but not in this version." .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#AirHeater
@@ -141,14 +135,15 @@ cgo:AmmoniumLevel rdf:type owl:Class ;
                              "NH4 Level" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Anti-insectNet
-cgo:Anti-insectNet rdf:type owl:Class ;
-                   rdfs:subClassOf cgo:Net ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty cgo:prevents ;
-                                     owl:someValuesFrom cgo:Pest
-                                   ] ;
-                   rdfs:comment "This class represents anti-insect nets that are used in greenhouses" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#AntiInsectNet
+cgo:AntiInsectNet rdf:type owl:Class ;
+                  rdfs:subClassOf cgo:Net ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty cgo:prevents ;
+                                    owl:someValuesFrom cgo:Pest
+                                  ] ;
+                  rdfs:comment "This class represents anti-insect nets that are used in greenhouses" ;
+                  rdfs:label "Anti-insect Net" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Bench
@@ -157,7 +152,8 @@ cgo:Bench rdf:type owl:Class ;
                           [ rdf:type owl:Restriction ;
                             owl:onProperty cgo:hasPart ;
                             owl:someValuesFrom cgo:PlantSet
-                          ] .
+                          ] ;
+          rdfs:label "Bench" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BicarbonateLevel
@@ -180,30 +176,38 @@ cgo:Block rdf:type owl:Class ;
           rdfs:comment "A block contains only a single crop (this is a requirement)" ,
                        "A block is part of a compartment in the greenhouse in which the plants are treated equally wrt nutrition, climate etc." ,
                        "Each block has a unique identifier in the greenhouse or compartment in the greenhouse" ,
-                       "This class represents blocks that are part of a greenhouse and contain a set of plants" .
+                       "This class represents blocks that are part of a greenhouse and contain a set of plants" ;
+          rdfs:label "Block" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Blueprint
 cgo:Blueprint rdf:type owl:Class ;
               rdfs:subClassOf cgo:ConstructionPart ;
-              rdfs:comment "This class represents blueprints of a building" .
+              rdfs:comment "This class represents blueprints of a building" ;
+              rdfs:label "Blueprint" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Boiler
 cgo:Boiler rdf:type owl:Class ;
            rdfs:subClassOf cgo:HeatingSystemPart ;
            rdfs:comment "Provides heat similar to a home boiler" ,
-                        "Sometimes also named \"Burner\"" .
+                        "Sometimes also named \"Burner\"" ;
+           rdfs:label "Boiler" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerCapacity
 cgo:BoilerCapacity rdf:type owl:Class ;
-                   rdfs:subClassOf cgo:BoilerPart .
+                   rdfs:subClassOf cgo:BoilerPart ;
+                   rdfs:label "Boiler Capacity" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoilerPart
 cgo:BoilerPart rdf:type owl:Class ;
-               rdfs:subClassOf cgo:HeatingSystemPart ;
+               rdfs:subClassOf cgo:HeatingSystemPart ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty cgo:partOf ;
+                                 owl:someValuesFrom cgo:Boiler
+                               ] ;
                rdfs:label "Boiler Part" .
 
 
@@ -218,7 +222,7 @@ cgo:BoilerSupplySensor rdf:type owl:Class ;
 cgo:BoilerWaterTemperatureSensor rdf:type owl:Class ;
                                  rdfs:subClassOf cgo:BoilerPart ,
                                                  cgo:TemperatureSensor ;
-                                 rdfs:label "Boiler water temperature sensor" .
+                                 rdfs:label "Boiler Water Temperature Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BoronLevel
@@ -232,13 +236,17 @@ cgo:BoronLevel rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Buffer
 cgo:Buffer rdf:type owl:Class ;
            rdfs:subClassOf cgo:HeatingSystemPart ;
-           rdfs:comment "tank where we store heated water" .
+           rdfs:comment "tank where we store heated water" ;
+           rdfs:label "Buffer" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#BufferWaterTemperatureSensor
 cgo:BufferWaterTemperatureSensor rdf:type owl:Class ;
-                                 rdfs:subClassOf cgo:Buffer ,
-                                                 cgo:TemperatureSensor ;
+                                 rdfs:subClassOf cgo:TemperatureSensor ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty cgo:partOf ;
+                                                   owl:someValuesFrom cgo:Buffer
+                                                 ] ;
                                  rdfs:comment "measures the temperature at 1 of the 11 points in buffer. The temperature in the buffer differs with cool water being lower and hot water higher" ;
                                  rdfs:label "Buffer Water Temperature Sensor" .
 
@@ -252,7 +260,8 @@ cgo:Builder rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Burner
 cgo:Burner rdf:type owl:Class ;
-           rdfs:subClassOf cgo:BoilerPart .
+           rdfs:subClassOf cgo:BoilerPart ;
+           rdfs:label "Burner" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CHPSystemPart
@@ -273,7 +282,8 @@ cgo:CalciumLevel rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Capacity
 cgo:Capacity rdf:type owl:Class ;
-             rdfs:subClassOf sosa:ObservableProperty .
+             rdfs:subClassOf sosa:ObservableProperty ;
+             rdfs:label "Capacity" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CentralHeatingSystem
@@ -296,7 +306,8 @@ cgo:ChlorideLevel rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Color
 cgo:Color rdf:type owl:Class ;
-          rdfs:subClassOf sosa:ObservableProperty .
+          rdfs:subClassOf sosa:ObservableProperty ;
+          rdfs:label "Color" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Compartment
@@ -357,7 +368,8 @@ cgo:CopperLevel rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Cover
 cgo:Cover rdf:type owl:Class ;
           rdfs:subClassOf cgo:ConstructionPart ;
-          rdfs:comment "This class represents covers of greenhouses" .
+          rdfs:comment "This class represents covers of greenhouses" ;
+          rdfs:label "Cover" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Crop
@@ -370,17 +382,20 @@ cgo:Crop rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#CultivationSystem
 cgo:CultivationSystem rdf:type owl:Class ;
-                      rdfs:subClassOf cgo:GrowingSystem .
+                      rdfs:subClassOf cgo:GrowingSystem ;
+                      rdfs:label "Cultivation System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Disease
 cgo:Disease rdf:type owl:Class ;
-            rdfs:comment "This class represents different kind of diseases" .
+            rdfs:comment "This class represents different kind of diseases" ;
+            rdfs:label "Disease" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DisinfectionSystem
 cgo:DisinfectionSystem rdf:type owl:Class ;
-                       rdfs:subClassOf cgo:WaterSystem .
+                       rdfs:subClassOf cgo:WaterSystem ;
+                       rdfs:label "Disinfection System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DisinfectionSystemPart
@@ -416,7 +431,7 @@ cgo:DissipatedHeatingPower rdf:type owl:Class ;
 cgo:DistributorReturn rdf:type owl:Class ;
                       owl:equivalentClass cgo:ReturnManifold ;
                       rdfs:subClassOf cgo:HeatingSystemPart ;
-                      rdfs:label "Dsitributor Return" .
+                      rdfs:label "Distributor Return" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#DistributorSupply
@@ -446,7 +461,8 @@ cgo:ECCheckSensor rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty cgo:partOf ;
                                     owl:someValuesFrom cgo:FertigationSystem
-                                  ] .
+                                  ] ;
+                  rdfs:label "EC Check Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ECDoseSensor
@@ -455,7 +471,8 @@ cgo:ECDoseSensor rdf:type owl:Class ;
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty cgo:partOf ;
                                    owl:someValuesFrom cgo:FertigationSystem
-                                 ] .
+                                 ] ;
+                 rdfs:label "EC Dose Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ECMixingValveSensor
@@ -464,12 +481,14 @@ cgo:ECMixingValveSensor rdf:type owl:Class ;
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty cgo:partOf ;
                                           owl:someValuesFrom cgo:IrrigationSystem
-                                        ] .
+                                        ] ;
+                        rdfs:label "EC Mixing Valve Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Efficiency
 cgo:Efficiency rdf:type owl:Class ;
-               rdfs:subClassOf sosa:ObservableProperty .
+               rdfs:subClassOf sosa:ObservableProperty ;
+               rdfs:label "Efficiency" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ElectricalConductivity
@@ -490,29 +509,32 @@ cgo:EmbeddedHeatingPipe rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#EnergyScreen
 cgo:EnergyScreen rdf:type owl:Class ;
                  rdfs:subClassOf cgo:Screen ;
-                 rdfs:comment "This class represents energy screens in greenhouses" .
+                 rdfs:comment "This class represents energy screens in greenhouses" ;
+                 rdfs:label "Energy Screen" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#EvaporativePad
 cgo:EvaporativePad rdf:type owl:Class ;
-                   rdfs:subClassOf cgo:Fan-and-PadSystemPart .
+                   rdfs:subClassOf cgo:FanAndPadSystemPart ;
+                   rdfs:label "Evaporative Pad" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Fan-and-PadSystem
-cgo:Fan-and-PadSystem rdf:type owl:Class ;
-                      rdfs:subClassOf cgo:CoolingSystem ;
-                      rdfs:comment "\"The Pad & Fan cooling method is a widely applicable cooling system due to it’s simplicity. As the name indicates, it uses a combination of wet-pads and ventilators. A set of large fans blow air out of the greenhouse, causing a suction-draught through the greenhouse. On the opposite sides of the fans, pad-walls are installed which are kept wet. The suction-movement caused by the fans, forces hot outside air to be pulled into the greenhouse through the wet pads. Water from the pads evaporates into the hot air, increasing its humidity whilst lowering the temperature.\"" ;
-                      rdfs:label "Fan & Pad Cooling System" ;
-                      rdfs:seeAlso "https://dutchgreenhouses.com/technology/cooling" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FanAndPadSystem
+cgo:FanAndPadSystem rdf:type owl:Class ;
+                    rdfs:subClassOf cgo:CoolingSystem ;
+                    rdfs:comment "\"The Pad & Fan cooling method is a widely applicable cooling system due to it’s simplicity. As the name indicates, it uses a combination of wet-pads and ventilators. A set of large fans blow air out of the greenhouse, causing a suction-draught through the greenhouse. On the opposite sides of the fans, pad-walls are installed which are kept wet. The suction-movement caused by the fans, forces hot outside air to be pulled into the greenhouse through the wet pads. Water from the pads evaporates into the hot air, increasing its humidity whilst lowering the temperature.\"" ;
+                    rdfs:label "Fan & Pad Cooling System" ;
+                    rdfs:seeAlso "https://dutchgreenhouses.com/technology/cooling" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Fan-and-PadSystemPart
-cgo:Fan-and-PadSystemPart rdf:type owl:Class ;
-                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                owl:onProperty cgo:partOf ;
-                                                owl:someValuesFrom cgo:Fan-and-PadSystem
-                                              ] ;
-                          rdfs:subClassOf cgo:CoolingSystemPart .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FanAndPadSystemPart
+cgo:FanAndPadSystemPart rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty cgo:partOf ;
+                                              owl:someValuesFrom cgo:FanAndPadSystem
+                                            ] ;
+                        rdfs:subClassOf cgo:CoolingSystemPart ;
+                        rdfs:label "Fan-and-Pad System Part" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FertigationRecipe
@@ -525,7 +547,8 @@ cgo:FertigationRecipe rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FertigationSystem
 cgo:FertigationSystem rdf:type owl:Class ;
-                      rdfs:subClassOf cgo:IrrigationSystem .
+                      rdfs:subClassOf cgo:IrrigationSystem ;
+                      rdfs:label "Fertigation System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FertigationSystemPart
@@ -551,13 +574,15 @@ cgo:FertigationWater rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Floor
 cgo:Floor rdf:type owl:Class ;
           rdfs:subClassOf cgo:ConstructionPart ;
-          rdfs:comment "This class represents floors of greenhouses" .
+          rdfs:comment "This class represents floors of greenhouses" ;
+          rdfs:label "Floor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Flower
 cgo:Flower rdf:type owl:Class ;
            rdfs:subClassOf cgo:Crop ;
-           rdfs:comment "This class represents flowers, both wild and grown in greenhouses" .
+           rdfs:comment "This class represents flowers, both wild and grown in greenhouses" ;
+           rdfs:label "Flower" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FlowerConstructionLevel
@@ -574,12 +599,14 @@ cgo:FlowerPart rdf:type owl:Class ;
                                      owl:someValuesFrom cgo:Flower
                                    ] ;
                rdfs:subClassOf cgo:PlantPart ;
-               rdfs:comment "This class represents the different parts of a flower" .
+               rdfs:comment "This class represents the different parts of a flower" ;
+               rdfs:label "Flower Part" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FoggingSystem
 cgo:FoggingSystem rdf:type owl:Class ;
-                  rdfs:subClassOf ssn:System .
+                  rdfs:subClassOf ssn:System ;
+                  rdfs:label "Fogging System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FoggingSystemPart
@@ -590,12 +617,13 @@ cgo:FoggingSystemPart rdf:type owl:Class ;
                                           ] ;
                       rdfs:subClassOf cgo:SystemPart ;
                       rdfs:comment "This class represents the parts found in fogging systems" ;
-                      rdfs:label "Figging System Part" .
+                      rdfs:label "Fogging System Part" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Foundation
 cgo:Foundation rdf:type owl:Class ;
-               rdfs:subClassOf cgo:ConstructionPart .
+               rdfs:subClassOf cgo:ConstructionPart ;
+               rdfs:label "Foundation" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#FoundationSlope
@@ -610,17 +638,21 @@ In greenhouses with larger lengths, the slope for water discharge has to be crea
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Frame
 cgo:Frame rdf:type owl:Class ;
           rdfs:subClassOf cgo:ConstructionPart ;
-          rdfs:comment "This class represents frames of greenhouses" .
+          rdfs:comment "This class represents frames of greenhouses" ;
+          rdfs:label "Frame" ,
+                     "Structure" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Fuel
 cgo:Fuel rdf:type owl:Class ;
-         rdfs:subClassOf cgo:PowerSource .
+         rdfs:subClassOf cgo:PowerSource ;
+         rdfs:label "Fuel" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Gas
 cgo:Gas rdf:type owl:Class ;
-        rdfs:subClassOf cgo:Fuel .
+        rdfs:subClassOf cgo:Fuel ;
+        rdfs:label "Gas" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GeothermalEnergy
@@ -670,7 +702,8 @@ cgo:GreenhousePart rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GroundCoverNet
 cgo:GroundCoverNet rdf:type owl:Class ;
                    rdfs:subClassOf cgo:Net ;
-                   rdfs:comment "This class represents nets that cover ground that are used in greenhouses" .
+                   rdfs:comment "This class represents nets that cover ground that are used in greenhouses" ;
+                   rdfs:label "Ground Cover Net" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Grower
@@ -689,12 +722,14 @@ cgo:GrowingHeatingPipe rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GrowingMedia
 cgo:GrowingMedia rdf:type owl:Class ;
-                 rdfs:subClassOf cgo:GrowingSystem .
+                 rdfs:subClassOf cgo:GrowingSystem ;
+                 rdfs:label "Growing Media" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GrowingSystem
 cgo:GrowingSystem rdf:type owl:Class ;
-                  rdfs:subClassOf ssn:System .
+                  rdfs:subClassOf ssn:System ;
+                  rdfs:label "Growing System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#GrowingSystemPart
@@ -730,22 +765,27 @@ cgo:HeatPumpSystem rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatWaterMixingValve
 cgo:HeatWaterMixingValve rdf:type owl:Class ;
-                         rdfs:subClassOf cgo:BoilerPart .
+                         rdfs:subClassOf cgo:BoilerPart ,
+                                         cgo:Valve ;
+                         rdfs:label "Heat Water Mixing Valve" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatWaterTransportPump
 cgo:HeatWaterTransportPump rdf:type owl:Class ;
-                           rdfs:subClassOf cgo:BoilerPart .
+                           rdfs:subClassOf cgo:BoilerPart ;
+                           rdfs:label "Heat Water Transport Pump" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatingPipe
 cgo:HeatingPipe rdf:type owl:Class ;
-                rdfs:subClassOf cgo:HeatingSystemPart .
+                rdfs:subClassOf cgo:HeatingSystemPart ;
+                rdfs:label "Heating Pipe" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatingSystem
 cgo:HeatingSystem rdf:type owl:Class ;
-                  rdfs:subClassOf ssn:System .
+                  rdfs:subClassOf ssn:System ;
+                  rdfs:label "Heating System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HeatingSystemPart
@@ -761,7 +801,8 @@ cgo:HeatingSystemPart rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Height
 cgo:Height rdf:type owl:Class ;
-           rdfs:subClassOf sosa:ObservableProperty .
+           rdfs:subClassOf sosa:ObservableProperty ;
+           rdfs:label "Height" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#HighPressureFogging
@@ -795,7 +836,8 @@ cgo:InsectScreen rdf:type owl:Class ;
                                    owl:onProperty cgo:prevents ;
                                    owl:someValuesFrom cgo:Pest
                                  ] ;
-                 rdfs:comment "This class represents insect screens in greenhouses" .
+                 rdfs:comment "This class represents insect screens in greenhouses" ;
+                 rdfs:label "Insect Screen" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#IronLevel
@@ -826,7 +868,8 @@ cgo:IrrigationSupplyPump rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#IrrigationSystem
 cgo:IrrigationSystem rdf:type owl:Class ;
-                     rdfs:subClassOf cgo:WaterSystem .
+                     rdfs:subClassOf cgo:WaterSystem ;
+                     rdfs:label "Irrigation System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#IrrigationSystemPart
@@ -846,7 +889,8 @@ cgo:IrrigationValve rdf:type owl:Class ;
                                       owl:onProperty cgo:partOf ;
                                       owl:someValuesFrom cgo:IrrigationSystem
                                     ] ;
-                    rdfs:comment "An irrigation valve is a switch that steers the amount of water in a zone" .
+                    rdfs:comment "An irrigation valve is a switch that steers the amount of water in a zone" ;
+                    rdfs:label "Irrigation Valve" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#IrrigationWater
@@ -857,7 +901,8 @@ cgo:IrrigationWater rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Juice
 cgo:Juice rdf:type owl:Class ;
-          rdfs:subClassOf cgo:PlantPart .
+          rdfs:subClassOf cgo:PlantPart ;
+          rdfs:label "Juice" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#KaliumCalciumRatio
@@ -877,24 +922,28 @@ cgo:KaliumLevel rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Laborer
 cgo:Laborer rdf:type owl:Class ;
-            rdfs:subClassOf cgo:Person .
+            rdfs:subClassOf cgo:Person ;
+            rdfs:label "Laborer" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Leaf
 cgo:Leaf rdf:type owl:Class ;
          rdfs:subClassOf cgo:PlantPart ;
-         rdfs:comment "This class represents the leaf of a plant" .
+         rdfs:comment "This class represents the leaf of a plant" ;
+         rdfs:label "Leaf" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Length
 cgo:Length rdf:type owl:Class ;
-           rdfs:subClassOf sosa:ObservableProperty .
+           rdfs:subClassOf sosa:ObservableProperty ;
+           rdfs:label "Length" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Lisianthus
 cgo:Lisianthus rdf:type owl:Class ;
                rdfs:subClassOf cgo:Flower ;
-               rdfs:comment "This class represents flowers that are named Lisianthus, officially known as Eustoma." .
+               rdfs:comment "This class represents flowers that are named Lisianthus, officially known as Eustoma." ;
+               rdfs:label "Lisianthus" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#LiterCounterSensor
@@ -903,12 +952,14 @@ cgo:LiterCounterSensor rdf:type owl:Class ;
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty cgo:partOf ;
                                          owl:someValuesFrom cgo:FertigationSystem
-                                       ] .
+                                       ] ;
+                       rdfs:label "Liter Counter Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Location
 cgo:Location rdf:type owl:Class ;
-             rdfs:subClassOf sosa:ObservableProperty .
+             rdfs:subClassOf sosa:ObservableProperty ;
+             rdfs:label "Location" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#MagnesiumLevel
@@ -928,12 +979,16 @@ cgo:ManganeseLevel rdf:type owl:Class ;
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Measurement
-cgo:Measurement rdf:type owl:Class .
+cgo:Measurement rdf:type owl:Class ;
+                rdfs:subClassOf sosa:Observation ;
+                rdfs:comment "A kind of observation which is specifically made with instruments in a Greenhouse" ;
+                rdfs:label "Measurement" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Methane
 cgo:Methane rdf:type owl:Class ;
-            rdfs:subClassOf cgo:Fuel .
+            rdfs:subClassOf cgo:Fuel ;
+            rdfs:label "Methane" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#MolybdenumLevel
@@ -944,10 +999,10 @@ cgo:MolybdenumLevel rdf:type owl:Class ;
                                "Molybdenum Level" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Multi-PurposeTubeRailHeatingSystem
-cgo:Multi-PurposeTubeRailHeatingSystem rdf:type owl:Class ;
-                                       rdfs:subClassOf cgo:HeatingSystem ;
-                                       rdfs:label "Multi-purpose Tube Rail Heating System" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#MultiPurposeTubeRailHeatingSystem
+cgo:MultiPurposeTubeRailHeatingSystem rdf:type owl:Class ;
+                                      rdfs:subClassOf cgo:HeatingSystem ;
+                                      rdfs:label "Multi-purpose Tube Rail Heating System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#NatriumLevel
@@ -961,7 +1016,8 @@ cgo:NatriumLevel rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Net
 cgo:Net rdf:type owl:Class ;
         rdfs:subClassOf cgo:ConstructionPart ;
-        rdfs:comment "This class represents different kind of nets that are used in greenhouses" .
+        rdfs:comment "This class represents different kind of nets that are used in greenhouses" ;
+        rdfs:label "Net" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#NitrateLevel
@@ -996,7 +1052,8 @@ cgo:NumberOfLeaves rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Nutrition
 cgo:Nutrition rdf:type owl:Class ;
-              rdfs:subClassOf sosa:ObservableProperty .
+              rdfs:subClassOf sosa:ObservableProperty ;
+              rdfs:label "Nutrition" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#NutritionProperty
@@ -1011,7 +1068,8 @@ cgo:PHCheckSensor rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty cgo:partOf ;
                                     owl:someValuesFrom cgo:FertigationSystem
-                                  ] .
+                                  ] ;
+                  rdfs:label "PH Check Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PHDoseSensor
@@ -1020,7 +1078,8 @@ cgo:PHDoseSensor rdf:type owl:Class ;
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty cgo:partOf ;
                                    owl:someValuesFrom cgo:FertigationSystem
-                                 ] .
+                                 ] ;
+                 rdfs:label "PH Dose Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PHLevel
@@ -1038,7 +1097,8 @@ cgo:Part rdf:type owl:Class ;
          rdfs:subClassOf owl:Thing ,
                          sosa:FeatureOfInterest ;
          rdfs:comment "Model-technical term" ,
-                      "This class represents parts of wholes" .
+                      "This class represents parts of wholes" ;
+         rdfs:label "Part" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PassiveSystem
@@ -1059,12 +1119,14 @@ cgo:PerimeterFoundation rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Person
 cgo:Person rdf:type owl:Class ;
            rdfs:subClassOf owl:Thing ,
-                           sosa:Sensor .
+                           sosa:Sensor ;
+           rdfs:label "Person" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Pest
 cgo:Pest rdf:type owl:Class ;
-         rdfs:comment "This class represents pests" .
+         rdfs:comment "This class represents pests" ;
+         rdfs:label "Pest" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Petal
@@ -1074,7 +1136,8 @@ cgo:Petal rdf:type owl:Class ;
                             owl:onProperty cgo:partOf ;
                             owl:someValuesFrom cgo:Pistil
                           ] ;
-          rdfs:comment "This class represents the petal of a flower" .
+          rdfs:comment "This class represents the petal of a flower" ;
+          rdfs:label "Petal" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#PhosphorusLevel
@@ -1087,13 +1150,15 @@ cgo:PhosphorusLevel rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Picker
 cgo:Picker rdf:type owl:Class ;
-           rdfs:subClassOf cgo:Person .
+           rdfs:subClassOf cgo:Person ;
+           rdfs:label "Picker" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Pistil
 cgo:Pistil rdf:type owl:Class ;
            rdfs:subClassOf cgo:FlowerPart ;
-           rdfs:comment "This class represents the pistil of a flower" .
+           rdfs:comment "This class represents the pistil of a flower" ;
+           rdfs:label "Pistil" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Plant
@@ -1178,7 +1243,8 @@ cgo:RootDevelopmentLevel rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Screen
 cgo:Screen rdf:type owl:Class ;
            rdfs:subClassOf cgo:ConstructionPart ;
-           rdfs:comment "This class represents different kind of screens that are used in greenhouses" .
+           rdfs:comment "This class represents different kind of screens that are used in greenhouses" ;
+           rdfs:label "Screen" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ScreeningSystem
@@ -1191,30 +1257,35 @@ cgo:ScreeningSystem rdf:type owl:Class ;
                     rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" .
 
 
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Semi-ClosedGreenhouse
-cgo:Semi-ClosedGreenhouse rdf:type owl:Class ;
-                          rdfs:subClassOf cgo:Greenhouse ;
-                          rdfs:comment "\"Semi-closed greenhouses make use of a so-called climate chamber, where the air is either cooled or heated. With large ventilators this treated air is blown into the greenhouse in polyethylene tubes underneath the hanging gutters.\"" ;
-                          rdfs:label "Semi-Closed Greenhouse" .
+###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SemiClosedGreenhouse
+cgo:SemiClosedGreenhouse rdf:type owl:Class ;
+                         rdfs:subClassOf cgo:Greenhouse ;
+                         rdfs:comment "\"Semi-closed greenhouses make use of a so-called climate chamber, where the air is either cooled or heated. With large ventilators this treated air is blown into the greenhouse in polyethylene tubes underneath the hanging gutters.\"" ;
+                         rdfs:label "Semi-Closed Greenhouse" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Sensor
 cgo:Sensor rdf:type owl:Class ;
            rdfs:subClassOf owl:Thing ,
                            sosa:Sensor ;
-           rdfs:comment "Technical sensor" .
+           rdfs:comment "Technical sensor" ;
+           rdfs:label "Greenhouse Sensor" ,
+                      "Sensor" ,
+                      "Technical Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ShadeScreen
 cgo:ShadeScreen rdf:type owl:Class ;
                 rdfs:subClassOf cgo:Screen ;
-                rdfs:comment "This class represents shading screens in greenhouses" .
+                rdfs:comment "This class represents shading screens in greenhouses" ;
+                rdfs:label "Shade Screen" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ShadingNet
 cgo:ShadingNet rdf:type owl:Class ;
                rdfs:subClassOf cgo:Net ;
-               rdfs:comment "This class represents shading nets that are used in greenhouses" .
+               rdfs:comment "This class represents shading nets that are used in greenhouses" ;
+               rdfs:label "Shading Net" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SiliconLevel
@@ -1234,7 +1305,8 @@ cgo:SolarPower rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SolutionSensor
 cgo:SolutionSensor rdf:type owl:Class ;
                    rdfs:subClassOf cgo:Sensor ;
-                   rdfs:comment "This class represents sensors that measure properties of a solution" .
+                   rdfs:comment "This class represents sensors that measure properties of a solution" ;
+                   rdfs:label "Solution Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SteelStructure
@@ -1248,7 +1320,8 @@ cgo:SteelStructure rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Stem
 cgo:Stem rdf:type owl:Class ;
          rdfs:subClassOf cgo:PlantPart ;
-         rdfs:comment "This class represents the stem of a plant" .
+         rdfs:comment "This class represents the stem of a plant" ;
+         rdfs:label "Stem" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SubstrateTemperatureSensor
@@ -1257,7 +1330,8 @@ cgo:SubstrateTemperatureSensor rdf:type owl:Class ;
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty cgo:partOf ;
                                                  owl:someValuesFrom cgo:HeatingSystem
-                                               ] .
+                                               ] ;
+                               rdfs:label "Substrate Temperature Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#SugarConcentration
@@ -1297,29 +1371,34 @@ cgo:SystemPart rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Tank
 cgo:Tank rdf:type owl:Class ;
-         rdfs:subClassOf cgo:HeatingSystemPart .
+         rdfs:subClassOf cgo:HeatingSystemPart ;
+         rdfs:label "Tank" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Temperature
 cgo:Temperature rdf:type owl:Class ;
-                rdfs:subClassOf sosa:ObservableProperty .
+                rdfs:subClassOf sosa:ObservableProperty ;
+                rdfs:label "Temperature" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#TemperatureSensor
 cgo:TemperatureSensor rdf:type owl:Class ;
                       rdfs:subClassOf cgo:Sensor ;
-                      rdfs:comment "This class represents sensors that measure a temperature" .
+                      rdfs:comment "This class represents sensors that measure a temperature" ;
+                      rdfs:label "Temperature Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#ThermalScreen
 cgo:ThermalScreen rdf:type owl:Class ;
                   rdfs:subClassOf cgo:Screen ;
-                  rdfs:comment "This class represents thermal screens in greenhouses" .
+                  rdfs:comment "This class represents thermal screens in greenhouses" ;
+                  rdfs:label "Thermal Screen" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Tomatoplant
 cgo:Tomatoplant rdf:type owl:Class ;
-                rdfs:subClassOf cgo:Crop .
+                rdfs:subClassOf cgo:Crop ;
+                rdfs:label "Tomatoplant" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#TransportHeatingPipe
@@ -1339,7 +1418,8 @@ cgo:UniformityLevel rdf:type owl:Class ;
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Valve
 cgo:Valve rdf:type owl:Class ;
           rdfs:subClassOf cgo:ConstructionPart ;
-          rdfs:comment "This class represents different kind of valves of greenhouses" .
+          rdfs:comment "This class represents different kind of valves of greenhouses" ;
+          rdfs:label "Valve" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#VentilationSystem
@@ -1362,7 +1442,8 @@ cgo:VentilationVents rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterStorageSystem
 cgo:WaterStorageSystem rdf:type owl:Class ;
-                       rdfs:subClassOf cgo:WaterSystem .
+                       rdfs:subClassOf cgo:WaterSystem ;
+                       rdfs:label "Water Storage System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterStorageSystemPart
@@ -1377,22 +1458,15 @@ cgo:WaterStorageSystemPart rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterSupplyPadPump
 cgo:WaterSupplyPadPump rdf:type owl:Class ;
-                       rdfs:subClassOf cgo:Fan-and-PadSystemPart .
-
-
-###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterSupplyTemperatureSensor
-cgo:WaterSupplyTemperatureSensor rdf:type owl:Class ;
-                                 rdfs:subClassOf cgo:TemperatureSensor ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty cgo:partOf ;
-                                                   owl:someValuesFrom cgo:HeatingSystem
-                                                 ] .
+                       rdfs:subClassOf cgo:FanAndPadSystemPart ;
+                       rdfs:label "Water Supply Pad Pump" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterSystem
 cgo:WaterSystem rdf:type owl:Class ;
                 rdfs:subClassOf ssn:System ;
-                rdfs:comment "This class represents the systems in the greenhouse that deal with water. This includes the infrastructure of the systems as well as the management functionality." .
+                rdfs:comment "This class represents the systems in the greenhouse that deal with water. This includes the infrastructure of the systems as well as the management functionality." ;
+                rdfs:label "Water System" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterSystemPart
@@ -1408,15 +1482,21 @@ cgo:WaterSystemPart rdf:type owl:Class ;
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterTemperatureReturnManifoldSensor
 cgo:WaterTemperatureReturnManifoldSensor rdf:type owl:Class ;
-                                         rdfs:subClassOf cgo:ReturnManifold ,
-                                                         cgo:TemperatureSensor ;
+                                         rdfs:subClassOf cgo:TemperatureSensor ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty cgo:partOf ;
+                                                           owl:someValuesFrom cgo:ReturnManifold
+                                                         ] ;
                                          rdfs:label "Water Temperature Return Manifold Sensor" .
 
 
 ###  https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#WaterTemperatureSupplyManifoldSensor
 cgo:WaterTemperatureSupplyManifoldSensor rdf:type owl:Class ;
-                                         rdfs:subClassOf cgo:SupplyManifold ,
-                                                         cgo:TemperatureSensor ;
+                                         rdfs:subClassOf cgo:TemperatureSensor ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty cgo:partOf ;
+                                                           owl:someValuesFrom cgo:SupplyManifold
+                                                         ] ;
                                          rdfs:label "Water Temperature Supply Manifold Sensor" .
 
 
