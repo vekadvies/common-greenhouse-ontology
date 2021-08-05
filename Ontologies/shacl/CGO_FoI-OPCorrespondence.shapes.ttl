@@ -1,0 +1,130 @@
+# baseURI: https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology/foi
+# imports: http://datashapes.org/dash
+# imports: https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#
+# prefix: cgoShacl1
+
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix cgo: <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> .
+@prefix cgoShacl1: <https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology/foi#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix om: <https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf> .
+@prefix ombibo: <http://www.wurvoc.org/bibliography/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix wv: <http://www.wurvoc.org/vocabularies/WV/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology/foi>
+  rdf:type owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports cgo: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      rdf:type sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/ns/sosa/"^^xsd:anyURI ;
+      sh:prefix "sosa" ;
+    ] ;
+  sh:declare [
+      rdf:type sh:PrefixDeclaration ;
+      sh:namespace "https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#"^^xsd:anyURI ;
+      sh:prefix "cgo" ;
+    ] ;
+.
+cgoShacl1:AirFoIShacl
+  rdf:type sh:NodeShape ;
+  rdfs:comment "This constraint specifies that target nodes containing a FoI of type GreenhouseAir should have an OP of type Temperature or RelativeHumidity." ;
+  rdfs:label "Air Feature of Interest Target" ;
+  sh:or (
+      cgoShacl1:HumidityOPShape
+      cgoShacl1:TemperatureOPShape
+    ) ;
+  sh:target [
+      rdf:type sh:SPARQLTarget ;
+      sh:prefixes <https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology/foi> ;
+      sh:select """SELECT ?this
+WHERE {
+    ?this a sosa:Observation .
+    ?this sosa:hasFeatureOfInterest ?foi .
+    ?foi a cgo:GreenhouseAir .
+}""" ;
+    ] ;
+.
+cgoShacl1:AirFoITarget
+  rdf:type sh:SPARQLTarget ;
+  rdfs:label "Air Feature of Interest Target" ;
+.
+cgoShacl1:HumidityDataShape
+  rdf:type sh:PropertyShape ;
+  sh:path sosa:hasSimpleResult ;
+  sh:description "A result should be between 0 and 100 (inclusive)." ;
+  sh:maxCount 1 ;
+  sh:maxInclusive "100" ;
+  sh:minCount 1 ;
+  sh:minInclusive "0" ;
+.
+cgoShacl1:HumidityOPShape
+  rdf:type sh:PropertyShape ;
+  sh:path sosa:observedProperty ;
+  sh:class cgo:RelativeHumidity ;
+  sh:maxCount 1 ;
+  sh:minCount 1 ;
+.
+cgoShacl1:RecipeVitaminShacl
+  rdf:type sh:NodeShape ;
+  rdfs:label "Validate that the OP of a FoI recipe should be of type vitamin." ;
+  sh:property cgoShacl1:VitaminOPShape ;
+  sh:target cgoShacl1:SPARQLTarget_1 ;
+  sh:targetClass sosa:Observation ;
+.
+cgoShacl1:SPARQLTarget_1
+  rdf:type sh:SPARQLTarget ;
+  rdfs:label "Located At" ;
+  sh:prefixes <https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology/foi> ;
+  sh:select """SELECT ?this
+WHERE {
+    ?this rdf:type sosa:Observation .
+    ?this sosa:hasFeatureOfInterest ?foi .
+    ?foi rdf:type cgo:Juice .
+    
+}""" ;
+.
+cgoShacl1:TemperatureDataShape
+  rdf:type sh:PropertyShape ;
+  sh:path sosa:hasSimpleResult ;
+  sh:description "A temperature value should be between 0 and 100 (inclusive)." ;
+  sh:maxCount 1 ;
+  sh:maxInclusive "100" ;
+  sh:minCount 1 ;
+  sh:minInclusive "0" ;
+.
+cgoShacl1:TemperatureOPShape
+  rdf:type sh:PropertyShape ;
+  sh:path sosa:observedProperty ;
+  sh:class cgo:Temperature ;
+  sh:maxCount 1 ;
+  sh:minCount 1 ;
+.
+cgoShacl1:VitaminOPShape
+  rdf:type sh:PropertyShape ;
+  sh:path sosa:observedProperty ;
+  rdfs:label "Vitamin Observable Property Shape" ;
+  sh:class cgo:NutritionProperty ;
+  sh:maxCount 1 ;
+  sh:minCount 1 ;
+.

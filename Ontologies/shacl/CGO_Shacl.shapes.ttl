@@ -1,0 +1,966 @@
+# baseURI: https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology
+# imports: http://datashapes.org/dash
+# imports: https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#
+# prefix: cgoShacl
+
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix cgo: <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> .
+@prefix cgoShacl: <https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix om: <https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf> .
+@prefix ombibo: <http://www.wurvoc.org/bibliography/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix wv: <http://www.wurvoc.org/vocabularies/WV/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology>
+  a owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports cgo: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+cgoShacl:AntiInsectNetShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:prevents ;
+      sh:class cgo:Pest ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:AntiInsectNet ;
+.
+cgoShacl:BlockShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHeight ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Height> ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasLength ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Length> ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasWidth ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Width> ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Block ;
+.
+cgoShacl:BoilerPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Boiler ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:BoilerPart ;
+.
+cgoShacl:BufferWaterTemperatureSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:BufferTank ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:BufferWaterTemperatureSensor ;
+.
+cgoShacl:CO2EnrichmentSystemShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <http://www.ontology-of-units-of-measure.org/resource/om-2/hasQuantity> ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Volume> ;
+      sh:minCount 1 ;
+      sh:name "has quantity" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CO2EnrichmentSystem ;
+.
+cgoShacl:CentralHeatingSystemShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:HeatingPipe ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CentralHeatingSystem ;
+.
+cgoShacl:CirculationSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:AirCirculationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CirculationSystemPart ;
+.
+cgoShacl:CompartmentPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Compartment ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CompartmentPart ;
+.
+cgoShacl:ConstructionPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotLocation ;
+      sh:class cgo:HortispotLocation ;
+      sh:minCount 1 ;
+      sh:name "has location" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:ConstructionPart ;
+.
+cgoShacl:CoolingSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:CoolingSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CoolingSystemPart ;
+.
+cgoShacl:CoolingSystemShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasCoolingCapacity ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Irradiance> ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CoolingSystem ;
+.
+cgoShacl:CoverMaterialShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasCoverMaterialType ;
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Cover ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:CoverMaterial ;
+.
+cgoShacl:CropShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasPlantingDate ;
+      sh:datatype xsd:dateTime ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasRemovalDate ;
+      sh:datatype xsd:dateTime ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Greenhouse ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Crop ;
+.
+cgoShacl:DecimalRestriction
+  a sh:NodeShape ;
+  sh:description "Area should be given in a decimal value for each Greenhouse. part of the conversion of restriction:cgo:hasArea some xsd:double" ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> ;
+      sh:datatype xsd:decimal ;
+      sh:minCount 1 ;
+      sh:name "has numerical value" ;
+    ] ;
+  sh:target [
+      a sh:SPARQLTarget ;
+      sh:prefixes <https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology> ;
+      sh:select """SELECT ?value
+WHERE {
+?greenhouse <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#hasArea> ?area.
+?area <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> ?value.
+
+
+
+
+}""" ;
+    ] ;
+.
+cgoShacl:DesiccantSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:DesiccantSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:DesiccantSystemPart ;
+.
+cgoShacl:DisinfectionSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:DisinfectionSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:DisinfectionSystemPart ;
+.
+cgoShacl:ECCheckSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FertigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:ECCheckSensor ;
+.
+cgoShacl:ECDoseSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FertigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:ECDoseSensor ;
+.
+cgoShacl:ECMixingValveSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:IrrigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:ECMixingValveSensor ;
+.
+cgoShacl:FeatureOfInterestShape
+  a sh:NodeShape ;
+  rdfs:label "Feature of Interest Shape" ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path sosa:isFeatureOfInterestOf ;
+      sh:class sosa:Observation ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "is feature of interest of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass sosa:FeatureOfInterest ;
+.
+cgoShacl:FertigationSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FertigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:FertigationSystemPart ;
+.
+cgoShacl:FlowerPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Flower ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:FlowerPart ;
+.
+cgoShacl:FoggingSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FoggingSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:FoggingSystemPart ;
+.
+cgoShacl:GreenhouseConstructionShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasConstructionType ;
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:GreenhouseConstruction ;
+.
+cgoShacl:GreenhousePartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotLocation ;
+      sh:class cgo:HortispotLocation ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "has location" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:GreenhousePart ;
+.
+cgoShacl:GreenhouseSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Greenhouse ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:GreenhouseSensor ;
+.
+cgoShacl:GreenhouseShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasArea ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Area> ;
+      sh:description "hasArea should have exactly one value of type om:Area for each Greenhouse. conversion of restriction:cgo:hasArea some xsd:double" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasLength ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Length> ;
+      sh:description "each Greenhouse should have at leats one value for cgo:Length of type om:Length. conversion of restriction:cgo:hasLength some xsd:double" ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasLocation ;
+      sh:class cgo:Location ;
+      sh:description "hasLocation should have exactly one value of type cgo:Location for each Greenhouse. conversion of restriction:cgo:hasLocation some cgo:Location" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "has location" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasOrientation ;
+      sh:datatype xsd:decimal ;
+      sh:description "hasOrientation should have at least one value of decimal type for each Greenhouse. conversion of restriction:cgo:hasOrientation some xsd:double" ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasWidth ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Width> ;
+      sh:description "each Greenhouse should have at leats one value for cgo:hasWidth of type om:Width. conversion of restriction:cgo:hasWidth some xsd:double" ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:sparql [
+      rdfs:comment "restricts the user to use the unit square meter for area" ;
+      sh:message "unit of area is not in square meter" ;
+      sh:prefixes <https://www.tno.nl/agrifood/shacl/common-greenhouse-ontology> ;
+      sh:select """SELECT $this ?unit
+WHERE {
+    $this a <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Greenhouse>.
+$this <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#hasArea> ?area. 
+?area <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> ?value.
+?value <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> ?unit
+ FILTER NOT EXISTS {?value <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/squareMetre>} 
+
+}""" ;
+    ] ;
+  sh:targetClass cgo:Greenhouse ;
+.
+cgoShacl:GrowingSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:GrowingSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:GrowingSystemPart ;
+.
+cgoShacl:GrowingSystemShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasDrainFactor ;
+      sh:datatype xsd:decimal ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasLeafAreaIndex ;
+      sh:datatype xsd:decimal ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:GrowingSystem ;
+.
+cgoShacl:GutterShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHeight ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Height> ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Gutter ;
+.
+cgoShacl:HeatPumpShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:HeatPump ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:GroundCoupledHeatPump ;
+  sh:targetClass cgo:GroundWaterHeatPump ;
+  sh:targetClass cgo:SurfaceWaterHeatPump ;
+.
+cgoShacl:HeatingSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:HeatingSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:HeatingSystemPart ;
+.
+cgoShacl:HortispotLocationShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotLocationX ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotLocationY ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotLocationZ ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:HortispotLocation ;
+.
+cgoShacl:HortispotShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotX ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotY ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotZ ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Block ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+cgoShacl:HybridSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:HybridSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:HybridSystemPart ;
+.
+cgoShacl:IrrigationSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:IrrigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:IrrigationSystemPart ;
+.
+cgoShacl:LiterCounterSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FertigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:LiterCounterSensor ;
+.
+cgoShacl:LocationShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasAltitude ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasLatitude ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasLongitude ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:Location ;
+.
+cgoShacl:MechanicalRefrigerationPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:MechanicalRefrigeration ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:MechanicalRefrigerationPart ;
+.
+cgoShacl:NokSchotShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Ridge ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Nokschot ;
+.
+cgoShacl:ObjectPropertyShape
+  a sh:PropertyShape ;
+  sh:path sosa:madeObservation ;
+  rdfs:label "madeObservation Shape" ;
+  sh:minCount 1 ;
+.
+cgoShacl:ObservablePropertyShape
+  a sh:NodeShape ;
+  rdfs:label "Observable Property Shape" ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path sosa:isObservedBy ;
+      sh:class sosa:Sensor ;
+      sh:description "An OP is optionally observed by a sensor. Design choice: should the count be [0..*] or something else. In other words, can we have an OP in the ontology when there is no sensor to observe it? (Does a fallen tree in a deserted forest have an OP?)" ;
+      sh:name "is observed by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass sosa:ObservableProperty ;
+.
+cgoShacl:ObservationShape
+  a rdfs:Class ;
+  a sh:NodeShape ;
+  rdfs:label "Observation SHACL Shape" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:or (
+      [
+        sh:path sosa:hasResult ;
+        sh:description "An Observation should have exactly one Result or exactly one simpleResult." ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+      ]
+      [
+        sh:path sosa:hasSimpleResult ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+      ]
+    ) ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path sosa:hasFeatureOfInterest ;
+      sh:class sosa:FeatureOfInterest ;
+      sh:description "An Observation should have exactly one feature of interest." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "has feature of interest" ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path sosa:madeBySensor ;
+      sh:class sosa:Sensor ;
+      sh:description "An observation should be made by exactly one sensor." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "made by sensor" ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path sosa:observedProperty ;
+      sh:class sosa:ObservableProperty ;
+      sh:description "An Observation should contain exactly one Observed Property." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "observed property" ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path sosa:resultTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "An Observation should have exactly one result time." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "result time" ;
+    ] ;
+  sh:targetClass sosa:Observation ;
+.
+cgoShacl:PHCheckSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FertigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:PHCheckSensor ;
+.
+cgoShacl:PHDoseSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:FertigationSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:PHDoseSensor ;
+.
+cgoShacl:PadAndFanSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:PadAndFanSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:PadAndFanSystemPart ;
+.
+cgoShacl:PetalShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Pistil ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Petal ;
+.
+cgoShacl:PlantShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:Crop ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Plant ;
+.
+cgoShacl:RidgeShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHeight ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Height> ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Ridge ;
+.
+cgoShacl:RoofShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasSpanWidth ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Width> ;
+      sh:minCount 1 ;
+      sh:name "has span width" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Roof ;
+.
+cgoShacl:ScreenShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasTypeName ;
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:Screen ;
+.
+cgoShacl:SubstrateTemperatureSensor
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:HeatingSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:SubstrateTemperatureSensor ;
+.
+cgoShacl:SystempartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasHortispotLocation ;
+      sh:class cgo:HortispotLocation ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "has location" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:SystemPart ;
+.
+cgoShacl:VentilationSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:HybridSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:HybridSystemPart ;
+.
+cgoShacl:VentilationWindowShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasDepth ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Depth> ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasWidth ;
+      sh:class <http://www.ontology-of-units-of-measure.org/resource/om-2/Width> ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:VentilationWindow ;
+.
+cgoShacl:WaterStorageSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:WaterStorageSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:WaterStorageSystemPart ;
+.
+cgoShacl:WaterStorageSystemShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasCatchFactor ;
+      sh:datatype xsd:decimal ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:WaterStorageSystem ;
+.
+cgoShacl:WaterSystemPartShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:WaterSystem ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:WaterSystemPart ;
+.
+cgoShacl:WaterSystemShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasPrimaryWaterSource ;
+      sh:class cgo:Water ;
+      sh:minCount 1 ;
+      sh:name "has primary water source" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:hasSecondaryWaterSource ;
+      sh:class cgo:Water ;
+      sh:minCount 1 ;
+      sh:name "has secondary water source" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:WaterSystem ;
+.
+cgoShacl:WaterTemperatureReturnManifoldSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:ReturnManifold ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:WaterTemperatureReturnManifoldSensor ;
+.
+cgoShacl:WaterTemperatureSupplyManifoldSensorShape
+  a sh:NodeShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path cgo:partOf ;
+      sh:class cgo:SupplyManifold ;
+      sh:minCount 1 ;
+      sh:name "part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:WaterTemperatureSupplyManifoldSensor ;
+.
