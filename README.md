@@ -8,13 +8,16 @@ to capture the different data, constructional, and systemic elements used in a G
    
 ## Maintainers
 
+Cornelis Bouter, TNO (cornelis.bouter@tno.nl)
+Joris van Duijneveldt, TNO (joris.vanduijneveldt@tno.nl)
+Jack Verhoosel, TNO (jack.verhoosel@tno.nl)
+Klaas Andries de Graaf, TNO (klaas.degraaf@tno.nl)
 Roos Bakker, TNO (roos.bakker@tno.nl)  
 Romy van Drie, TNO (romy.vandrie@tno.nl)
 
-
 ## Repository
 
-The ontology can be found in the folder [ontologies](./Ontologies).
+The ontology can be found in the folder [Ontologies](./Ontologies).
 
 ## Best Practices
 

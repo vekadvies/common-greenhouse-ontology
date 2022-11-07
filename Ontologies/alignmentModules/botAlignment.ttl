@@ -1,0 +1,58 @@
+# baseURI: https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology/botAlignment
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://purl.org/dc/terms/
+# imports: https://w3c-lbd-cg.github.io/bot/bot.ttl
+# imports: https://w3id.org/product#BuildingElements
+# imports: https://w3id.org/product#Furnishing
+# imports: https://w3id.org/product#MEP
+# imports: https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#
+# prefix: botAlignment
+
+@prefix botAlignment: <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology/botAlignment#> .
+@prefix common-greenhouse-ontology: <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.w3.org/ns/ssn/System>
+  rdfs:subClassOf <https://w3id.org/bot#Element> ;
+.
+common-greenhouse-ontology:Block
+  rdfs:subClassOf <https://w3id.org/bot#Space> ;
+.
+common-greenhouse-ontology:Compartment
+  rdfs:subClassOf <https://w3id.org/bot#Space> ;
+.
+common-greenhouse-ontology:ConstructionPart
+  rdfs:subClassOf <https://w3id.org/bot#Element> ;
+.
+common-greenhouse-ontology:GreenhouseAir
+  rdfs:subClassOf <https://w3id.org/bot#Space> ;
+.
+common-greenhouse-ontology:GreenhouseWeatherStation
+  rdfs:subClassOf <https://w3id.org/bot#Element> ;
+.
+common-greenhouse-ontology:Plant
+  rdfs:subClassOf <https://w3id.org/bot#Element> ;
+.
+common-greenhouse-ontology:Section
+  rdfs:subClassOf <https://w3id.org/bot#Space> ;
+.
+common-greenhouse-ontology:SystemPart
+  rdfs:subClassOf <https://w3id.org/bot#Element> ;
+.
+common-greenhouse-ontology:Zone
+  rdfs:subClassOf <https://w3id.org/bot#Space> ;
+.
+<https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology/botAlignment>
+  a owl:Ontology ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <http://purl.org/dc/terms/> ;
+  owl:imports <https://w3c-lbd-cg.github.io/bot/bot.ttl> ;
+  owl:imports <https://w3id.org/product#BuildingElements> ;
+  owl:imports <https://w3id.org/product#Furnishing> ;
+  owl:imports <https://w3id.org/product#MEP> ;
+  owl:imports common-greenhouse-ontology: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
