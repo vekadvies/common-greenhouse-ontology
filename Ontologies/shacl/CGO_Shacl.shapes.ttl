@@ -617,8 +617,6 @@ cgoShacl:LocationShape
       a sh:PropertyShape ;
       sh:path cgo:hasAltitude ;
       sh:datatype xsd:decimal ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
