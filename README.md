@@ -121,7 +121,7 @@ For a more elaborate theoretical description, read our paper on the CGO (submitt
 ## Team
 
 #### Greenhouse experts
-Athanasios Soupanos, TNO  
+Athanasios Sapounas, TNO  
 Bart Slager, TNO
 
 #### Developers
