@@ -1,0 +1,5043 @@
+# baseURI: https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#
+# imports: http://datashapes.org/dash
+# imports: http://www.w3.org/2006/time#2016
+# imports: http://www.w3.org/ns/sosa/
+# imports: http://www.w3.org/ns/ssn/
+# imports: https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf
+# prefix: cgo
+
+@prefix : <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> .
+@prefix cgo: <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:abstract
+  rdf:type owl:AnnotationProperty ;
+.
+dc:creator
+  rdf:type owl:AnnotationProperty ;
+.
+dc:title
+  rdf:type owl:AnnotationProperty ;
+.
+dcterms:publisher
+  rdf:type owl:AnnotationProperty ;
+.
+<http://schema.org/contributor>
+  rdf:type owl:AnnotationProperty ;
+.
+sem:Event
+  rdf:type owl:Class ;
+.
+om:AmountOfSubstanceConcentration
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:NutritionProperty ;
+  owl:sameAs cgo:PhytotoxicProperty ;
+.
+om:Density
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:CO2 ;
+  owl:sameAs cgo:NutritionProperty ;
+.
+om:Height
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:Height ;
+.
+om:Length
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:Length ;
+.
+om:Measure
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Measure"@en ;
+  rdfs:label "Meting"@nl ;
+  rdfs:subClassOf sosa:Result ;
+.
+om:Number
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:NumberOfLeaves ;
+.
+om:Power
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:DissipatedHeatingPower ;
+.
+om:Pressure
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:VPD ;
+.
+om:Quantity
+  rdf:type owl:Class ;
+  rdfs:label "Kwantiteit"@nl ;
+  rdfs:label "Quantity"@en ;
+  rdfs:subClassOf ssn:Property ;
+.
+om:RelativeHumidity
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+om:Speed
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:Speed ;
+.
+om:Temperature
+  rdfs:subClassOf sosa:ObservableProperty ;
+  owl:sameAs cgo:Temperature ;
+.
+om:Thickness
+  rdf:type owl:Class ;
+  rdfs:label "Dikte"@nl ;
+  rdfs:label "Thickness"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+om:UnitDivision
+  rdf:type owl:Class ;
+  rdfs:label "Unit Division"@en ;
+.
+om:hasNumericalValue
+  rdf:type owl:AnnotationProperty ;
+.
+om:hasUnit
+  rdf:type owl:AnnotationProperty ;
+.
+rdfs:Resource
+  rdf:type owl:Class ;
+.
+xsd:decimal
+  rdf:type owl:NamedIndividual ;
+.
+skos:altLabel
+  rdf:type owl:AnnotationProperty ;
+.
+sh:NodeShape
+  rdf:type owl:Class ;
+.
+sh:PropertyShape
+  rdf:type owl:Class ;
+.
+sh:class
+  rdf:type owl:AnnotationProperty ;
+.
+sh:datatype
+  rdf:type owl:AnnotationProperty ;
+.
+sh:description
+  rdf:type owl:AnnotationProperty ;
+.
+sh:maxCount
+  rdf:type owl:AnnotationProperty ;
+.
+sh:message
+  rdf:type owl:AnnotationProperty ;
+.
+sh:minCount
+  rdf:type owl:AnnotationProperty ;
+.
+sh:name
+  rdf:type owl:AnnotationProperty ;
+.
+sh:nodeKind
+  rdf:type owl:AnnotationProperty ;
+.
+sh:path
+  rdf:type owl:AnnotationProperty ;
+.
+sh:prefixes
+  rdf:type owl:AnnotationProperty ;
+.
+sh:property
+  rdf:type owl:AnnotationProperty ;
+.
+sh:select
+  rdf:type owl:AnnotationProperty ;
+.
+sh:sparql
+  rdf:type owl:AnnotationProperty ;
+.
+sh:targetClass
+  rdf:type owl:AnnotationProperty ;
+.
+sosa:FeatureOfInterest
+  rdf:type owl:Class ;
+  rdfs:label "Feature of Interest"@en ;
+  rdfs:label "Feature of interest"@nl ;
+  skos:altLabel "Kenmerk van belang"@nl ;
+.
+sosa:ObservableProperty
+  rdf:type owl:Class ;
+  rdfs:label "Observable Property"@en ;
+  rdfs:label "Observable property"@nl ;
+  rdfs:subClassOf ssn:Property ;
+  skos:altLabel "Waarneembaar kenmerk"@nl ;
+.
+sosa:Observation
+  rdf:type owl:Class ;
+  rdfs:label "Observatie"@nl ;
+  rdfs:label "Observation"@en ;
+.
+sosa:Procedure
+  rdf:type owl:Class ;
+  rdfs:label "Procedure"@en ;
+  rdfs:label "Procedure"@nl ;
+.
+sosa:Result
+  rdf:type owl:Class ;
+  rdfs:label "Result"@en ;
+  rdfs:label "Resultaat"@nl ;
+.
+sosa:Sensor
+  rdf:type owl:Class ;
+  rdfs:label "Sensor"@en ;
+  rdfs:label "Sensor"@nl ;
+.
+sosa:hasFeatureOfInterest
+  rdf:type owl:AnnotationProperty ;
+.
+sosa:hasResult
+  rdf:type owl:AnnotationProperty ;
+.
+sosa:madeBySensor
+  rdf:type owl:AnnotationProperty ;
+.
+sosa:observedProperty
+  rdf:type owl:AnnotationProperty ;
+.
+ssn:Property
+  rdf:type owl:Class ;
+  rdfs:label "Kenmerk"@nl ;
+  rdfs:label "Property"@en ;
+.
+ssn:System
+  rdf:type owl:Class ;
+  rdfs:label "Systeem"@nl ;
+  rdfs:label "System"@en ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Greenhouse ;
+    ] ;
+.
+ssn:isPropertyOf
+  rdf:type owl:AnnotationProperty ;
+.
+foaf:Organization
+  rdf:type owl:Class ;
+  rdfs:label "Organisatie"@nl ;
+  rdfs:label "Organization"@en ;
+.
+foaf:Person
+  rdf:type owl:Class ;
+  rdfs:label "Person"@en ;
+  rdfs:label "Persoon"@nl ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf sosa:Sensor ;
+.
+foaf:name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [] ;
+  rdfs:label "has name" ;
+  rdfs:range xsd:string ;
+.
+schema:Place
+  rdf:type owl:Class ;
+  rdfs:label "Place"@en ;
+  rdfs:label "Plek"@nl ;
+.
+cgo:
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:Ontology ;
+  dc:abstract "This ontology describes concepts related to greenhouses. It mainly describes Dutch greenhouses, but can also be applied to greenhouses outside of The Netherlands. The ontology describes multiple aspects of the domain of greenhouses: the construction, the technical systems, the crops, and data about crops. Next to the entities we added together with domain experts, we also reuse ontologies. For the data about crops we use the Semantic Sensor Network Ontology (SSN) (Haller et al., 2017) and  Ontology of units of Measure (OM) (de Vos et al., 2017), together with a 'part of' strategy to describe different aspects crops and systems. For the crops themselves we use aspects of the crop ontology (CO) (Shrestha et a., 2012)." ;
+  dc:creator "Roos Bakker (TNO), Barry Nouwt (TNO), Romy van Drie (TNO), Lorijn van Rooijen (WUR), Sander van Leeuwen (WUR)" ;
+  dc:title "Common Greenhouse Ontology" ;
+  dcterms:contributor "Athanasios Sapounas (TNO), Jack Verhoosel (TNO), Cornelis Bouter (TNO), Bart Slager (TNO), Han Kruiger (TNO), Jan Top (WUR), Joris van Duijneveldt (TNO)" ;
+  dcterms:created "08-01-2020" ;
+  dcterms:modified "04-04-2022" ;
+  dcterms:publisher "TNO" ;
+  rdfs:seeAlso """Shrestha, R., Matteis, L., Skofic, M., Portugal, A., McLaren, G., Hyman, G., & Arnaud, E. (2012). Bridging the phenotypic and genetic data useful for integrated breeding through a data annotation using the Crop Ontology developed by the crop communities of practice. Frontiers in physiology, 3, 326.
+
+de Vos, M., Wielemaker, J., Rijgersberg, H., Schreiber, G., Wielinga, B., & Top, J. (2017). Combining information on structure and content to automatically annotate natural science spreadsheets. International Journal of Human-Computer Studies, 103, 63-76.
+
+Haller, A., Janowicz, K., Cox, S., Le Phuoc, D., Taylor, K., Lefrancois, M. (2017) Semantic Sensor Network Ontology. W3C. W3C Recommendation. URL: https://www.w3.org/TR/vocab-ssn/""" ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://www.w3.org/2006/time#2016> ;
+  owl:imports sosa: ;
+  owl:imports ssn: ;
+  owl:imports <https://raw.githubusercontent.com/HajoRijgersberg/OM/master/om-2.0.rdf> ;
+  owl:versionIRI <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#2.2> ;
+  cgo:competencyQuestion """Low:
+
+Hoeveel nokschotten hangen in de kas?
+Wat is de locatie van sensor X?
+Welk gebied meet sensor X?
+Op welk tijdstip is observatie X gemaakt?
+Wat kan deze sensor opmeten?
+Hoeveel sensoren hangen in de kas?
+Wat zijn de afmetingen van de nokschot en de nok?
+Wat is de ingaande temperatuur van koelblok X?
+
+
+Middle:
+
+Welke sensoren hangen bij nokschotten?
+Voor welk gewas worden nu nokschotten gebruikt?
+Welke sensoren hangen bij nokschotten?
+Wat zijn alle temperatuurmetingen tussen 112020 en 122020?
+Hoevaak wordt het maximaal elektrisch koelvermogen aangesproken in periode X?
+Welke kassen van kassenbouwer X staan er in Zuid Europa?
+Wat is de kaslucht temperatuur in Fahrenheit (let op conversie van kelvin)?
+
+High:
+
+Is er een relatie tussen de hoogte van de sensoren en de temperatuur?
+Wat is het effect van een nokschot op de temperatuur?
+Wat is het effect van nokschotten op de productiviteit van het gewas?
+Hoeveel euro levert het plaatsen van nokschotten op?
+Welk effect heeft de windrichting en snelheid op temperatuur en luchtvochtigheid?
+Welke data analyse methode kan ik het beste gebruiken?
+Wat is het afgegeven verwarmingsvermogen volgens SIOM op basis van T pijp en T kas op moment X en locatie Y?
+Welk type luchtcirculatie wordt er gebruikt in relatie tot verwarming?
+Op welk tijdstip heeft sensor X de meest recente waarneming gedaan?""" ;
+.
+<https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#1000m2>
+  rdf:type om:Measure ;
+  rdf:type owl:NamedIndividual ;
+  om:hasNumericalValue "1000" ;
+  om:hasUnit om:squareMetre ;
+.
+<https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#20m2>
+  rdf:type om:Measure ;
+  rdf:type owl:NamedIndividual ;
+  om:hasNumericalValue 12 ;
+  om:hasUnit om:cubicMetre ;
+.
+<https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#5m>
+  rdf:type om:Measure ;
+  rdf:type owl:NamedIndividual ;
+  om:hasNumericalValue "5" ;
+  om:hasUnit om:metre ;
+.
+cgo:AbioticStressTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to stress caused by non-living
+stressors. Abiotic stress is defined as the
+negative impact of non-living factors on the
+crop/plants. Most common abiotic stressors are
+drought, waterlogging, high/low temperatures,
+mineral toxicities/deficiencies, hail, and wind.""" ;
+  rdfs:label "Abiotic Stress Trait"@en ;
+  rdfs:label "Abiotische stresseigenschappen"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Plant aluminum tolerance
+Plant drought susceptibility
+Plant frost damage
+Plant heat tolerance""" ;
+.
+cgo:AbsoluteHumidity
+  rdf:type owl:Class ;
+  rdfs:comment "The actual amount of water vapor in a given volume of air is the absolute humidity; it is expressed as weight per volume. In Mollier diagrams weight per weight of air is used (kg/kg or gr/kg). Absolute humidity is rarely measured in greenhouses, however, and relative humidity is used instead." ;
+  rdfs:label "Absolute Humidity"@en ;
+  rdfs:label "Absolute luchtvochtigheid"@nl ;
+  rdfs:seeAlso "http://www.greenhouse-management.com/greenhouse_management/managing_vapor_pressure_deficit_greenhouse_crops/relative_humidity_greenhouse_crops.htm" ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  skos:altLabel "AH"@en ;
+.
+cgo:AbsorptionCoolingSystem
+  rdf:type owl:Class ;
+  rdfs:comment "An absorption refrigerator is a refrigerator that uses a heat source to provide the energy needed to drive the cooling process."@en ;
+  rdfs:label "Absorptiekoelsysteem"@nl ;
+  rdfs:label "Absorption Cooling System"@en ;
+  rdfs:subClassOf cgo:CoolingSystem ;
+.
+cgo:AgronomicTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All main traits contributing to yield and related
+to the agronomic performance of crop/plants.""" ;
+  rdfs:label "Agronomic Trait"@en ;
+  rdfs:label "Agronomische eigenschappen"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Seed/tuber yield
+Biomass yield
+Plant lodging incidence""" ;
+.
+cgo:Air
+  rdf:type owl:Class ;
+  rdfs:label "Air"@en ;
+  rdfs:label "Lucht"@nl ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+  rdfs:subClassOf cgo:Source ;
+.
+cgo:AirBlower
+  rdf:type owl:Class ;
+  rdfs:comment "A fan that creates a horizontal airflow above the canopy"@en ;
+  rdfs:label "Air Blower" ;
+  rdfs:subClassOf cgo:CirculationSystemPart ;
+.
+cgo:AirCirculationSystem
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents a system that is responsible for the airflow inside the greenhouse." ;
+  rdfs:label "Air Circulation System"@en ;
+  rdfs:label "Luchtcirculatiesysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+.
+cgo:AirDuctSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Located either below or above the canopy"@en ;
+  rdfs:label "Air Duct System"@en ;
+  rdfs:label "Ventilatiekanalensysteem"@nl ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:AirHeater
+  rdf:type owl:Class ;
+  rdfs:comment "Device which heats the air of the greenhouse by burning certain type of fuel or using warm water (the latter is more common nowadays). They are used in clusters and are autonomous" ;
+  rdfs:label "Air Heater"@en ;
+  rdfs:label "Luchtverwarmer"@nl ;
+  rdfs:subClassOf cgo:HeatExchanger ;
+.
+cgo:AirToAirHeatExchanger
+  rdf:type owl:Class ;
+  rdfs:label "Air to Air Heat Exchanger"@en ;
+  rdfs:label "Lucht/lucht-warmtewisselaar"@nl ;
+  rdfs:subClassOf cgo:HeatExchanger ;
+.
+cgo:AirToWaterHeatExchanger
+  rdf:type owl:Class ;
+  rdfs:comment "Air-to-water heat exchangers use the same principle of temperature differential to provide heating or cooling as air-to-air heat exchangers, however, they alter the temperature of air by forcing it across water coils." ;
+  rdfs:label "Air to Water Heat Exchanger"@en ;
+  rdfs:label "Lucht/water-warmtewisselaar"@nl ;
+  rdfs:subClassOf cgo:HeatExchanger ;
+.
+cgo:Aluminium
+  rdf:type owl:Class ;
+  rdfs:comment "This is the level aluminium in a sample of water measured in µmol/l" ;
+  rdfs:label "Aluminium"@en ;
+  rdfs:label "Aluminium"@nl ;
+  rdfs:subClassOf cgo:PhytotoxicProperty ;
+  skos:altLabel "Al" ;
+.
+cgo:AluminiumStructure
+  rdf:type owl:Class ;
+  rdfs:comment """The used aluminium profiles hold the glass in place, discharge water and provide overall strength. the aluminium greenhouse gutter does not only collect the rain and snow, but it fulfills a crucial constructive role. This ingenuous system cares for the strength in the gutter-direction of the greenhouse. It significantly reduces the amount of material required to construct the greenhouse.
+Next to this, the gutter also collects condensation water from the glass on the inside of the greenhouse. If required by regulation, this can be discharged separately from the rainwater. This condensation water function of the gutter prevents water dripping on the crops, which can cause damage in the form of burn spots or physical damage.""" ;
+  rdfs:label "Aluminium Structure"@en ;
+  rdfs:label "Aluminiumstructuur"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/aluminium-system" ;
+  rdfs:subClassOf cgo:Frame ;
+.
+cgo:Ammonium
+  rdf:type owl:Class ;
+  rdfs:comment "This is the level of ammonium in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Ammonium"@en ;
+  rdfs:label "Ammonium"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "NH4" ;
+.
+cgo:AntiInsectNet
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents anti-insect nets that are used in greenhouses. Nets are used mainly in the vents"@en ;
+  rdfs:label "Anti-insect Net"@en ;
+  rdfs:label "Anti-insectengaas"@nl ;
+  rdfs:subClassOf cgo:Net ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:prevents ;
+      owl:someValuesFrom cgo:Pest ;
+    ] ;
+  skos:altLabel "Insect Net"@en ;
+  skos:altLabel "Insectengaas"@nl ;
+.
+cgo:AreaRestriction
+  rdf:type owl:NamedIndividual ;
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path cgo:hasArea ;
+      sh:class om:Area ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:sparql [
+      sh:message "Unit is not in square meter" ;
+      sh:prefixes cgo: ;
+      sh:select """SELECT $this ?unit
+WHERE {
+    $this a <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#Greenhouse>.
+$this <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#hasArea> ?area. 
+?area <http://www.ontology-of-units-of-measure.org/resource/om-2/hasValue> ?value.
+?value <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> ?unit
+ FILTER NOT EXISTS {?value <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/squareMetre>} 
+
+}""" ;
+    ] ;
+  sh:targetClass cgo:Greenhouse ;
+.
+cgo:Area_1
+  rdf:type om:Area ;
+  rdf:type owl:NamedIndividual ;
+  om:hasValue <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#1000m2> ;
+.
+cgo:Area_2
+  rdf:type om:Area ;
+  rdf:type owl:NamedIndividual ;
+  om:hasValue <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#20m2> ;
+.
+cgo:Area_3
+  rdf:type om:Area ;
+  rdf:type owl:NamedIndividual ;
+.
+cgo:Basin
+  rdf:type owl:Class ;
+  rdfs:label "Basin" ;
+  rdfs:subClassOf cgo:WaterBuffer ;
+.
+cgo:Bench
+  rdf:type owl:Class ;
+  rdfs:label "Bench" ;
+  rdfs:subClassOf cgo:GrowingSystemPart ;
+.
+cgo:Bicarbonate
+  rdf:type owl:Class ;
+  rdfs:comment "This is the level of bicarbonate in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Bicarbonaat"@nl ;
+  rdfs:label "Bicarbonate"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "HCO3" ;
+.
+cgo:Bio-oil
+  rdf:type owl:Class ;
+  rdfs:label "Bio-oil"@en ;
+  rdfs:label "Bio-olie"@nl ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:BiochemicalTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to chemical components of a
+plat entity.""" ;
+  rdfs:label "Biochemical Trait"@en ;
+  rdfs:label "Biochemische eigenschappen"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Leaf ABA content
+Seed Proline content
+Tuber carotenoid content""" ;
+.
+cgo:Biogas
+  rdf:type owl:Class ;
+  rdfs:label "Biogas"@en ;
+  rdfs:label "Biogas"@nl ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:Biomass
+  rdf:type owl:Class ;
+  rdfs:comment "Includes solid, liquid and gas biomass, as well as organic waste gas"@en ;
+  rdfs:label "Biomass"@en ;
+  rdfs:label "Biomassa"@nl ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:BioticStressTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to stress caused by living
+stressors. Biotic stress is defined as the negative
+impact on the crop/plants of living organisms
+such as bacteria, viruses, fungi, parasites,
+nematodes, weeds, invertebrate and vertebrate
+pests.""" ;
+  rdfs:label "Biotic Stress Trait"@en ;
+  rdfs:label "Biotische stresseigenschappen"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Plant disease severity
+Plant disease incidence
+Plant pest damage
+Plant disease plant response""" ;
+.
+cgo:BlackoutCurtain
+  rdf:type owl:Class ;
+  rdfs:label "Blackout Curtain"@en ;
+  rdfs:label "Blackout scherm"@nl ;
+  rdfs:subClassOf cgo:Curtain ;
+  skos:altLabel "Blackout screen"@en ;
+  skos:altLabel "Verduisteringsscherm"@nl ;
+.
+cgo:Block
+  rdf:type owl:Class ;
+  rdfs:comment "A block contains only a single crop (this is a requirement)" ;
+  rdfs:comment "A block is part of a compartment in the greenhouse in which the plants are treated equally wrt nutrition, climate etc." ;
+  rdfs:comment "Each block has a unique identifier in the greenhouse or compartment in the greenhouse" ;
+  rdfs:comment "This class represents blocks that are part of a greenhouse and contain a set of plants" ;
+  rdfs:comment "vanuit de gebruiker is het logisch om plaatsbepaling te doen per afgesloten deel van een kassencomplex. Dat kan dus een gehele kas zijn, maar ook een afdeling binnen de kas. Plaatsbepaling dient dus plaats te vinden in ieder “door middel van vaste wanden afgescheiden deel van de kas”. Dit deel wordt veelal aangeduid als afdeling of met de Engelse term “block”." ;
+  rdfs:label "Afdeling"@nl ;
+  rdfs:label "Block"@en ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHeight ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLength ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasWidth ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:Blueprint
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents blueprints of a building" ;
+  rdfs:label "Blueprint"@en ;
+  rdfs:label "Bouwtekening"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Boiler
+  rdf:type owl:Class ;
+  rdfs:comment "Provides heat similar to a home boiler" ;
+  rdfs:label "Boiler"@en ;
+  rdfs:label "Ketel"@nl ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasEconomizer ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasFlue-gasCondensor ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasRiskClass ;
+      owl:someValuesFrom [
+          rdf:type rdfs:Datatype ;
+          owl:oneOf [
+              rdf:type rdf:List ;
+              rdf:first "I" ;
+              rdf:rest [
+                  rdf:type rdf:List ;
+                  rdf:first "II" ;
+                  rdf:rest [
+                      rdf:type rdf:List ;
+                      rdf:first "III" ;
+                      rdf:rest [
+                          rdf:type rdf:List ;
+                          rdf:first "IV" ;
+                          rdf:rest () ;
+                        ] ;
+                    ] ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:isHotWaterBoiler ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+.
+cgo:BoilerPart
+  rdf:type owl:Class ;
+  rdfs:label "Boiler Part"@en ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Boiler ;
+    ] ;
+.
+cgo:BoilerSupplySensor
+  rdf:type owl:Class ;
+  rdfs:label "Boiler Supply Sensor"@en ;
+  rdfs:subClassOf cgo:BoilerPart ;
+  rdfs:subClassOf cgo:TemperatureSensor ;
+.
+cgo:BoilerWaterTemperatureSensor
+  rdf:type owl:Class ;
+  rdfs:label "Boiler Water Temperature Sensor"@en ;
+  rdfs:subClassOf cgo:BoilerPart ;
+  rdfs:subClassOf cgo:TemperatureSensor ;
+.
+cgo:Boron
+  rdf:type owl:Class ;
+  rdfs:comment "Boron functions in the plant are not well understood. Boron seems to be important for normal meristem development in young parts such as root tips." ;
+  rdfs:comment "This is the level of boron in a sample of water measured in mmol/l of mg/l" ;
+  rdfs:label "Boron"@en ;
+  rdfs:label "Boron"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "B" ;
+.
+cgo:Branch
+  rdf:type owl:Class ;
+  rdfs:label "Branch"@en ;
+  rdfs:label "Tak"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:BufferTank
+  rdf:type owl:Class ;
+  rdfs:comment "Tank where we store heated water"@en ;
+  rdfs:label "Buffer Tank"@en ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+.
+cgo:BufferWaterTemperatureSensor
+  rdf:type owl:Class ;
+  rdfs:comment "measures the temperature at 1 of the 11 points in buffer. The temperature in the buffer differs with cool water being lower and hot water higher" ;
+  rdfs:label "Buffer Water Temperature Sensor"@en ;
+  rdfs:subClassOf cgo:TemperatureSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:BufferTank ;
+    ] ;
+.
+cgo:Builder
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents builders that build greenhouses and possibly support growers in their crop management activities" ;
+  rdfs:label "Bouwer"@nl ;
+  rdfs:label "Builder"@en ;
+  rdfs:subClassOf foaf:Person ;
+.
+cgo:Burner
+  rdf:type owl:Class ;
+  rdfs:label "Burner"@en ;
+  rdfs:subClassOf cgo:BoilerPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasSource ;
+      owl:someValuesFrom cgo:Fuel ;
+    ] ;
+.
+cgo:CHPSystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "Unit which produces heat and electrical power" ;
+  rdfs:label "CHP"@en ;
+  rdfs:label "Cogeneration Heat and Power"@en ;
+  rdfs:label "Combined Heat and Power"@en ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+.
+cgo:CO2
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "For the majority of greenhouse crops, net photosynthesis increases as CO2 levels increase from 340–1,000 ppm (parts per million). Most crops show that for any given level of photosynthetically active radiation (PAR), increasing the CO2 level to 1,000 ppm will increase the photosynthesis by about 50% over ambient CO2 levels. For some crops the economics may not warrant supplementing to 1,000 ppm CO2 at low light levels. For others such as tulips, and Easter lilies, no response has been observed."@en ;
+  rdfs:comment "Possible forms of CO2 are flue gas and liquified CO2"@en ;
+  rdfs:comment "unit: ppm (parts per million)" ;
+  rdfs:label "Carbon Dioxide"@en ;
+  rdfs:label "Koolstofdioxide"@nl ;
+  rdfs:seeAlso "http://www.omafra.gov.on.ca/english/crops/facts/00-077.htm" ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  rdfs:subClassOf cgo:Source ;
+  skos:altLabel "CO2"@en ;
+.
+cgo:CO2EnrichmentSystem
+  rdf:type owl:Class ;
+  rdfs:comment """The CO2 enrichment system is consist of two main components. The CO2 source, how we get CO2 and the component related to how the CO2 is distributed to the greenhouse air. For the first related to CO2 source, we have mainly two sources, either pure CO2 stored in special tanks or CO2 which is obtained from exhaust gas (we use also the term flue gas) which is emitted as a result of the combustion of fuels such as natural gas.   
+
+In general, CO2 enrichment decreases the oxygen inhibition of photosynthesis and increases the net photosynthesis in plants. This is the basis for increased growth rates caused by CO2 at low as well as at high light levels. Elevated CO2 concentrations also increase the optimal temperature for growth. Pot plants, cut flowers, vegetables and forest plants show very positive effects from CO2 enrichment by increased dry weight, plant height, number of leaves and lateral branching. Plant quality expressed by growth habit and number of flowers is often enhanced by CO2 enrichment. The rooting of cuttings is often stimulated by high CO2 levels.""" ;
+  rdfs:label "CO2 Enrichment System"@en ;
+  rdfs:label "CO2-verrijkingssysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCapacity ;
+      owl:someValuesFrom om:Measure ;
+    ] ;
+  skos:altLabel "CO2 Fertilization System"@en ;
+.
+cgo:Cabriokas
+  rdf:type owl:Class ;
+  rdfs:comment "Dek kan geheel worden geopend"@nl ;
+  rdfs:comment "Roof can be fully opened"@en ;
+  rdfs:label "Cabrio Greenhouse"@en ;
+  rdfs:label "Cabriokas"@nl ;
+  rdfs:subClassOf cgo:Greenhouse ;
+.
+cgo:Calcium
+  rdf:type owl:Class ;
+  rdfs:comment "Calcium is required for calcium pectate for cell wall development. In addition, Ca is used as a cofactor of certain enzymatic reactions." ;
+  rdfs:comment "This is the level of calcium in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Calcium"@en ;
+  rdfs:label "Calcium"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Ca" ;
+.
+cgo:Canopy
+  rdf:type owl:Class ;
+  rdfs:label "Boomlaag"@nl ;
+  rdfs:label "Canopy"@en ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:Capacity
+  rdf:type owl:Class ;
+  rdfs:label "Capaciteit"@nl ;
+  rdfs:label "Capacity"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:CapacityControlSystem
+  rdf:type owl:Class ;
+  rdfs:comment "As its name might suggest, the capacity control system regulates the power and energy consumption, although it can also manage dehumidification or decrease compressor cycling. The on/off cycling of the compressor is the simplest form of capacity control." ;
+  rdfs:label "Capacity Control System"@en ;
+  rdfs:subClassOf cgo:MechanicalRefrigerationPart ;
+.
+cgo:Carbon
+  rdf:type owl:Class ;
+  rdfs:comment "Carbon is 'fixed' from CO2 from the atmosphere by photosynthesizing plants." ;
+  rdfs:label "Carbon"@en ;
+  rdfs:label "Koolstof"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "C" ;
+.
+cgo:CentralHeatingSystem
+  rdf:type owl:Class ;
+  rdfs:label "Central Heating System"@en ;
+  rdfs:label "Centrale Verwarming"@nl ;
+  rdfs:subClassOf cgo:HeatingSystem ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasPart ;
+      owl:someValuesFrom cgo:HeatingPipe ;
+    ] ;
+.
+cgo:Chloride
+  rdf:type owl:Class ;
+  rdfs:comment """Chloride (Cl) may also be present in many water sources. High levels of chloride are detrimental to crop
+growth, only low levels of chloride are acceptable. The maximum acceptable Cl level in the root zone is
+0.2-0.5 mmol/l higher than the maximum acceptable level for Na.""" ;
+  rdfs:comment "This is the level of chloride in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Chloride"@en ;
+  rdfs:label "Chloride"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Cl" ;
+.
+cgo:CirculationPump
+  rdf:type owl:Class ;
+  rdfs:comment "The pump used to put water inside the mixing tank" ;
+  rdfs:label "Circulation Pump"@en ;
+  rdfs:subClassOf cgo:FertigationPump ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationUnit ;
+    ] ;
+.
+cgo:CirculationSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Circulation System Part"@en ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:AirCirculationSystem ;
+    ] ;
+.
+cgo:Cladding
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents cladding for greenhouses. This can be applied to walls or the roof."@en ;
+  rdfs:label "Bekleding"@nl ;
+  rdfs:label "Cladding"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:CleanWaterTank
+  rdf:type owl:Class ;
+  rdfs:comment "Tank that contains the clean water before it is mixed with the fertilzer" ;
+  rdfs:label "Clean Water Tank"@en ;
+  rdfs:subClassOf cgo:FertigationTank ;
+.
+cgo:CleaningSystem
+  rdf:type owl:Class ;
+  rdfs:label "Cleaning System"@en ;
+  rdfs:label "Schoonmaaksysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+.
+cgo:CleaningSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Cleaning System Part"@en ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:CleaningSystem ;
+    ] ;
+.
+cgo:Climate
+  rdf:type owl:Class ;
+  rdfs:comment "The climate is a long term average of the weather outside of the greenhouse." ;
+  rdfs:label "Climate"@en ;
+  rdfs:label "Klimaat"@nl ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+.
+cgo:ColdSource
+  rdf:type owl:Class ;
+  rdfs:comment """The cold source (from which heat is recovered)
+The external medium from which heat is drawn is called a cold source. In the heat pump the refrigerant absorbs heat from the cold source by means of the evaporator.
+
+The main cold sources are:
+
+    AIR: outside the space to be heated, typically air from the external environment;
+    WATER: from the water table, rivers, and lakes, when in proximity to the spaces to be heated and at a limited depth below the surface. Other reservoirs may consist of water which has accumulated in reservoirs and is subsequently heated by solar radiation. 
+    GROUND, into which specific pipes relating to the evaporator are sunk to varying depths (these pipes constitute a geothermal system).""" ;
+  rdfs:label "Cold Source"@en ;
+  rdfs:label "Koude bron"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+  rdfs:subClassOf cgo:HeatPumpSource ;
+.
+cgo:CollectionManifold
+  rdf:type owl:Class ;
+  rdfs:label "Collection manifold"@en ;
+  rdfs:label "Verzamelleiding"@nl ;
+  rdfs:subClassOf cgo:Pipe ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange om:Length ;
+      owl:onProperty cgo:hasLength ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasAirOutletPipes ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:isInside ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+.
+cgo:Color
+  rdf:type owl:Class ;
+  rdfs:label "Color"@en ;
+  rdfs:label "Kleur"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Column
+  rdf:type owl:Class ;
+  rdfs:label "Column"@en ;
+  rdfs:label "Kolom"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:CombinedHeatAndPowerSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Combined heat and power (CHP), also known as cogeneration. The concurrent production of electricity or mechanical power and useful thermal energy (heating and/or cooling) from a single source of energy."@en ;
+  rdfs:comment "Warmte-krachtkoppeling (WKK) of cogeneratie staat voor het gelijktijdig opwekken van warmte en kracht (elektriciteit)."@nl ;
+  rdfs:label "Combined Heat and Power System"@en ;
+  rdfs:label "Warmtekrachtkoppelingssysteem"@nl ;
+  rdfs:subClassOf cgo:ElectricalPowerSystem ;
+  rdfs:subClassOf cgo:HeatingSystem ;
+.
+cgo:Compartment
+  rdf:type owl:Class ;
+  rdfs:comment "A compartment is a part of the greenhouse" ;
+  rdfs:comment "Each compartment has a unique identifier in the greenhouse" ;
+  rdfs:comment "This class represents compartments that is an area that is controlled in the same way regarding the climate. A compartment can be separated with walls or screens but not neccessarily." ;
+  rdfs:label "Compartiment"@nl ;
+  rdfs:label "Compartment"@en ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+.
+cgo:CompartmentPart
+  rdf:type owl:Class ;
+  rdfs:label "Compartimentonderdeel"@nl ;
+  rdfs:label "Compartment Part"@en ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Compartment ;
+    ] ;
+.
+cgo:Compressor
+  rdf:type owl:Class ;
+  rdfs:label "Compressor" ;
+  rdfs:subClassOf cgo:HybridSystemPart ;
+.
+cgo:CondensationSystem
+  rdf:type owl:Class ;
+  rdfs:label "Condensation System"@en ;
+  rdfs:label "Condenswater Systeem"@nl ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:Condenser
+  rdf:type owl:Class ;
+  rdfs:comment "This device can extract heat from the refrigerant. Fans placed above the condenser unit draw air over the condenser coils. The temperature of condensation should range from around -12°C to -1°C; vapour will be cooled until it becomes a liquid refrigerant again, whereby it will retain some heat." ;
+  rdfs:label "Condenser" ;
+  rdfs:subClassOf cgo:HybridSystemPart ;
+  rdfs:subClassOf cgo:MechanicalRefrigerationPart ;
+.
+cgo:ConstructionPart
+  rdf:type owl:Class ;
+  rdfs:comment "Model-technical term" ;
+  rdfs:comment "This class represents the different parts of a construction of a building" ;
+  rdfs:label "Constructieonderdeel"@nl ;
+  rdfs:label "Construction Part"@en ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLocation ;
+      owl:someValuesFrom cgo:HortispotLocation ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:GreenhouseConstruction ;
+    ] ;
+.
+cgo:ControlSystem
+  rdf:type owl:Class ;
+  rdfs:comment "The control system controls different functions and processes inside the greenhouse. In Dutch it is usually known as the climate computer, in English it is called control system." ;
+  rdfs:label "Control System"@en ;
+  rdfs:label "Klimaatcomputer"@nl ;
+  rdfs:subClassOf ssn:System ;
+  skos:altLabel "Climate Computer"@en ;
+.
+cgo:CoolingSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Adiabatic cooling like padd wall and fogging and active cooling with condensation of moisture on a cold surface"@en ;
+  rdfs:label "Cooling System"@en ;
+  rdfs:label "Koelsysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCoolingCapacity ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:CoolingSystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the parts found in cooling systems" ;
+  rdfs:label "Cooling System Part" ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:CoolingSystem ;
+    ] ;
+.
+cgo:Copper
+  rdf:type owl:Class ;
+  rdfs:comment "Copper is a component of several enzymes in plants and is a part of a protein in the electron transport system in photosynthesis." ;
+  rdfs:comment "This is the level of copper in a sample of water measured in mmol/l of mg/l" ;
+  rdfs:label "Copper"@en ;
+  rdfs:label "Koper"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Cu" ;
+.
+cgo:CoverMaterial
+  rdf:type owl:Class ;
+  rdfs:comment "Bijvoorbeeld floatglas of folie"@nl ;
+  rdfs:label "Cover Material"@en ;
+  rdfs:label "Dekmateriaal"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCoverMaterialType ;
+      owl:someValuesFrom xsd:string ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Cladding ;
+    ] ;
+.
+cgo:Crop
+  rdf:type owl:Class ;
+  rdfs:comment "A group of plants that have the same type and breed" ;
+  rdfs:comment "Een individual van gewas is een plantensoort. Gewas is een metaklasse die enkel klasses bevat, deze klasses kunnen wel individuals bevatten. Zoals we hier crop gebruiken is dus niet helemaal accuraat maar hebben we omwille van begrijpelijkheid zo gehouden." ;
+  rdfs:comment "More characteristics of a crop can be defined using the guideline for creating a crop ontology published here: http://www.cropontology.org" ;
+  rdfs:comment "This class represents crops that are produced in a greenhouse operated by a grower" ;
+  rdfs:label "Crop"@en ;
+  rdfs:label "Gewas"@nl ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasPlantingDate ;
+      owl:someValuesFrom xsd:dateTime ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasRemovalDate ;
+      owl:someValuesFrom xsd:dateTime ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Greenhouse ;
+    ] ;
+.
+cgo:CropHeating
+  rdf:type owl:Class ;
+  rdfs:label "Crop Heating"@en ;
+  rdfs:label "Gewasverwarming"@nl ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:CropTableHeating
+  rdf:type owl:Class ;
+  rdfs:label "Crop Table Heating"@en ;
+  rdfs:label "Tafelverwarming"@nl ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:CropWire
+  rdf:type owl:Class ;
+  rdfs:label "Crop Wire"@en ;
+  rdfs:label "Gewasdraad"@nl ;
+  rdfs:subClassOf cgo:GrowingSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasTypeName ;
+      owl:someValuesFrom xsd:string ;
+    ] ;
+.
+cgo:CropWiresSystem
+  rdf:type owl:Class ;
+  rdfs:label "Crop Wires System"@en ;
+  rdfs:label "Gewasdraden Systeem"@nl ;
+  rdfs:subClassOf cgo:GrowingSystem ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHeight ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasPart ;
+      owl:someValuesFrom cgo:CropWire ;
+    ] ;
+.
+cgo:CultivationGutterSystem
+  rdf:type owl:Class ;
+  rdfs:comment "A cultivation gutter is a suspended container in which the crop is cultivated. The cultivation gutter system describes the total of cultivation gutters in a greenhouse."@en ;
+  rdfs:comment "Een teeltgoot is een hangende bak waar het gewas in groeit. Het teeltgootsysteem beschrijft het geheel van teeltgoten in een kas."@nl ;
+  rdfs:label "Cultivation Gutter System"@en ;
+  rdfs:label "Teeltgootsysteem"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:CultivationSystem
+  rdf:type owl:Class ;
+  rdfs:label "Cultivation System"@en ;
+  rdfs:label "Teeltsysteem"@nl ;
+  rdfs:subClassOf cgo:GrowingSystem ;
+.
+cgo:Curtain
+  rdf:type owl:Class ;
+  rdfs:comment "Scherm"@nl ;
+  rdfs:label "Curtain"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  skos:altLabel "Screen"@en ;
+.
+cgo:DehumidificationSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Example: DryGair dehumidifier"@en ;
+  rdfs:label "Dehumidification System"@en ;
+  rdfs:label "Ontvochtigingssysteem"@nl ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:DesiccantSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Is a combined dehumidification and cooling system" ;
+  rdfs:label "Desiccant System"@en ;
+  rdfs:subClassOf cgo:CoolingSystem ;
+.
+cgo:DesiccantSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Desiccant System Part" ;
+  rdfs:subClassOf cgo:CoolingSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:DesiccantSystem ;
+    ] ;
+.
+cgo:DesiccantWheel
+  rdf:type owl:Class ;
+  rdfs:comment "Has dessicant material to absorb humidity by chemical or physical processes. While we absorb humidity the air also warms," ;
+  rdfs:label "Desiccant Wheel" ;
+  rdfs:subClassOf cgo:DesiccantSystemPart ;
+.
+cgo:DewPointTemperature
+  rdf:type owl:Class ;
+  rdfs:comment "Dewpoint temperature indicates the temperature at which water will begin to condense out of moist air. Condensation on plants occurs when leaf surface temperature is below dew point. This is when there is too much moisture in the air to remain in the vapor state. The moisture will fall out and condense as free-moisture on surfaces that are at or below the dewpoint temperature. In other words, condensation will occur on the coldest surfaces first. The coldest surfaces will be the piping, door knobs, roof and eventually the plants. For example, when the greenhouse is 85% RH and 60°F, condensation occurs when leaf temperature is lower than 55°F. At 95 % RH and 60°F, condensation occurs when leaf temperature is only one degree lower than air temperature." ;
+  rdfs:label "Dauwpunttemperatuur"@nl ;
+  rdfs:label "Dew Point Temperature"@en ;
+  rdfs:seeAlso "https://ag.umass.edu/greenhouse-floriculture/fact-sheets/reducing-humidity-in-greenhouse" ;
+  rdfs:subClassOf cgo:Temperature ;
+.
+cgo:Diesel
+  rdf:type owl:Class ;
+  rdfs:label "Diesel"@en ;
+  rdfs:label "Diesel"@nl ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:DiffuseGlass
+  rdf:type owl:Class ;
+  rdfs:comment "Diffuse glass is on the rise and installed in many new greenhouse projects. Diffuse glass has an etching or a structure which changes the properties of the surface of the glass, which can be benefitial for the crops within the greenhouse." ;
+  rdfs:label "Diffuse Glass"@en ;
+  rdfs:label "Diffuus glas"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/greenhouse-glass" ;
+  rdfs:subClassOf cgo:Glass ;
+.
+cgo:Direction
+  rdf:type owl:Class ;
+  rdfs:label "Direction"@en ;
+  rdfs:label "Richting"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Disease
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents different kind of diseases that plants can get" ;
+  rdfs:label "Disease"@en ;
+  rdfs:label "Ziekte"@nl ;
+.
+cgo:DisinfectionSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Disinfection of crop or of return drain water" ;
+  rdfs:label "Desinfectiesysteem"@nl ;
+  rdfs:label "Disinfection System"@en ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:DisinfectionSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Disinfection System Part" ;
+  rdfs:subClassOf cgo:WaterSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:DisinfectionSystem ;
+    ] ;
+.
+cgo:DisinfectionUnit
+  rdf:type owl:Class ;
+  rdfs:label "Disinfection Unit" ;
+  rdfs:subClassOf cgo:DisinfectionSystemPart ;
+.
+cgo:DisinfectionWaterTank
+  rdf:type owl:Class ;
+  rdfs:label "Disinfection Water Tank" ;
+  rdfs:subClassOf cgo:DisinfectionSystemPart ;
+.
+cgo:DissipatedHeatingPower
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "This term might be changed" ;
+  rdfs:label "Dissipated Heating Power"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:DistributorReturn
+  rdf:type owl:Class ;
+  rdfs:label "Distributor Return" ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+  owl:equivalentClass cgo:ReturnManifold ;
+.
+cgo:DistributorSupply
+  rdf:type owl:Class ;
+  rdfs:label "Distributor Supply" ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+  owl:equivalentClass cgo:SupplyManifold ;
+.
+cgo:DoubleScreeningSystem
+  rdf:type owl:Class ;
+  rdfs:comment "The improved characteristics of the screens make for an accurate climate regulation. A double screening system has become more and more applied, as it has proven to provide growers with the flexibility they need.  Double screens are installed above each other and are always fitted with different type of climate screens. The layers can be opened and closed to complement the functionality of both." ;
+  rdfs:label "Double Screening System"@en ;
+  rdfs:label "Dubbel schermsysteem"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" ;
+  rdfs:subClassOf cgo:ScreeningSystem ;
+.
+cgo:DownPipe
+  rdf:type owl:Class ;
+  rdfs:comment "De standpijp leidt regenwater van de goot naar maaiveld of een verzamelbuis"@nl ;
+  rdfs:comment "The downpipe transports rain water from the gutter to ground level or a manifold."@en ;
+  rdfs:label "Down Pipe"@en ;
+  rdfs:label "Standpijp"@nl ;
+  rdfs:subClassOf cgo:Pipe ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:isOpenToGroundLevel ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+.
+cgo:DrainCollectionTray
+  rdf:type owl:Class ;
+  rdfs:label "Drain Collection Tray" ;
+  rdfs:subClassOf cgo:DisinfectionSystemPart ;
+.
+cgo:ECCheckSensor
+  rdf:type owl:Class ;
+  rdfs:label "EC Check Sensor"@en ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationSystem ;
+    ] ;
+.
+cgo:ECDoseSensor
+  rdf:type owl:Class ;
+  rdfs:label "EC Dose Sensor" ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationSystem ;
+    ] ;
+.
+cgo:ECMixingValveSensor
+  rdf:type owl:Class ;
+  rdfs:label "EC Mixing Valve Sensor" ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:IrrigationSystem ;
+    ] ;
+.
+cgo:ECSensor
+  rdf:type owl:Class ;
+  rdfs:comment "The fertigation unit has at least 1 EC sensor, in the Netherlands usually 2. The EC sensor measures the electrical conductivity in the water" ;
+  rdfs:label "EC sensor"@en ;
+  rdfs:subClassOf cgo:FertigationSystemSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationUnit ;
+    ] ;
+  skos:altLabel "EC Control Sensor"@en ;
+  skos:altLabel "EC Measure Sensor"@en ;
+.
+cgo:Efficiency
+  rdf:type owl:Class ;
+  rdfs:label "Efficiency"@en ;
+  rdfs:label "Efficiëntie"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:ElectricHeatPump
+  rdf:type owl:Class ;
+  rdfs:comment """Device for generating cooling and lift tempeature of harvested heat for reuse.
+If external air is used, a defrosting system is needed at temperatures of around 0ºC, which entails additional energy consumption.
+During this phase the heat pump uses the heat of the hot source in order to defrost the battery and so heating ceases for some minutes.""" ;
+  rdfs:label "Electric Heat Pump"@en ;
+  rdfs:label "Elektrische warmtepomp"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf cgo:HeatPump ;
+.
+cgo:ElectricalConductivity
+  rdf:type owl:Class ;
+  rdfs:comment "This is the electrical conductivity of a sample of water measured in milliSiemens per centimeter (mS/cm)" ;
+  rdfs:label "Electrical Conductivity"@en ;
+  rdfs:label "Elektrische geleiding"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "EC"@en ;
+.
+cgo:ElectricalGridEnergy
+  rdf:type owl:Class ;
+  rdfs:label "Electrical Grid"@en ;
+  rdfs:label "Elektriciteitsnet"@nl ;
+  rdfs:subClassOf cgo:PowerSource ;
+.
+cgo:ElectricalPowerSystem
+  rdf:type owl:Class ;
+  rdfs:label "Electrical Power System"@en ;
+  rdfs:label "Elektrisch energiesysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasElectricalPower ;
+      owl:someValuesFrom xsd:decimal ;
+    ] ;
+.
+cgo:EmbeddedHeatingPipe
+  rdf:type owl:Class ;
+  rdfs:comment "The floor heating pipe is a heating pipe that is embedded in the floor of the greenhouse such that we warm up the floor. Usually this floor is made of concrete. The temperature of this pipe isaround 30 degrees to not burn the roots of the plants" ;
+  rdfs:label "Floor Heating Pipe"@en ;
+  rdfs:label "Vloerverwarmingsbuis"@nl ;
+  rdfs:subClassOf cgo:HeatingPipe ;
+  skos:altLabel "Embedded Heating Pipe"@en ;
+.
+cgo:EnergyCurtain
+  rdf:type owl:Class ;
+  rdfs:label "Energiescherm"@nl ;
+  rdfs:label "Energy Curtain"@en ;
+  rdfs:subClassOf cgo:Curtain ;
+.
+cgo:EnergyRecoveryWheel
+  rdf:type owl:Class ;
+  rdfs:comment "Hot air goes into the recovery wheel and is transformed into heat" ;
+  rdfs:label "Energy Recovery Wheel" ;
+  rdfs:subClassOf cgo:DesiccantSystemPart ;
+.
+cgo:EnergyScreen
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents energy screens in greenhouses" ;
+  rdfs:label "Energiescherm"@nl ;
+  rdfs:label "Energy Screen"@en ;
+  rdfs:subClassOf cgo:Screen ;
+.
+cgo:EvaporativeCooler
+  rdf:type owl:Class ;
+  rdfs:comment "One used towards the greenhouse, one used from the greenhouse to the outside air, to cool the air going into the greenhouse" ;
+  rdfs:label "Evaporative Cooler" ;
+  rdfs:subClassOf cgo:DesiccantSystemPart ;
+.
+cgo:EvaporativePad
+  rdf:type owl:Class ;
+  rdfs:comment "Saturated with water, from the surface the water evaporates. With fans you suck the air from the greenhouse such that the outside air is forced through the pad. Due to the evaporation the air is cooled." ;
+  rdfs:label "Evaporative Cooling Pad" ;
+  rdfs:label "Evaporative Pad" ;
+  rdfs:subClassOf cgo:PadAndFanSystemPart ;
+.
+cgo:Evaporator
+  rdf:type owl:Class ;
+  rdfs:comment "The sole purpose of the evaporator is to remove the unwanted heat from the product through liquid refrigerants. The liquid refrigerant must be at a low-pressure. This low-pressure can be determined by two factors – one is the heat being absorbed from the product to the liquid refrigerant and the other is the removal of low-pressure vapour by the compressor." ;
+  rdfs:label "Evaporator" ;
+  rdfs:subClassOf cgo:HybridSystemPart ;
+  rdfs:subClassOf cgo:MechanicalRefrigerationPart ;
+.
+cgo:ExhaustFan
+  rdf:type owl:Class ;
+  rdfs:comment "Fans are used to suck air out of the greenhouse such that the evaporative cooling pad can function. They are installed to the opposite side of the Pad" ;
+  rdfs:label "Exhaust Fan" ;
+  rdfs:subClassOf cgo:PadAndFanSystemPart ;
+.
+cgo:ExpansionValve
+  rdf:type owl:Class ;
+  rdfs:label "Expansion Valve" ;
+  rdfs:subClassOf cgo:HybridSystemPart ;
+.
+cgo:FertigationDirectInjectionSystem
+  rdf:type owl:Class ;
+  rdfs:comment "A fertigation system without a mixing tank. The concentrated fertilizer is injected in the same pipe . The mixing is taking place inside the pipe. There might be differences in the mixture because there is no mixing tank" ;
+  rdfs:label "Fertigatiesysteem met directe injectie"@nl ;
+  rdfs:label "Fertigation Direct Injection System"@en ;
+  rdfs:subClassOf cgo:FertigationSystem ;
+.
+cgo:FertigationMixingTankSystem
+  rdf:type owl:Class ;
+  rdfs:comment "The system or device which at the same time prepares the fertilization recipe and provides the irrigation water to the plants, has a mixing tank." ;
+  rdfs:label "Fertigatiesysteem met mengtank"@nl ;
+  rdfs:label "Fertigation Unit System"@en ;
+  rdfs:subClassOf cgo:FertigationSystem ;
+.
+cgo:FertigationPump
+  rdf:type owl:Class ;
+  rdfs:label "Fertigation Pump" ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+.
+cgo:FertigationRecipe
+  rdf:type owl:Class ;
+  rdfs:label "Fertigation Recipe"@en ;
+  rdfs:label "Voedingsrecept"@nl ;
+  rdfs:subClassOf sosa:Procedure ;
+  skos:altLabel "Nutrition Recipe"@en ;
+.
+cgo:FertigationSystem
+  rdf:type owl:Class ;
+  rdfs:comment "'Fertigation' is the process of supplying dissolved fertiliser to crops through an irrigation system." ;
+  rdfs:label "Fertigatiesysteem"@nl ;
+  rdfs:label "Fertigation System"@en ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:FertigationSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Fertigation System Part" ;
+  rdfs:subClassOf cgo:WaterSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationSystem ;
+    ] ;
+.
+cgo:FertigationSystemSensor
+  rdf:type owl:Class ;
+  rdfs:label "Fertigation System Sensor" ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+.
+cgo:FertigationTank
+  rdf:type owl:Class ;
+  rdfs:label "Fertigation Tank" ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+.
+cgo:FertigationUnit
+  rdf:type owl:Class ;
+  rdfs:comment "The system or device which at the same time prepares the fertilization recipe and provides the irrigation water to the plants, has a mixing tank. Is the heart of the Fertigation System" ;
+  rdfs:label "Fertigation Unit" ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:ECSensor ;
+      owl:onProperty cgo:hasPart ;
+    ] ;
+.
+cgo:FertigationUnitFertilizerValve
+  rdf:type owl:Class ;
+  rdfs:comment "Each valve is connected with a tank with concentrated fertilizer solution, the valve is used to inject the right amount of concentrated fertilizer to the mixing tank. Usually are solenoid venturi valves" ;
+  rdfs:label "Fertigation Unit Fertilizer Valve"@en ;
+  rdfs:label "Klep voor de fertigatie unit"@nl ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+  rdfs:subClassOf cgo:Valve ;
+.
+cgo:FertigationUnitMainPump
+  rdf:type owl:Class ;
+  rdfs:comment "Mixes the fertigation solution and provides it to the greenhouse or to the fertilizer daily supply tank at the same time." ;
+  rdfs:label "Fertigation Unit Main Pump" ;
+  rdfs:subClassOf cgo:FertigationPump ;
+.
+cgo:FertigationUnitSupplyPump
+  rdf:type owl:Class ;
+  rdfs:comment "The pump which supplies clean water to the fertigation unit from the clean water tank" ;
+  rdfs:label "Fertigation Unit Supply Pump" ;
+  rdfs:subClassOf cgo:FertigationPump ;
+.
+cgo:FertilityTrait
+  rdf:type owl:Class ;
+  rdfs:label "Fertility Trait"@en ;
+  rdfs:label "Vruchtbaarheidskenmerken"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+.
+cgo:FertilizationRecipe
+  rdf:type owl:Class ;
+  rdfs:comment "The combination of fertilizers, both macro and micro nutrients, and the concentration in the water. The recipe describes this." ;
+  rdfs:label "Bemestingsrecept"@nl ;
+  rdfs:label "Fertilization Recipe"@en ;
+  rdfs:subClassOf sosa:Procedure ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+.
+cgo:Fertilizer
+  rdf:type owl:Class ;
+  rdfs:comment "Important considerations are ratio of ammonium to nitrate-N, trace element charge, content of calcium and magnesium, and potential acidity or basicity." ;
+  rdfs:label "Fertilizer Type" ;
+  rdfs:label "Fertilizer" ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+.
+cgo:FertilizerConcentratedSolution
+  rdf:type owl:Class ;
+  rdfs:comment "Fertilizer solution that is inside the Fertilizer Tank, is made with the fertilization recipe" ;
+  rdfs:label "Fertilizer Concentrated Solution" ;
+  rdfs:subClassOf cgo:FertigationSystemPart ;
+.
+cgo:FertilizerDailySupplyTank
+  rdf:type owl:Class ;
+  rdfs:comment "This tank can be used to temporarily store the fertigation mix." ;
+  rdfs:label "Fertilizer Daily Supply Tank" ;
+  rdfs:subClassOf cgo:FertigationTank ;
+.
+cgo:FertilizerTank
+  rdf:type owl:Class ;
+  rdfs:comment "Tank with fertilizer that is connected to the unit, has its own fertilizer recipe" ;
+  rdfs:label "Fertilizer Tank" ;
+  rdfs:subClassOf cgo:FertigationTank ;
+.
+cgo:FireTubeBoiler
+  rdf:type owl:Class ;
+  rdfs:comment "A fire-tube boiler is a type of boiler in which hot gases pass from a fire through one or more tubes running through a sealed container of water."@en ;
+  rdfs:label "Fire-Tube Boiler"@en ;
+  rdfs:label "Vlampijpketel"@nl ;
+  rdfs:subClassOf cgo:Boiler ;
+.
+cgo:Floor
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents floors of greenhouses" ;
+  rdfs:label "Floor"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Flower
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents flowers" ;
+  rdfs:label "Bloem"@nl ;
+  rdfs:label "Flower"@en ;
+  rdfs:subClassOf cgo:Crop ;
+.
+cgo:FlowerConstruction
+  rdf:type owl:Class ;
+  rdfs:comment "The preception of the flower construction of a plant as a number between 1 and 10 from bad to good" ;
+  rdfs:label "Bouw van de bloem"@nl ;
+  rdfs:label "Flower Construction"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+.
+cgo:FlowerPart
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the different parts of a flower" ;
+  rdfs:label "Bloemonderdeel"@nl ;
+  rdfs:label "Flower Part"@en ;
+  rdfs:subClassOf cgo:PlantPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Flower ;
+    ] ;
+.
+cgo:FoggingSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Adiabatic cooling in the greenhouse by spraying tiny water droplets above the canopy" ;
+  rdfs:label "Fogging System"@en ;
+  rdfs:label "Vernevelingssysteem"@nl ;
+  rdfs:subClassOf cgo:CoolingSystem ;
+  skos:altLabel "Nevelsysteem"@nl ;
+.
+cgo:FoggingSystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the parts found in fogging systems" ;
+  rdfs:label "Fogging System Part" ;
+  rdfs:subClassOf cgo:CoolingSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FoggingSystem ;
+    ] ;
+.
+cgo:Foundation
+  rdf:type owl:Class ;
+  rdfs:label "Foundation"@en ;
+  rdfs:label "Fundering"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHeight ;
+      owl:someValuesFrom om:Height ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasSlope ;
+      owl:someValuesFrom om:Measure ;
+    ] ;
+.
+cgo:FoundationSlope
+  rdf:type owl:Class ;
+  rdfs:comment """Because greenhouses deal with rainfall, snowfall and also often have irrigation gutters installed, Dutch greenhouses are constructed on an angle. The slope is applied lengthwise, in the gutter-direction of the greenhouse. To ensure the optimal water discharge, the foundation has to be created accordingly. The slope that is most applied is 2.25 mm per meter gutter-length.  Horizontally, the foundation has to be perfectly levelled out.
+ In greenhouses with larger lengths, the slope for water discharge has to be created on two sides.  This implies that the highest point of the greenhouse is in the centre of structure."""@en ;
+  rdfs:comment "Moved to object property hasSlope" ;
+  rdfs:label "DEPRECATED Aflloop van de fundering"@nl ;
+  rdfs:label "DEPRECATED Foundation Slope"@en ;
+  rdfs:seeAlso cgo:hasSlope ;
+  rdfs:subClassOf cgo:Foundation ;
+  owl:deprecated "true"^^xsd:boolean ;
+.
+cgo:Frame
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents frames of greenhouses" ;
+  rdfs:label "Frame"@en ;
+  rdfs:label "Frame"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  skos:altLabel "Structure"@en ;
+.
+cgo:Fruit
+  rdf:type owl:Class ;
+  rdfs:label "Fruit"@en ;
+  rdfs:label "Fruit"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:Fuel
+  rdf:type owl:Class ;
+  rdfs:label "Brandstof"@nl ;
+  rdfs:label "Fuel"@en ;
+  rdfs:subClassOf cgo:PowerSource ;
+.
+cgo:GPSGrid
+  rdf:type owl:Class ;
+  rdfs:comment "The grid based on GPS coordinates"@en ;
+  rdfs:label "GPS Grid"@en ;
+  rdfs:label "GPS-raster"@nl ;
+  rdfs:subClassOf cgo:Grid ;
+.
+cgo:GableEnd
+  rdf:type owl:Class ;
+  rdfs:comment "This is the triangular end part of a gabled roof usually consisting of glass." ;
+  rdfs:label "Gable End"@en ;
+  rdfs:label "Kopgevel"@nl ;
+  rdfs:subClassOf cgo:Wall ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:CropWiresSystem ;
+      owl:onProperty cgo:hasSystem ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:PipeworkHeatingSystem ;
+      owl:onProperty cgo:hasSystem ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:ScreeningSystem ;
+      owl:onProperty cgo:hasSystem ;
+    ] ;
+.
+cgo:Galvanization
+  rdf:type owl:Class ;
+  rdfs:label "Galvanization"@en ;
+  rdfs:label "Verzinken"@nl ;
+  rdfs:subClassOf cgo:SurfaceTreatment ;
+.
+cgo:Gantry
+  rdf:type owl:Class ;
+  rdfs:label "Gantry"@en ;
+  rdfs:label "Spant"@nl ;
+  rdfs:label "Truss"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Gas
+  rdf:type owl:Class ;
+  rdfs:label "Gas"@en ;
+  rdfs:label "Gas"@nl ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:GasAbsorptionHeatPump
+  rdf:type owl:Class ;
+  rdfs:comment "If external air is used, a defrosting system is needed, which is automatically activated at temperatures of around 0ºC. Heat output supplied during the defrosting phase (which lasts a few minutes) falls, but does not cease completely." ;
+  rdfs:label "Gas Absorption Heat Pump"@en ;
+  rdfs:label "Gasabsorptiewarmtepomp"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf cgo:HeatPump ;
+.
+cgo:Gasoline
+  rdf:type owl:Class ;
+  rdfs:label "Benzine"@nl ;
+  rdfs:label "Gasoline"@en ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:GeothermalEnergy
+  rdf:type owl:Class ;
+  rdfs:label "Geothermal Energy"@en ;
+  rdfs:label "Geothermische energie"@nl ;
+  rdfs:subClassOf cgo:PowerSource ;
+.
+cgo:Glass
+  rdf:type owl:Class ;
+  rdfs:comment "In vegetable production, a rule of thumb states that 1% more light equals 1% more potential production. The greenhouse covering therefore should allow the sunlight to enter the greenhouse as much as possible for a maximum potential photosynthesis. Just like every constructive element in the greenhouse, glass is evaluated carefully for its light translucency and its return on investment, if not more." ;
+  rdfs:label "Glas"@nl ;
+  rdfs:label "Glass"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/greenhouse-glass" ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  skos:altLabel "Greenhouse Glass"@en ;
+.
+cgo:Greenhouse
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents greenhouses in which crop is being grown by a grower" ;
+  rdfs:label "Greenhouse"@en ;
+  rdfs:label "Kas"@nl ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasArea ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLength ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLocation ;
+      owl:someValuesFrom cgo:Location ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasOrientation ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasWidth ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:GreenhouseAir
+  rdf:type owl:Class ;
+  rdfs:label "Greenhouse Air"@en ;
+  rdfs:label "Lucht in de kas"@nl ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+.
+cgo:GreenhouseClimate
+  rdf:type owl:Class ;
+  rdfs:comment "The greenhouse climate is a direct, day-to-day state of temperature, air pressure, moisture, and more factors inside the greenhouse. It is called greenhouse climate, but regarding the earlier use of weather and climate, greenhouse weather is probably a more correct term." ;
+  rdfs:label "Greenhouse Climate"@en ;
+  rdfs:label "Kasklimaat"@nl ;
+  rdfs:subClassOf cgo:Weather ;
+.
+cgo:GreenhouseConstruction
+  rdf:type owl:Class ;
+  rdfs:comment """An efficient workflow defines the Dutch greenhouse construction industry. This is the case for the process of engineering, procurement and especially the construction of the greenhouse. Greenhouses are designed to be assembled easily and quickly. A greenhouse however, is of great value and the consequences of error and success are considerably large.
+
+The greenhouse construction is therefore handled under strict supervision by a professional supervisor. Supervisors are experienced Dutch greenhouse builders who accompany local subcontractors on each step of the assembling process. With clear instruction manuals and videos, the right equipment and a number of local construction companies, a greenhouse is relatively easily and quickly constructed.""" ;
+  rdfs:label "Greenhouse Construction"@en ;
+  rdfs:label "Kasconstructie"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/index.php/approach/greenhouse-construction" ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasConstructionType ;
+      owl:someValuesFrom xsd:string ;
+    ] ;
+  skos:altLabel "Construction"@en ;
+.
+cgo:GreenhouseLocalGrid
+  rdf:type owl:Class ;
+  rdfs:comment "The x-y grid of the greenhouse based on the hortispot"@en ;
+  rdfs:label "Greenhouse Local Grid"@en ;
+  rdfs:label "Kas-lokaal raster"@nl ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+  rdfs:subClassOf cgo:Grid ;
+.
+cgo:GreenhouseOwner
+  rdf:type owl:Class ;
+  rdfs:label "Greenhouse Owner"@en ;
+  rdfs:label "Kaseigenaar"@nl ;
+  rdfs:subClassOf foaf:Person ;
+.
+cgo:GreenhousePart
+  rdf:type owl:Class ;
+  rdfs:comment "Model-technical term" ;
+  rdfs:comment "This class represents the different parts of a greenhouse" ;
+  rdfs:label "Greenhouse Part"@en ;
+  rdfs:label "Kasonderdeel"@nl ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLocation ;
+      owl:someValuesFrom cgo:HortispotLocation ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Greenhouse ;
+    ] ;
+.
+cgo:GreenhouseSensor
+  rdf:type owl:Class ;
+  rdfs:comment "Technical sensor" ;
+  rdfs:label "Sensor"@en ;
+  rdfs:label "Sensor"@nl ;
+  rdfs:subClassOf sosa:Sensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Greenhouse ;
+    ] ;
+  skos:altLabel "Greenhouse Sensor"@en ;
+.
+cgo:GreenhouseWeatherStation
+  rdf:type owl:Class ;
+  rdfs:label "Greenhouse Weather Station"@en ;
+  rdfs:label "Weerstation van een kas"@nl ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+.
+cgo:Greenhouse_1
+  rdf:type owl:NamedIndividual ;
+  rdf:type cgo:Greenhouse ;
+  cgo:hasArea cgo:Area_3 ;
+.
+cgo:Greenhouse_2
+  rdf:type owl:NamedIndividual ;
+  rdf:type cgo:Greenhouse ;
+  cgo:hasArea cgo:Area_2 ;
+.
+cgo:Grid
+  rdf:type owl:Class ;
+  rdfs:label "Grid"@en ;
+  rdfs:label "Raster"@nl ;
+  rdfs:subClassOf schema:Place ;
+.
+cgo:Ground
+  rdf:type owl:Class ;
+  rdfs:label "Grond"@nl ;
+  rdfs:label "Ground"@en ;
+  rdfs:subClassOf cgo:Source ;
+.
+cgo:GroundCoupledHeatPump
+  rdf:type owl:Class ;
+  rdfs:label "Ground Coupled Heat Pump" ;
+  rdfs:subClassOf cgo:HeatPump ;
+.
+cgo:GroundCoverNet
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents nets that cover ground that are used in greenhouses" ;
+  rdfs:label "Ground Cover Net"@en ;
+  rdfs:subClassOf cgo:Net ;
+.
+cgo:GroundHeating
+  rdf:type owl:Class ;
+  rdfs:label "Grondverwarming"@nl ;
+  rdfs:label "Ground Heating"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:GroundSourceHeatPump
+  rdf:type owl:Class ;
+  rdfs:comment """The GSHPs comprise a wide variety of systems that may use ground-water, ground, or surface
+water as heat sources or sinks. These systems have been basically grouped into three categories
+by ASHRAE [13]: (1) ground-water heat pump (GWHP) systems, (2) surface water heat pump
+(SWHP) systems, and (3) ground-coupled heat pump (GCHP) systems. The schematics of these
+different systems are shown in Figure 3. Many parallel terms exist: geothermal heat pump
+(GHP), earth energy system (EES), and ground-source system (GSS).""" ;
+  rdfs:label "Geothermal Heat Pump"@en ;
+  rdfs:label "Geothermische warmtepomp"@nl ;
+  rdfs:subClassOf cgo:HeatPump ;
+  skos:altLabel "Earth Energy System"@en ;
+  skos:altLabel "Ground Source Heat Pump"@en ;
+  skos:altLabel "Ground Source System"@en ;
+.
+cgo:GroundWaterHeatPump
+  rdf:type owl:Class ;
+  rdfs:label "Ground Water Heat Pump" ;
+  rdfs:subClassOf cgo:HeatPump ;
+.
+cgo:Grower
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents growers that operate and possibly own a greenhouse to produce one or more crops as efficient and effective as possible" ;
+  rdfs:label "Grower"@en ;
+  rdfs:label "Teler"@nl ;
+  rdfs:subClassOf foaf:Person ;
+.
+cgo:GrowingHeatingPipe
+  rdf:type owl:Class ;
+  rdfs:comment "The growing heating pipe is the heating pipe which has a diameter less than the primary heating pipe, and is installed in the middle of the canopy and operates with relatively lower water temperatures around 40 degrees" ;
+  rdfs:label "Growing Heating Pipe"@en ;
+  rdfs:subClassOf cgo:HeatingPipe ;
+.
+cgo:GrowingMedium
+  rdf:type owl:Class ;
+  rdfs:label "Groeimedium"@nl ;
+  rdfs:label "Growing Medium"@en ;
+  rdfs:subClassOf cgo:GrowingSystem ;
+.
+cgo:GrowingSystem
+  rdf:type owl:Class ;
+  rdfs:label "Groeisysteem"@nl ;
+  rdfs:label "Growing System"@en ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasDrainFactor ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLeafAreaIndex ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:GrowingSystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the parts found in growing systems" ;
+  rdfs:label "Growing System Part" ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:GrowingSystem ;
+    ] ;
+.
+cgo:GrowthCircuit
+  rdf:type owl:Class ;
+  rdfs:label "Growth Circuit" ;
+  rdfs:subClassOf cgo:GrowingSystemPart ;
+.
+cgo:GrowthPipeHeating
+  rdf:type owl:Class ;
+  rdfs:label "Groeibuisverwarming"@nl ;
+  rdfs:label "Growth Pipe Heating"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:Gutter
+  rdf:type owl:Class ;
+  rdfs:label "Goot"@nl ;
+  rdfs:label "Gutter"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHeight ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:HPS
+  rdf:type owl:Class ;
+  rdfs:comment "High-pressure sodium (HPS) lamps"@en ;
+  rdfs:label "HPS"@en ;
+  rdfs:label "HPS"@nl ;
+  rdfs:subClassOf cgo:Light ;
+.
+cgo:HeatDistributionSystem
+  rdf:type owl:Class ;
+  rdfs:label "Heat Distribution System"@en ;
+  rdfs:label "Warmtedistributiesysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCapacity ;
+      owl:someValuesFrom om:HeatFluxDensity ;
+    ] ;
+.
+cgo:HeatExchanger
+  rdf:type owl:Class ;
+  rdfs:comment """Uses hot or cold water, sometimes directly with cooling media
+Hot water can be used for both heating and cooling""" ;
+  rdfs:label "Heat Exchanger"@en ;
+  rdfs:label "Warmtewisselaar"@nl ;
+  rdfs:subClassOf cgo:HeatingSystem ;
+.
+cgo:HeatPump
+  rdf:type owl:Class ;
+  rdfs:comment "Hybrid system that can be used for both cooling and heating, and uses multiple sources (e.g. ground warmth + fuel)." ;
+  rdfs:label "Heat Pump System"@en ;
+  rdfs:label "Warmtepomp"@nl ;
+  rdfs:subClassOf cgo:HybridSystem ;
+  skos:altLabel "Heat Pump"@en ;
+.
+cgo:HeatPumpSource
+  rdf:type owl:Class ;
+  rdfs:comment "The source of a heat pump" ;
+  rdfs:label "Heat Pump Source"@en ;
+  rdfs:label "Warmtepompbron"@nl ;
+  rdfs:subClassOf cgo:Source ;
+.
+cgo:HeatStorageSystem
+  rdf:type owl:Class ;
+  rdfs:label "Heat Storage System"@en ;
+  rdfs:label "Warmteopslagsysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+.
+cgo:HeatStorageSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Heat Storage System Part"@en ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:HeatStorageSystem ;
+    ] ;
+.
+cgo:HeatStorageTank
+  rdf:type owl:Class ;
+  rdfs:label "Heat Storage Tank"@en ;
+  rdfs:label "Warmteopslagtank"@nl ;
+  rdfs:subClassOf cgo:HeatStorageSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasNitrogenExpansionUnit ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasOpenBuffer ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasOrientation ;
+      owl:someValuesFrom [
+          rdf:type rdfs:Datatype ;
+          owl:oneOf [
+              rdf:type rdf:List ;
+              rdf:first "Horizontal" ;
+              rdf:rest [
+                  rdf:type rdf:List ;
+                  rdf:first "Vertical" ;
+                  rdf:rest () ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasVolume ;
+      owl:someValuesFrom xsd:decimal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:isAboveGround ;
+      owl:someValuesFrom xsd:boolean ;
+    ] ;
+.
+cgo:HeatStorageTankSystem
+  rdf:type owl:Class ;
+  rdfs:label "Heat Storage Tank System"@en ;
+  rdfs:label "Warmteopslagtanksysteem"@nl ;
+  rdfs:subClassOf cgo:HeatStorageSystem ;
+.
+cgo:HeatWaterMixingValve
+  rdf:type owl:Class ;
+  rdfs:label "Heat Water Mixing Valve"@en ;
+  rdfs:label "Warmwatermengklep"@nl ;
+  rdfs:subClassOf cgo:BoilerPart ;
+  rdfs:subClassOf cgo:Valve ;
+.
+cgo:HeatWaterTransportPump
+  rdf:type owl:Class ;
+  rdfs:label "Heat Water Transport Pump" ;
+  rdfs:subClassOf cgo:BoilerPart ;
+.
+cgo:HeatingCoil
+  rdf:type owl:Class ;
+  rdfs:comment "To warm up humid air before it goes into the dessicant wheel" ;
+  rdfs:label "Heating Coil" ;
+  rdfs:subClassOf cgo:DesiccantSystemPart ;
+.
+cgo:HeatingPipe
+  rdf:type owl:Class ;
+  rdfs:label "Heating Pipe"@en ;
+  rdfs:label "Verwarmingsbuis"@nl ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+  rdfs:subClassOf cgo:Pipe ;
+.
+cgo:HeatingSystem
+  rdf:type owl:Class ;
+  rdfs:label "Heating System"@en ;
+  rdfs:label "Verwarmingssysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasThermalPower ;
+      owl:someValuesFrom xsd:decimal ;
+    ] ;
+.
+cgo:HeatingSystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the parts found in heating systems" ;
+  rdfs:label "Heating System Part" ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:HeatingSystem ;
+    ] ;
+.
+cgo:HeavyOil
+  rdf:type owl:Class ;
+  rdfs:label "Heavy Oil"@en ;
+  rdfs:label "Zware Stookolie"@nl ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:Height
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Height"@en ;
+  rdfs:label "Hoogte"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:HighPressureFogging
+  rdf:type owl:Class ;
+  rdfs:comment "\"Similar to the Pad and Fan system, High Pressure Fogging works on the principal of evaporative cooling. Under a high pressure, water is introduced to a nozzle with a miniscule opening. In essence, water is divided into tiny particles, creating fog. When the temperature and humidity-levels in the greenhouse allow it, these water particles are evaporated before they hit the leaf of the crop. Just like Pad & Fan, the humidity is increased and the greenhouse air is chilled.\"" ;
+  rdfs:label "High Pressure Fogging System"@en ;
+  rdfs:label "Hogedruk nevelsysteem"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/cooling" ;
+  rdfs:subClassOf cgo:FoggingSystem ;
+.
+cgo:HorizontalPipe
+  rdf:type owl:Class ;
+  rdfs:comment "Horizontal pipes must be installed at a depth of 1 to 1.5 metres below the ground in order not to be unduly affected by variations in external air temperature and to retain the beneficial effects of insulation." ;
+  rdfs:label "Horizontal Pipe"@en ;
+  rdfs:label "Horizontale buis"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf cgo:HeatingPipe ;
+.
+cgo:HorticulturalFloatGlass
+  rdf:type owl:Class ;
+  rdfs:comment "Two types of greenhouse glass can be distinguished; horticultural float glass and diffuse glass. The typical glass that is used for glass greenhouses is the horticultural float glass. It is a transparent glass with a high light admittance to ensure sufficient light in the greenhouse." ;
+  rdfs:label "Floatglas"@nl ;
+  rdfs:label "Horticultural Float Glass"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/greenhouse-glass" ;
+  rdfs:subClassOf cgo:Glass ;
+.
+cgo:Hortispot
+  rdf:type owl:Class ;
+  rdfs:comment """het referentiepunt dient om de locatie van elementen in de afdeling te bepalen relatief ten opzichte van dit referentiepunt. Het middelpunt is gedefinieerd als een combinatie van het midden van de breedte (= X) van de afdeling, het midden van de lengte (= Y) van de afdeling en de onderkant van de kasgoot als de hoogte (=Z) van de afdeling. 
+a.	De X-Y positie voor de lengte-breedte is gedefinieerd vanuit een bovenaanzicht van de afdeling
+b.	De Z-positie voor de hoogte is gedefinieerd als een punt ter hoogte van de onderzijde van de kasgoot op de onder a bepaalde X-Y positie. 
+Belangrijk voordeel van deze keuze is dat het een algemeen bruikbare definitie is zonder dat er aannames worden gemaakt over de constructie van de kas. Voor de meeste gevallen zal een block een gewone rechthoek vormen, waardoor het referentiepunt in het midden van het block terecht komt. Voor een block dat geen rechthoek vormt kan het zijn dat het referentiepunt buiten het block terecht komt, omdat de X en Y-coordinaat bepaald wordt door de langste lengte en langste breedte van het block. Dat vormt echter geen probleem, omdat het referentiepunt een virtueel punt is, waarmee gerekend kan worden ongeacht de specifieke, absolute locatie."""@nl ;
+  rdfs:label "Hortispot"@en ;
+  rdfs:label "Referentiepunt"@nl ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHortispotX ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHortispotY ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHortispotZ ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Block ;
+    ] ;
+.
+cgo:HortispotLocation
+  rdf:type owl:Class ;
+  rdfs:comment "De locatie van een element in de kas ten opzichte van de hortispot"@nl ;
+  rdfs:comment "Positioneringsstelsel: de positie van een element in de afdeling t.o.v. het referentiepunt wordt uitgedrukt in een XYZ-stelsel waarbij de afstand t.o.v. het referentiepunt bepaald wordt in centimeters. Om dit te kunnen bepalen is er een oriëntatie-afspraak nodig die de richting van de X-as, Y-as en Z-as bepaalt. Deze richtingen worden ook vastgelegd in deze standaard. De Y-richting loopt parallel aan de kasgoot, de X-richting staat daar loodrecht op in het horizontale vlak, en de Z-richting staat loodrecht op het X-Y-vlak. Tot slot, moet bepaald worden wat de positieve en negatieve richtingen zijn van de assen. Voor de X-as en de Y-as dient de geografische Noordpool als referentie. De coördinaten van de X-as en van de Y-as zijn positief in de richting die naar het Noorden loopt. Indien de Y-as van de kas exact op één lijn naar de Noordpool ligt, dan is de positieve richting van de X-as naar het geografische Oosten. De positieve richting van de Z-as is hemelwaarts en de negatieve richting aardwaarts." ;
+  rdfs:comment "The location of an element in the greenhouse relative to the hortispot"@en ;
+  rdfs:label "Hortispot Location"@en ;
+  rdfs:label "Hortispotlocatie"@nl ;
+  rdfs:subClassOf cgo:Location ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHortispotLocationX ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHortispotLocationY ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHortispotLocationZ ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:HotSource
+  rdf:type owl:Class ;
+  rdfs:comment """The hot source (to which heat produced and recovered is transferred)
+The air or water to be heated is called a hot source.
+Heat may be transferred to the environment through:
+
+    Fan coils, consisting of cabinets in which air is made to circulate through heating bodies. These may be wall-mounted, ceiling-mounted or built-in models.
+    Coils built into the floor, in which hot water circulates. Heating occurs mainly through radiation and requires a lower water temperature.
+    Canalizations, which transfer the heat produced by the heat pump to the different rooms, by means of suitable air channels and inlet vents.""" ;
+  rdfs:label "Hot Source"@en ;
+  rdfs:label "Warme bron"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf cgo:HeatPumpSource ;
+.
+cgo:HumidificationSystem
+  rdf:type owl:Class ;
+  rdfs:label "Bevochtigingssysteem"@nl ;
+  rdfs:label "Humidification System"@en ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:HumidityDeficit
+  rdf:type owl:Class ;
+  rdfs:comment "Difference in absolute humidity in greenhouse air and maximum absolute humidity in air at the observed temperaure" ;
+  rdfs:label "Humidity Deficit"@en ;
+  rdfs:label "Vochtdeficit"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  skos:altLabel "Vochttekort"@nl ;
+.
+cgo:HybridSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Combines different energy sources for heat. For example: Geothermal energy and fuel." ;
+  rdfs:label "Hybrid System"@en ;
+  rdfs:label "Hybride systeem"@nl ;
+  rdfs:subClassOf cgo:CoolingSystem ;
+  rdfs:subClassOf cgo:HeatingSystem ;
+.
+cgo:HybridSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Hybrid System Part"@en ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:HybridSystem ;
+    ] ;
+.
+cgo:Hydrogen
+  rdf:type owl:Class ;
+  rdfs:comment """Hydrogen is a component of the organic compounds where we find C. Hydrogen ions are involved in electrochemical reactions to maintain charge balances across cell.
+membranes.""" ;
+  rdfs:label "Hydrogen"@en ;
+  rdfs:label "Waterstof"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "H" ;
+.
+cgo:InnerField
+  rdf:type owl:Class ;
+  rdfs:comment "Het middenvak omvat het grootste deel van de meeste kassen. Het is gedefinieerd als alle velden die zich niet in de eerste (of laatste) kap en niet in de eerste (of laatste) twee vakken bevinden."@nl ;
+  rdfs:comment "The inner field encompasses the majority of the surface of most greenhouses. It is defined as the fields of the greenhouse that are neither in the first (or last) bay nor in the first or second (or last and second to last) section."@en ;
+  rdfs:label "Inner field"@en ;
+  rdfs:label "Middenvak"@nl ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+.
+cgo:InnerFoundation
+  rdf:type owl:Class ;
+  rdfs:comment "The inner greenhouse foundation is to transfer the loads from the steel post to the ground or, if necessary, the drivepiles. Pre-fabricated concrete or steel dollies are used for the inner foundation. These dollies are made with a steel strip on top for seamless connection with the greenhouse posts. The dollies are placed in boreholes with a calculated diameter and filled with concrete. Underneath the cross brace columns, the borehole is always carried out lareger than at the rest of the inner columns, because more load is being transferred." ;
+  rdfs:label "Binnenfundering"@nl ;
+  rdfs:label "Inner Foundation"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/greenhouse-foundation" ;
+  rdfs:subClassOf cgo:Foundation ;
+.
+cgo:InnerWall
+  rdf:type owl:Class ;
+  rdfs:label "Inner Wall"@en ;
+  rdfs:label "Tussengevel"@nl ;
+  rdfs:subClassOf cgo:Wall ;
+.
+cgo:Iron
+  rdf:type owl:Class ;
+  rdfs:comment "Iron is used in the biochemical reactions that form chlorophyll and is a part of one of the enzymes that is responsible for the reduction of nitrate nitrogen to ammoniacal nitrogen. Other enzyme systems such as catalase and peroxidase also require Fe." ;
+  rdfs:comment "This is the level of iron in a sample of water measured in µmol/l" ;
+  rdfs:label "IJzer"@nl ;
+  rdfs:label "Iron"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Fe" ;
+.
+cgo:IrrigationFeedPump
+  rdf:type owl:Class ;
+  rdfs:label "Irrigation Feed Pump" ;
+  rdfs:subClassOf cgo:IrrigationPump ;
+.
+cgo:IrrigationFlowrateSensor
+  rdf:type owl:Class ;
+  rdfs:comment "A liter counter measures the amount of water that is supplied to the greenhouse. For a certain amount of water it gives a pulse to the climate computer such that the climate computer can calculate how much water is supplied to the greenhouse. For example for 10 pulses = 10x100l = the right amount so it should stop" ;
+  rdfs:label "Liter Counter"@en ;
+  rdfs:subClassOf cgo:FertigationSystemSensor ;
+  skos:altLabel "Irrigation Flowrate Sensor"@en ;
+.
+cgo:IrrigationPump
+  rdf:type owl:Class ;
+  rdfs:label "Irrigation Pump"@en ;
+  rdfs:subClassOf cgo:IrrigationSystemPart ;
+.
+cgo:IrrigationSupplyPump
+  rdf:type owl:Class ;
+  rdfs:label "Irrigation Supply Pump"@en ;
+  rdfs:subClassOf cgo:IrrigationPump ;
+.
+cgo:IrrigationSystem
+  rdf:type owl:Class ;
+  rdfs:label "Irrigatiesysteem"@nl ;
+  rdfs:label "Irrigation System"@en ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:IrrigationSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Irrigation System Part"@en ;
+  rdfs:subClassOf cgo:WaterSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:IrrigationSystem ;
+    ] ;
+.
+cgo:IrrigationValve
+  rdf:type owl:Class ;
+  rdfs:comment "An irrigation valve is a switch that steers the amount of water in a zone" ;
+  rdfs:label "Irrigatieklep"@nl ;
+  rdfs:label "Irrigation Valve"@en ;
+  rdfs:subClassOf cgo:IrrigationSystemPart ;
+  rdfs:subClassOf cgo:Valve ;
+.
+cgo:IrrigationWater
+  rdf:type owl:Class ;
+  rdfs:label "Irrigation Water"@en ;
+  rdfs:subClassOf cgo:IrrigationSystemPart ;
+.
+cgo:Juice
+  rdf:type owl:Class ;
+  rdfs:label "Juice"@en ;
+  rdfs:label "Sap"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:KaliumCalciumRatio
+  rdf:type owl:Class ;
+  rdfs:label "Kalium/calcium-ratio"@nl ;
+  rdfs:label "Potassium-calcium ratio"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "K Ca Ratio"@en ;
+.
+cgo:LED
+  rdf:type owl:Class ;
+  rdfs:label "LED"@en ;
+  rdfs:label "LED"@nl ;
+  rdfs:subClassOf cgo:Light ;
+.
+cgo:Laborer
+  rdf:type owl:Class ;
+  rdfs:label "Arbeider"@nl ;
+  rdfs:label "Laborer"@en ;
+  rdfs:subClassOf foaf:Person ;
+.
+cgo:Leaf
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the leaf of a plant" ;
+  rdfs:label "Blad"@nl ;
+  rdfs:label "Leaf"@en ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:Length
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Lengte"@nl ;
+  rdfs:label "Length"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Level
+  rdf:type owl:Class ;
+  rdfs:label "Level"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Light
+  rdf:type owl:Class ;
+  rdfs:label "Licht"@nl ;
+  rdfs:label "Light"@en ;
+  rdfs:subClassOf cgo:Source ;
+.
+cgo:LightingSystem
+  rdf:type owl:Class ;
+  rdfs:label "Lichtsysteem"@nl ;
+  rdfs:label "Lighting System"@en ;
+  rdfs:subClassOf ssn:System ;
+  skos:altLabel "Artificial Lighting System"@en ;
+.
+cgo:Lisianthus
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents flowers that are named Lisianthus, officially known as Eustoma." ;
+  rdfs:label "Lisianthus"@en ;
+  rdfs:label "Lisianthus"@nl ;
+  rdfs:subClassOf cgo:Flower ;
+  skos:altLabel "Eustoma"@en ;
+  skos:altLabel "Eustoma"@nl ;
+.
+cgo:LiterCounterSensor
+  rdf:type owl:Class ;
+  rdfs:label "Liter Counter Sensor" ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationSystem ;
+    ] ;
+.
+cgo:Location
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Locatie"@nl ;
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  rdfs:subClassOf schema:Place ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasAltitude ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLatitude ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLongitude ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:LocationRestriction
+  rdf:type owl:NamedIndividual ;
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path cgo:hasLocation ;
+      sh:class cgo:Location ;
+      sh:description "A Greenhouse needs at least one Location" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "has location" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:Greenhouse ;
+.
+cgo:LowerCircuit
+  rdf:type owl:Class ;
+  rdfs:label "Lower Circuit"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Magnesium
+  rdf:type owl:Class ;
+  rdfs:comment "Magnesium plays an important role in plant cells since it appears in the center of the chlorophyll molecule. Certain enzymatic reactions require Mg as a cofactor." ;
+  rdfs:comment "This is the level of magnesium in a sample of water measured in mmol/l of mg/l" ;
+  rdfs:label "Magnesium"@en ;
+  rdfs:label "Magnesium"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Mg" ;
+.
+cgo:Maintenance
+  rdf:type owl:Class ;
+  rdfs:subClassOf sem:Event ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:maintenanceOf ;
+      owl:someValuesFrom cgo:Part ;
+    ] ;
+.
+cgo:Manganese
+  rdf:type owl:Class ;
+  rdfs:comment "Manganese functions in several enzymatic reactions that involve the energy compound adenosine triphosphate (ATP). Manganese also activates several enzymes and is involved with the processes in the electron transport system in photosynthesis." ;
+  rdfs:comment "This is the level of manganese in a sample of water measured in µmol/l" ;
+  rdfs:label "Mangaan"@nl ;
+  rdfs:label "Manganese"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Mn" ;
+.
+cgo:Measurement
+  rdf:type owl:Class ;
+  rdfs:comment "A kind of observation which is specifically made with instruments in a Greenhouse" ;
+  rdfs:label "Measurement"@en ;
+  rdfs:label "Meting"@nl ;
+  rdfs:subClassOf sosa:Observation ;
+.
+cgo:MechanicalRefrigeration
+  rdf:type owl:Class ;
+  rdfs:label "Mechanical Cooling System"@en ;
+  rdfs:label "Mechanisch koelingssysteem"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf cgo:CoolingSystem ;
+  skos:altLabel "Mechanical Cooling"@en ;
+  skos:altLabel "Mechanical Refrigeration"@en ;
+  skos:altLabel "Refrigeration System"@en ;
+.
+cgo:MechanicalRefrigerationPart
+  rdf:type owl:Class ;
+  rdfs:label "Mechanical Refrigeration Part" ;
+  rdfs:subClassOf cgo:CoolingSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:MechanicalRefrigeration ;
+    ] ;
+.
+cgo:MeltingPipes
+  rdf:type owl:Class ;
+  rdfs:label "Melting Pipes"@en ;
+  rdfs:label "Smeltbuizen"@nl ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:Methane
+  rdf:type owl:Class ;
+  rdfs:label "Methaan"@nl ;
+  rdfs:label "Methane"@en ;
+  rdfs:subClassOf cgo:Fuel ;
+.
+cgo:MixingTank
+  rdf:type owl:Class ;
+  rdfs:comment "The tank in which the water is mixed with the fertilizer/nutrition" ;
+  rdfs:comment "The tank where the concentrated fertilizer solutions from fertilizer tanks are mixed with clean water from the water tank" ;
+  rdfs:comment "This class is part of the WHC use case" ;
+  rdfs:label "Mixing Tank" ;
+  rdfs:subClassOf cgo:FertigationTank ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationUnit ;
+    ] ;
+.
+cgo:Molybdenum
+  rdf:type owl:Class ;
+  rdfs:comment "Molybdenum is a constituent of two enzymes involved in nitrogen metabolism. The most important of these is nitrate reductase." ;
+  rdfs:comment "This is the level of molybdenum in a sample of water measured in µmol/l" ;
+  rdfs:label "Molybdeen"@nl ;
+  rdfs:label "Molybdenum"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Mo" ;
+.
+cgo:MorphologicalTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to anatomical (internal) and
+morphological (external) structure of the plant,
+its organs and tissues.""" ;
+  rdfs:label "Morfologische eigenschappen"@nl ;
+  rdfs:label "Morphological Trait"@en ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Fruit shape
+Seed color
+Stem diameter
+Seed length""" ;
+.
+cgo:MultiPurposeTubeRailHeatingSystem
+  rdf:type owl:Class ;
+  rdfs:label "Multi-purpose Tube Rail Heating System"@en ;
+  rdfs:label "Multifunctioneel buis-railverwarming"@nl ;
+  rdfs:subClassOf cgo:HeatingSystem ;
+.
+cgo:Natrium
+  rdf:type owl:Class ;
+  rdfs:comment "Sodium is commonly present in water, but only small quantities are taken up by plants. An excess of sodium causes salinity problems. If the sodium concentration in the root zone is too high, it will be detrimental to the crop. If Na accumulates above the maximum acceptable concentration in the root zone, growers must discharge a fraction of the recirculated nutrient solution in order to prevent yield reduction or a decline in product quality." ;
+  rdfs:comment "This is the level of natrium in a sample of water measured in mmol/l of mg/l" ;
+  rdfs:label "Natrium"@nl ;
+  rdfs:label "Sodium"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Na" ;
+.
+cgo:Net
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents different kind of nets that are used in greenhouses" ;
+  rdfs:label "Gaas"@nl ;
+  rdfs:label "Net"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Nitrate
+  rdf:type owl:Class ;
+  rdfs:comment "This is the level of nitrate in a sample of water measured in mmol/l of mg/l" ;
+  rdfs:label "Nitraat"@nl ;
+  rdfs:label "Nitrate"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "NO3" ;
+.
+cgo:Nitrogen
+  rdf:type owl:Class ;
+  rdfs:comment "Nitrogen is a very important element for plant growth and is found in many compounds. These include chlorophyll (the green pigment in plants), amino acids, proteins, nucleic acids, and organic acids." ;
+  rdfs:comment "This is the level of nitrogen as part of nitrate in a sample of a fluid measured in mmol/l or mg/l" ;
+  rdfs:label "Nitrogen"@en ;
+  rdfs:label "Stikstof"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "N" ;
+.
+cgo:NitrogenTotalLevel
+  rdf:type owl:Class ;
+  rdfs:comment "This is the total level of nitrogen in a sample of a fluid measured in mg/year" ;
+  rdfs:label "Nitrogen Total Level"@en ;
+  rdfs:label "Stikstof totaal niveau"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+.
+cgo:Nokschot
+  rdf:type owl:Class ;
+  rdfs:comment "A plastic screen in the ridge of the roof of the greenhouse that precents airflows in the upper regions of the greenhouse" ;
+  rdfs:label "Above Screen Partition"@en ;
+  rdfs:label "Nokschot"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Ridge ;
+    ] ;
+  skos:altLabel "Ridge Foil"@en ;
+.
+cgo:Nozzle
+  rdf:type owl:Class ;
+  rdfs:comment "Are located above the crop and fixed onto a water pipe. They have really small openings to ensure the water is misted." ;
+  rdfs:label "Nozzle" ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+.
+cgo:NumberOfLeaves
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Aantal bladeren"@nl ;
+  rdfs:label "Number of Leaves"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:NutritionProperty
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Nutrition Property"@en ;
+  rdfs:label "Voedingseigenschap"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:OrientationRestriction
+  rdf:type owl:NamedIndividual ;
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path cgo:hasOrientation ;
+      sh:datatype xsd:decimal ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass cgo:Greenhouse ;
+.
+cgo:Oxygen
+  rdf:type owl:Class ;
+  rdfs:comment "Oxygen is the third element in typical organic molecules such as simple sugars. The presence of O is important for many plant biochemical reactions." ;
+  rdfs:label "Oxygen"@en ;
+  rdfs:label "Zuurstof"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "O" ;
+.
+cgo:PAR
+  rdf:type owl:Class ;
+  rdfs:comment "Photosynthetically active radiation, often abbreviated PAR, designates the spectral range (wave band) of solar radiation from 400 to 700 nanometers that photosynthetic organisms are able to use in the process of photosynthesis. This spectral region corresponds more or less with the range of light visible to the human eye. Photons at shorter wavelengths tend to be so energetic that they can be damaging to cells and tissues, but are mostly filtered out by the ozone layer in the stratosphere. Photons at longer wavelengths do not carry enough energy to allow photosynthesis to take place." ;
+  rdfs:label "Fotosynthetisch actieve straling"@nl ;
+  rdfs:label "Photosynthetically Active Radiation"@en ;
+  rdfs:seeAlso "https://en.wikipedia.org/wiki/Photosynthetically_active_radiation" ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  skos:altLabel "PAR"@en ;
+.
+cgo:PH
+  rdf:type owl:Class ;
+  rdfs:label "pH"@en ;
+  rdfs:label "pH"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+.
+cgo:PHCheckSensor
+  rdf:type owl:Class ;
+  rdfs:label "PH Check Sensor" ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationSystem ;
+    ] ;
+.
+cgo:PHDoseSensor
+  rdf:type owl:Class ;
+  rdfs:label "PH Dose Sensor" ;
+  rdfs:subClassOf cgo:SolutionSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:FertigationSystem ;
+    ] ;
+.
+cgo:PadAndFanSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Can also be used as forced ventilation and is part of a semi-closed greenhouse system, can also be a independent system" ;
+  rdfs:comment "\"The Pad & Fan cooling method is a widely applicable cooling system due to it’s simplicity. As the name indicates, it uses a combination of wet-pads and ventilators. A set of large fans blow air out of the greenhouse, causing a suction-draught through the greenhouse. On the opposite sides of the fans, pad-walls are installed which are kept wet. The suction-movement caused by the fans, forces hot outside air to be pulled into the greenhouse through the wet pads. Water from the pads evaporates into the hot air, increasing its humidity whilst lowering the temperature.\"" ;
+  rdfs:label "Pad & fan-koelingssysteem"@nl ;
+  rdfs:label "Pad and Fan Cooling System"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/cooling" ;
+  rdfs:subClassOf cgo:CoolingSystem ;
+.
+cgo:PadAndFanSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Pad and Fan System Part" ;
+  rdfs:subClassOf cgo:CoolingSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:PadAndFanSystem ;
+    ] ;
+.
+cgo:Part
+  rdf:type owl:Class ;
+  rdfs:comment "Model-technical term" ;
+  rdfs:comment "This class represents parts of wholes" ;
+  rdfs:label "Onderdeel"@nl ;
+  rdfs:label "Part"@en ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+.
+cgo:PassiveHeatStorageSystem
+  rdf:type owl:Class ;
+  rdfs:comment "system where you store energy without any device. An example is a thick wall to store warmth" ;
+  rdfs:label "Passief hitteopslagsysteem"@nl ;
+  rdfs:label "Passive Heat Storage System"@en ;
+  rdfs:subClassOf cgo:HeatStorageSystem ;
+.
+cgo:PerimeterFoundation
+  rdf:type owl:Class ;
+  rdfs:comment "The foundation for the perimeter of the greenhouse differs from that of the inner foundation. The perimeter foundation is a continuous concrete beam with a minimum height of 30 cm. This outer perimeter can be pre-fabricated or can be custom made on the construction site. Similar to the inner foundation, the pre-fabricated beam is connected to dollies, which are casted into a borehole that is filled with concrete." ;
+  rdfs:label "Perimeter Foundation"@en ;
+  rdfs:label "Randfundering"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/greenhouse-foundation" ;
+  rdfs:subClassOf cgo:Foundation ;
+.
+cgo:Pest
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents pests" ;
+  rdfs:label "Pest"@en ;
+  rdfs:label "Plaag"@nl ;
+.
+cgo:Petal
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the petal of a flower" ;
+  rdfs:label "Bloemblaadje"@nl ;
+  rdfs:label "Petal"@en ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:FlowerPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Pistil ;
+    ] ;
+.
+cgo:PhenologicalTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to growth/developmental stages
+and periods of crop/plants.""" ;
+  rdfs:label "Fenologische eigenschappen"@nl ;
+  rdfs:label "Phenological Trait"@en ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Plant flowering time
+Plant maturity time
+Plant vegetative period duration""" ;
+.
+cgo:Phosphorus
+  rdf:type owl:Class ;
+  rdfs:comment "Phosphorus is used in several energy transfer compounds in the plants. A very important function for P is its role in nucleic acids, the building blocks for the genetic code material in plant cells." ;
+  rdfs:comment "This is the level of phosphorus in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Fosfor"@nl ;
+  rdfs:label "Phosphorus"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "P" ;
+.
+cgo:Photosynthesis
+  rdf:type owl:Class ;
+  rdfs:comment "The rate of photosynthesis gives the amount of CO2 that's consumed by the crops." ;
+  rdfs:comment "example unit: kg/m2/s. This means x kilograms of CO2 is consumed by a square meter per second." ;
+  rdfs:label "Photosynthesis rate"@en ;
+  rdfs:label "Snelheid van fotosynthese"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:PhysiologicalTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to functioning of the crop/plant
+and its response/adaptation to the environment.""" ;
+  rdfs:label "Fysiologische eigenschappen"@nl ;
+  rdfs:label "Physiological Trait"@en ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Leaf senescence rate
+Canopy temperature
+Canopy NDVI
+Leaf stomatal conductance""" ;
+.
+cgo:PhytotoxicProperty
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Phytotoxic Property"@en ;
+  rdfs:label "Phytotoxische eigenschap"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Picker
+  rdf:type owl:Class ;
+  rdfs:label "Picker"@en ;
+  rdfs:label "Plukker"@nl ;
+  rdfs:subClassOf foaf:Person ;
+.
+cgo:Pipe
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents different kind of pipes that are used in and around a greenhouse" ;
+  rdfs:label "Buis"@nl ;
+  rdfs:label "Pipe"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf cgo:SystemPart ;
+.
+cgo:PipeRailTransportSystem
+  rdf:type owl:Class ;
+  rdfs:label "Buisrailtransportsysteem"@nl ;
+  rdfs:label "Pipe Rail Transport System"@en ;
+  rdfs:subClassOf cgo:TransportSystem ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasPart ;
+      owl:someValuesFrom cgo:Pipe ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasTrackWidth ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:PipeworkHeatingSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Gevelleidingen worden aan de kop- en zijgevels gehangen om koudeval tegen te gaan en voor een homogene temperatuur."@nl ;
+  rdfs:comment "The heating pipeworks are suspended in front of the side wall or gable end to prevent cold downdraught and achieve a homogeneous temperature."@en ;
+  rdfs:label "Gevelleiding Verwarmingssysteem"@nl ;
+  rdfs:label "Pipework Heating System"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasWeight ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:Pistil
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the pistil of a flower" ;
+  rdfs:label "Pistil"@en ;
+  rdfs:label "Stamper"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:FlowerPart ;
+.
+cgo:Plant
+  rdf:type owl:Class ;
+  rdfs:comment "A plant, multiple plants, or plant parts can be crops." ;
+  rdfs:comment "Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae. Historically, plants were treated as one of two kingdoms including all living things that were not animals, and all algae and fungi were treated as plants. However, all current definitions of Plantae exclude the fungi and some algae, as well as the prokaryotes (the archaea and bacteria). By one definition, plants form the clade Viridiplantae (Latin name for \"green plants\"), a group that includes the flowering plants, conifers and other gymnosperms, ferns and their allies, hornworts, liverworts, mosses and the green algae, but excludes the red and brown algae." ;
+  rdfs:label "Plant"@en ;
+  rdfs:label "Plant"@nl ;
+  rdfs:seeAlso "https://en.wikipedia.org/wiki/Plant" ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Crop ;
+    ] ;
+.
+cgo:PlantPart
+  rdf:type owl:Class ;
+  rdfs:comment "Model-technical term" ;
+  rdfs:comment "This class represents the different parts of a plant" ;
+  rdfs:label "Plant Part"@en ;
+  rdfs:label "Plantonderdeel"@nl ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLocation ;
+      owl:someValuesFrom cgo:HortispotLocation ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:Plant ;
+    ] ;
+.
+cgo:Polycarbonate
+  rdf:type owl:Class ;
+  rdfs:label "Polycarbonaat"@nl ;
+  rdfs:label "Polycarbonate"@en ;
+  rdfs:subClassOf cgo:CoverMaterial ;
+.
+cgo:Position
+  rdf:type owl:Class ;
+  rdfs:comment """De window position wordt gegeven met een percentage. 100% betekent dat het raam compleet open is, 0% dat het raam compleet dicht is.
+
+De window position wordt periodiek gemeten, en verschilt ook iedere keer."""@nl ;
+  rdfs:label "Positie"@nl ;
+  rdfs:label "Position"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:PotableWater
+  rdf:type owl:Class ;
+  rdfs:label "Drinkwater"@nl ;
+  rdfs:label "Potable Water"@en ;
+  rdfs:subClassOf cgo:Water ;
+.
+cgo:Potassium
+  rdf:type owl:Class ;
+  rdfs:comment "Potassium is used as an activator in many enzymatic reactions in the plant. Another role for K in plants occurs in special leaf cells called guard cells found around the stomata. Guard cell turgor (or lack of turgor) controls the degree of opening of the stomata and thus controls the level of gas and water vapor exchange through the stomata. Turgor is largely controlled by K movement in and out of the guard cells." ;
+  rdfs:comment "This is the level of kalium in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Kalium"@nl ;
+  rdfs:label "Potassium"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "K" ;
+.
+cgo:PowderCoating
+  rdf:type owl:Class ;
+  rdfs:label "Poedercoaten"@nl ;
+  rdfs:label "Powder Coating"@en ;
+  rdfs:subClassOf cgo:SurfaceTreatment ;
+.
+cgo:PowerSource
+  rdf:type owl:Class ;
+  rdfs:label "Power Source"@en ;
+  rdfs:label "Stroombron"@nl ;
+  rdfs:subClassOf cgo:Source ;
+.
+cgo:PressureAdjustingValve
+  rdf:type owl:Class ;
+  rdfs:comment "Can adjust the pressure to compensate differences in the pump" ;
+  rdfs:label "Drukregelventiel"@nl ;
+  rdfs:label "Pressure Adjusting Valve"@en ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+  rdfs:subClassOf cgo:Valve ;
+.
+cgo:PressurePump
+  rdf:type owl:Class ;
+  rdfs:label "Pressure Pump" ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+.
+cgo:PrimaryHeatingPipe
+  rdf:type owl:Class ;
+  rdfs:comment "The Primary Heating Pipe is used inside the greenhouse compartment to distribute the heated water. This pipe is around 60 degrees Celcius." ;
+  rdfs:label "Primaire verwarmingsbuis"@nl ;
+  rdfs:label "Primary Heating Pipe"@en ;
+  rdfs:subClassOf cgo:HeatingPipe ;
+.
+cgo:PullWireSystem
+  rdf:type owl:Class ;
+  rdfs:comment "has minimal light interception and requires minimal maintenance during the years of operation. The screening system is partially integrated into the greenhouse steel frame. Proper fixation points are provided in the greenhouse design to ensure trouble free installation." ;
+  rdfs:label "Pull-wire System"@en ;
+  rdfs:label "Pull-wiresysteem"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" ;
+  rdfs:subClassOf cgo:ScreeningSystem ;
+.
+cgo:PushPullMechanism
+  rdf:type owl:Class ;
+  rdfs:comment "When it comes to Venlo greenhouses, the push-pull mechanism is the mechanism of choice. The push-pull-tube slides above the upperside of the tellis. The push-pull-tube is connected to the lower aluminium profile of the ventilation-window section by means of push-rods. The amount of push-rods that are required is dependent of the ventilation window size and the windspeeds that are taken into account. Drive motors allow the push-pull-tube to move back and forward and with that, regulating the opening of the vents." ;
+  rdfs:label "Push-Pull Mechanism"@en ;
+  rdfs:label "Push-pullmechanisme"@nl ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/ventilation" ;
+  rdfs:subClassOf cgo:VentilationSystem ;
+  skos:altLabel "Push-Pull System"@en ;
+.
+cgo:PushPullSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Het terk-duw systeem voor schermen biedt precieze positionering van de schermen zonder hoge trekkracht op de kopgevels."@nl ;
+  rdfs:comment "The push-pull system for screens offers precise positioning of the screen without high loads on gabel ends."@en ;
+  rdfs:label "Push Pull System"@en ;
+  rdfs:label "Trek-duw Systeem"@nl ;
+  rdfs:subClassOf cgo:ScreeningSystem ;
+.
+cgo:QualityTrait
+  rdf:type owl:Class ;
+  rdfs:comment """All traits related to key characteristics that
+influence end-use quality of crop/plant products
+(seed, fruit, leaf, root/tuber, etc.) and subproducts (flour, dough, pulp, etc.)""" ;
+  rdfs:label "Kwaliteitseigenschappen"@nl ;
+  rdfs:label "Quality Trait"@en ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  rdfs:subClassOf cgo:Trait ;
+  skos:example """Dough color
+Pasta Consumer acceptability""" ;
+.
+cgo:RackAndPinionMechanism
+  rdf:type owl:Class ;
+  rdfs:label "Rack And Pinion Mechanism"@en ;
+  rdfs:label "Tandheugel Mechanisme"@nl ;
+  rdfs:subClassOf cgo:VentilationSystem ;
+.
+cgo:Radiation
+  rdf:type owl:Class ;
+  rdfs:comment "unit: watt or µmol/m2/s" ;
+  rdfs:label "Radiation"@en ;
+  rdfs:label "Straling"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  rdfs:subClassOf cgo:WeatherCircumstance ;
+.
+cgo:RailPipeSystem
+  rdf:type owl:Class ;
+  rdfs:label "Buis-railsysteem"@nl ;
+  rdfs:label "Rail Pipe System"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+  skos:altLabel "Tube Rail System"@en ;
+.
+cgo:Rain
+  rdf:type owl:Class ;
+  rdfs:label "Rain"@en ;
+  rdfs:label "Regen"@nl ;
+  rdfs:subClassOf cgo:Water ;
+  rdfs:subClassOf cgo:WeatherCircumstance ;
+.
+cgo:RainWater
+  rdf:type owl:Class ;
+  rdfs:label "Rain Water"@en ;
+  rdfs:label "Regenwater"@nl ;
+  rdfs:subClassOf cgo:Water ;
+.
+cgo:RainWaterSystem
+  rdf:type owl:Class ;
+  rdfs:label "Hemelwater Systeem"@nl ;
+  rdfs:label "Rain Water System"@en ;
+  rdfs:subClassOf cgo:WaterSystem ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasDrain ;
+      owl:someValuesFrom [
+          rdf:type rdfs:Datatype ;
+          owl:oneOf [
+              rdf:type rdf:List ;
+              rdf:first "Bassin" ;
+              rdf:rest [
+                  rdf:type rdf:List ;
+                  rdf:first "Ditch" ;
+                  rdf:rest [
+                      rdf:type rdf:List ;
+                      rdf:first "Surface" ;
+                      rdf:rest () ;
+                    ] ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasDrainOutletLevelHeight ;
+      owl:someValuesFrom xsd:float ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasPart ;
+      owl:someValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              cgo:Column
+              cgo:DownPipe
+            ) ;
+        ] ;
+    ] ;
+.
+cgo:RainWaterSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Rain Water System Part"@en ;
+  rdfs:subClassOf cgo:WaterSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:RainWaterSystem ;
+    ] ;
+.
+cgo:Receiver
+  rdf:type owl:Class ;
+  rdfs:comment "As a temporary storage and a surge tank for liquid refrigerant, the receiver acts as a vapour seal. With a primary purpose of preserving the vapour moving down the liquid line to the expansion valve, receivers can be made for both horizontal and vertical installation." ;
+  rdfs:label "Receiver" ;
+  rdfs:subClassOf cgo:MechanicalRefrigerationPart ;
+.
+cgo:RelativeHumidity
+  rdf:type owl:Class ;
+  rdfs:comment "The amount of moisture in the air is generally expressed as relative humidity (RH), which is the ratio between the weight of moisture actually present in the air and the total moisture-holding capacity of a unit volume of air at a specific temperature and pressure. This term can sometimes be misleading, because it is temperature-dependent. Warm air has a higher moisture-holding capacity than cooler air; therefore as the temperature of air increases, the relative humidity decreases even though the amount of water remains constant. Air at 70° F will hold twice as much moisture as air at 50°F. In the range of temperatures encountered in a greenhouse, for every 20° F rise in dry bulb temperature, the water-holding capacity of the air doubles, and the relative humidity is reduced by one-half. This relationship is important in managing humidity in the greenhouse." ;
+  rdfs:label "Relatieve luchtvochtigheid"@nl ;
+  rdfs:label "Relative Humidity"@en ;
+  rdfs:seeAlso "https://ag.umass.edu/greenhouse-floriculture/fact-sheets/reducing-humidity-in-greenhouse" ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  skos:altLabel "RH"@en ;
+.
+cgo:Reservoir
+  rdf:type owl:Class ;
+  rdfs:label "Reservoir" ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+.
+cgo:ReturnManifold
+  rdf:type owl:Class ;
+  rdfs:comment "component that measures the overall temperature of the water coming back from the greenhouse" ;
+  rdfs:label "Return Manifold" ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+.
+cgo:Ridge
+  rdf:type owl:Class ;
+  rdfs:label "Nok"@nl ;
+  rdfs:label "Ridge"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasHeight ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:Rod
+  rdf:type owl:Class ;
+  rdfs:label "Rod"@en ;
+  rdfs:label "Roede"@nl ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  skos:altLabel "Roe"@nl ;
+.
+cgo:Roof
+  rdf:type owl:Class ;
+  rdfs:label "Dek"@nl ;
+  rdfs:label "Roof"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:VentilationWindow ;
+      owl:onProperty cgo:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasAngle ;
+      owl:someValuesFrom om:Angle ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasSpanWidth ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:RoofRod
+  rdf:type owl:Class ;
+  rdfs:label "Dekroede"@nl ;
+  rdfs:label "Roof Rod"@en ;
+  rdfs:subClassOf cgo:Rod ;
+.
+cgo:RoofSprinklingSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Used for cooling the outside of the glass roof"@en ;
+  rdfs:label "Dakberegeningssysteem"@nl ;
+  rdfs:label "Roof Sprinkling System"@en ;
+  rdfs:subClassOf cgo:WaterSystem ;
+.
+cgo:Root
+  rdf:type owl:Class ;
+  rdfs:label "Root"@en ;
+  rdfs:label "Wortel"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:RootDevelopmentLevel
+  rdf:type owl:Class ;
+  rdfs:comment "The perception of the level of development of the root of a plant as a number between 1 and 10 from bad to good" ;
+  rdfs:label "Ontwikkelingsniveau van de wortel"@nl ;
+  rdfs:label "Root Development Level"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Rose
+  rdf:type owl:Class ;
+  rdfs:label "Roos"@nl ;
+  rdfs:label "Rose"@en ;
+  rdfs:subClassOf cgo:Flower ;
+.
+cgo:SON
+  rdf:type owl:Class ;
+  rdfs:comment "SON-E is elliptical (bulbous), and SON-T is tubular."@en ;
+  rdfs:label "SON"@en ;
+  rdfs:label "SON"@nl ;
+  rdfs:subClassOf cgo:Light ;
+.
+cgo:Screen
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents different kind of screens that are used in greenhouses" ;
+  rdfs:label "Scherm"@nl ;
+  rdfs:label "Screen"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasTypeName ;
+      owl:someValuesFrom xsd:string ;
+    ] ;
+.
+cgo:ScreeningSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Energy is one of the largest operational expenditures for all greenhouse operations. To improve the energy efficiency of a greenhouse, horizontal screens have been installed in greenhouses for decades now. The horizontal screening system forms an insulating layer suspended over the crop. Depending on the type of screening fabric installed, the screening system can have energy saving-, diffusing-, shading- and also black-out properties. Due to the impact on the climate the screens have, they are also referred to as climate screens." ;
+  rdfs:label "Scherminstallatie"@nl ;
+  rdfs:label "Screening System"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/horizontal-screening" ;
+  rdfs:subClassOf ssn:System ;
+  skos:altLabel "Climate Screens"@en ;
+  skos:altLabel "Horizontal Screening System"@en ;
+.
+cgo:SeaWater
+  rdf:type owl:Class ;
+  rdfs:label "Sea Water"@en ;
+  rdfs:label "Zeewater"@nl ;
+  rdfs:subClassOf cgo:Water ;
+.
+cgo:SecondaryBranch
+  rdf:type owl:Class ;
+  rdfs:label "Secondary Branch"@en ;
+  rdfs:label "Secundaire tak"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:Branch ;
+.
+cgo:Section
+  rdf:type owl:Class ;
+  rdfs:label "Sectie"@nl ;
+  rdfs:label "Section"@en ;
+  rdfs:subClassOf cgo:GreenhousePart ;
+.
+cgo:Seed
+  rdf:type owl:Class ;
+  rdfs:label "Seed"@en ;
+  rdfs:label "Zaadje"@nl ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:SemiClosedGreenhouse
+  rdf:type owl:Class ;
+  rdfs:comment "\"Semi-closed greenhouses make use of a so-called climate chamber, where the air is either cooled or heated. With large ventilators this treated air is blown into the greenhouse in polyethylene tubes underneath the hanging gutters.\"" ;
+  rdfs:label "Semi-Closed Greenhouse"@en ;
+  rdfs:label "Semi-gesloten kas"@nl ;
+  rdfs:subClassOf cgo:Greenhouse ;
+.
+cgo:ServiceRail
+  rdf:type owl:Class ;
+  rdfs:label "Service Rail"@en ;
+  rdfs:label "Servicerail"@nl ;
+  rdfs:subClassOf cgo:CleaningSystemPart ;
+.
+cgo:ShadeScreen
+  rdf:type owl:Class ;
+  rdfs:comment """Some times to increase the isolation of the greenhouse (to reduce the heat losses) we apply both screens during the night. In this case we use both energy and shading screen for saving energy purposes.
+Most of modern greenhouse controllers have this option, to use both screens for both options. From a climate controller we can see that the shading screen has a value of 1 (which means closed or applied) at the same time when the energy screen is also 1.
+This depends on the configuration of the climate controller.""" ;
+  rdfs:comment "This class represents shading screens in greenhouses" ;
+  rdfs:label "Schaduwscherm"@nl ;
+  rdfs:label "Shade Screen"@en ;
+  rdfs:subClassOf cgo:Screen ;
+.
+cgo:ShadingCurtain
+  rdf:type owl:Class ;
+  rdfs:label "Schaduwscherm"@nl ;
+  rdfs:label "Shading Curtain"@en ;
+  rdfs:subClassOf cgo:Curtain ;
+  skos:altLabel "Zonweringsscherm"@nl ;
+.
+cgo:ShadingNet
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents shading nets that are used in greenhouses" ;
+  rdfs:label "Schaduwgaas"@nl ;
+  rdfs:label "Shading Net"@en ;
+  rdfs:subClassOf cgo:Net ;
+.
+cgo:SideWall
+  rdf:type owl:Class ;
+  rdfs:label "Side Wall"@en ;
+  rdfs:label "Zijgevel"@nl ;
+  rdfs:subClassOf cgo:Wall ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:PipeworkHeatingSystem ;
+      owl:onProperty cgo:hasSystem ;
+    ] ;
+.
+cgo:Silicon
+  rdf:type owl:Class ;
+  rdfs:comment "This is the level of silicon in a sample of water measured in µmol/l" ;
+  rdfs:label "Silicium"@nl ;
+  rdfs:label "Silicon"@en ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Si" ;
+.
+cgo:Site
+  rdf:type owl:Class ;
+  rdfs:comment "Fysieke locatie van de kas."@nl ;
+  rdfs:comment "Physical location of the greenhouse."@en ;
+  rdfs:label "Bouwterrein"@nl ;
+  rdfs:label "Site"@en ;
+  rdfs:subClassOf schema:Place ;
+.
+cgo:SolarPower
+  rdf:type owl:Class ;
+  rdfs:label "Solar Energy"@en ;
+  rdfs:label "Zonne-energie"@nl ;
+  rdfs:subClassOf cgo:PowerSource ;
+  skos:altLabel "Solar Power"@en ;
+.
+cgo:SolenoidDrainValve
+  rdf:type owl:Class ;
+  rdfs:comment "When the system stops this valve stops the water from running back into the system" ;
+  rdfs:label "Magnetische afvoerklep"@nl ;
+  rdfs:label "Solenoid Drain Valve"@en ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+  rdfs:subClassOf cgo:Valve ;
+.
+cgo:SolutionSensor
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents sensors that measure properties of a solution" ;
+  rdfs:label "Oplossingssensor"@nl ;
+  rdfs:label "Solution Sensor"@en ;
+  rdfs:subClassOf cgo:GreenhouseSensor ;
+.
+cgo:Source
+  rdf:type owl:Class ;
+  rdfs:label "Bron"@nl ;
+  rdfs:label "Source"@en ;
+.
+cgo:Speed
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Snelheid"@nl ;
+  rdfs:label "Speed"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:Status
+  rdf:type owl:Class ;
+  rdfs:label "Status"@en ;
+  rdfs:label "Status"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:SteamPipeHeating
+  rdf:type owl:Class ;
+  rdfs:label "Steam Pipe Heating"@en ;
+  rdfs:label "Stoombuisverwarming"@nl ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:SteelStructure
+  rdf:type owl:Class ;
+  rdfs:comment "The steel structure of a Dutch Venlo greenhouse consists out of the following primary construction elements: columns, trusses, beams, purlins and braces. Together, these elements deal with the forces applied to them by means of the weight of the greenhouse, wind, snow, the crop and the installation loads. Due to the importance of light in the greenhouse, all steel structural elements are carried out as light as possible whilst complying with the constructual regulations." ;
+  rdfs:label "Staalstructuur"@nl ;
+  rdfs:label "Steel Structure"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/steel-structure" ;
+  rdfs:subClassOf cgo:Frame ;
+.
+cgo:Stem
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the stem of a plant" ;
+  rdfs:label "Stam"@nl ;
+  rdfs:label "Stem"@en ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:SubstrateTemperatureSensor
+  rdf:type owl:Class ;
+  rdfs:label "Substrate Temperature Sensor" ;
+  rdfs:subClassOf cgo:TemperatureSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:HeatingSystem ;
+    ] ;
+.
+cgo:Sugar
+  rdf:type owl:Class ;
+  rdfs:comment "This is the concentration of sugar in a sample of a fluid measured in a percentage" ;
+  rdfs:label "Sugar"@en ;
+  rdfs:label "Suiker"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+.
+cgo:Sulfur
+  rdf:type owl:Class ;
+  rdfs:comment "Sulfur is a component of sulfur-containing amino acids such as methionine. Sulfur also is contained in the sulfhydryl group of certain enzymes." ;
+  rdfs:comment "This is the level of sulfur in a sample of water measured in mmol/l or mg/l" ;
+  rdfs:label "Sulfur"@en ;
+  rdfs:label "Zwavel"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "S" ;
+.
+cgo:Sunlight
+  rdf:type owl:Class ;
+  rdfs:label "Sunlight"@en ;
+  rdfs:label "Zonlicht"@nl ;
+  rdfs:subClassOf cgo:Light ;
+.
+cgo:SupplyManifold
+  rdf:type owl:Class ;
+  rdfs:comment "Regulates homogeneous water temperature" ;
+  rdfs:comment "component that measures the overall temperature of the water going to the greenhouse" ;
+  rdfs:label "Supply Manifold" ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+.
+cgo:SurfaceHeating
+  rdf:type owl:Class ;
+  rdfs:label "Bedverwarming"@nl ;
+  rdfs:label "Surface Heating"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:SurfaceTreatment
+  rdf:type owl:Class ;
+  rdfs:label "Oppervlaktebehandeling"@nl ;
+  rdfs:label "Surface Treatment"@en ;
+  rdfs:subClassOf cgo:Treatment ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:isAppliedTo ;
+      owl:someValuesFrom cgo:ConstructionPart ;
+    ] ;
+.
+cgo:SurfaceWaterHeatPump
+  rdf:type owl:Class ;
+  rdfs:label "Surface Water Heat Pump" ;
+  rdfs:subClassOf cgo:HeatPump ;
+.
+cgo:Surroundings
+  rdf:type owl:Class ;
+  rdfs:comment "Surroundings of the greenhouse"@en ;
+  rdfs:label "Omgeving"@nl ;
+  rdfs:label "Surroundings"@en ;
+.
+cgo:SwingMechanism
+  rdf:type owl:Class ;
+  rdfs:label "Schommel Mechanisme"@nl ;
+  rdfs:label "Swing Mechanism"@en ;
+  rdfs:subClassOf cgo:VentilationSystem ;
+.
+cgo:SystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "Model-technical term" ;
+  rdfs:comment "This class represents the different kind of parts found in systems" ;
+  rdfs:label "Systeemonderdeel"@nl ;
+  rdfs:label "System Part"@en ;
+  rdfs:subClassOf cgo:Part ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasLocation ;
+      owl:someValuesFrom cgo:HortispotLocation ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom ssn:System ;
+    ] ;
+.
+cgo:Tank
+  rdf:type owl:Class ;
+  rdfs:label "Tank" ;
+  rdfs:subClassOf cgo:HeatingSystemPart ;
+.
+cgo:TapWater
+  rdf:type owl:Class ;
+  rdfs:label "Kraanwater"@nl ;
+  rdfs:label "Tap Water"@en ;
+  rdfs:subClassOf cgo:Water ;
+.
+cgo:Temperature
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Temperature"@en ;
+  rdfs:label "Temperatuur"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:TemperatureSensor
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents sensors that measure a temperature" ;
+  rdfs:label "Temperature Sensor"@en ;
+  rdfs:label "Temperatuursensor"@nl ;
+  rdfs:subClassOf cgo:GreenhouseSensor ;
+.
+cgo:ThermalScreen
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents thermal screens in greenhouses" ;
+  rdfs:label "Thermal Screen"@en ;
+  rdfs:label "Thermisch scherm"@nl ;
+  rdfs:subClassOf cgo:Screen ;
+  skos:altLabel "Energy Screen"@en ;
+.
+cgo:ThermostaticExpansionValve
+  rdf:type owl:Class ;
+  rdfs:comment """Before the evaporator, this is located at the end of the liquid line. TXV is a device that controls the amount of refrigerant that flows to the evaporator. There you will find the floodback that is essential to maximise the productivity of the evaporator, while stopping the extra liquid refrigerant from going back to the compressor.
+This device also helps to separate the high pressure and the low pressure sides of an air conditioning system. Through the system’s liquid line, high pressured liquid refrigerant enters the valve but with the TVX’s presence, the amount of liquid refrigerant entering the evaporator will be abridged.""" ;
+  rdfs:label "TXV" ;
+  rdfs:label "Thermostatic Expansion Valve" ;
+  rdfs:subClassOf cgo:MechanicalRefrigerationPart ;
+.
+cgo:Tomatoplant
+  rdf:type owl:Class ;
+  rdfs:label "Tomatenplant"@nl ;
+  rdfs:label "Tomato Plant"@en ;
+  rdfs:subClassOf cgo:Crop ;
+.
+cgo:TopHeating
+  rdf:type owl:Class ;
+  rdfs:label "Bovennet"@nl ;
+  rdfs:label "Top Heating"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:Trait
+  rdf:type owl:Class ;
+  rdfs:comment """The trait is a combination of entities and attributes
+CO defines a trait as a character of an individual plant or of a group of plants that can be
+observed and that results from the expression of its genes and their interaction with the
+environment. This trait definition can be summarized by “what is observed”. Examples of traits
+are “plant height’, “pod color”, “grain yield”, “seed germination rate”, “plant flowering time”,
+“panicle shape”, “plant resistance to blight”, etc.
+Traits can be formalized by a meaningful combination of entities and attributes. The entity
+is the observed plant part. The entity can be defined at the level of the cell, the tissue, the
+organ, the whole organism or the sub-product of the crop. The attribute is the feature of an
+entity. Attributes can be states or processes. Examples of states are weight, length, area,
+color, chemical content, while examples of processes are vegetative period duration,
+photosynthesis rate, senescence rate.
+A direct consequence of the trait decomposition into entity and attribute is that two traits that
+share the same combination of attributes are identical even though they are named differently.
+Thus, decomposing a trait into entity/attribute is a good practice to prevent trait duplication.
+Table 3 shows examples of trait breakdown into entity/attribute.
+A trait can be described by a general entity or as a specimen, something that obviously belongs
+to an entity but is noticed by reason of an individual distinguishing characteristic. Examples of
+specimen are primary branch, first flower, first grade commercial fruit, flag leaf, third leaf, main
+stem, fertile stem, mature fruit, immature fruit.""" ;
+  rdfs:label "Eigenschap"@nl ;
+  rdfs:label "Trait"@en ;
+  rdfs:seeAlso "https://www.cropontology.org/" ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          sosa:FeatureOfInterest
+          ssn:Property
+        ) ;
+    ] ;
+  skos:example """Trait =  Entity (Feature of Interest) + Attribute (Property)
+
+Plant height = Plant + Height
+Number of secondary branches = Secondary branch + Number
+Plant flowering time = Plant + Flowering time
+Plant phenotypic acceptability = Plant + Phenotypic acceptability
+Leaf chlorophyll content = Leaf + Chlorophyll content
+Leaf area index = Leaf + Area index
+Plant rust severity = Plant + Rust severity
+Flour gluten content = Flour (milled grain) + Gluten content
+Dough elasticity = Dough + Elasticity""" ;
+.
+cgo:TransportHeatingPipe
+  rdf:type owl:Class ;
+  rdfs:comment "Heating pipe that transports the heated water from the main heating system to the greenhouse compartment" ;
+  rdfs:label "Transport Heating Pipe"@en ;
+  rdfs:label "Transportbuis"@nl ;
+  rdfs:subClassOf cgo:HeatingPipe ;
+.
+cgo:TransportSystem
+  rdf:type owl:Class ;
+  rdfs:label "Transport System"@en ;
+  rdfs:label "Transportsysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+.
+cgo:Treatment
+  rdf:type owl:Class ;
+  rdfs:label "Behandeling"@nl ;
+  rdfs:label "Treatment"@en ;
+.
+cgo:TrellisGirder
+  rdf:type owl:Class ;
+  rdfs:label "Tralieligger"@nl ;
+  rdfs:label "Trellis Girder"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Truss
+  rdf:type owl:Class ;
+  rdfs:label "Spant"@nl ;
+  rdfs:label "Truss"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:Tuber
+  rdf:type owl:Class ;
+  rdfs:label "Knol"@nl ;
+  rdfs:label "Tuber"@en ;
+  rdfs:seeAlso "https://www.cropontology.org" ;
+  rdfs:subClassOf cgo:PlantPart ;
+.
+cgo:UnderfloorHeatingSystem
+  rdf:type owl:Class ;
+  rdfs:label "Underfloor Heating System"@en ;
+  rdfs:label "Vloerverwarmingssysteem"@nl ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:UniformityLevel
+  rdf:type owl:Class ;
+  rdfs:comment "The perception of the uniformity of a plant as a number between 1 and 10 from bad to good" ;
+  rdfs:label "Uniformiteitsniveau"@nl ;
+  rdfs:label "Uniformity Level"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:VPD
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Vapour-pressure deficit, or VPD, is the difference (deficit) between the amount of moisture in the air and how much moisture the air can hold when it is saturated. Once air becomes saturated, water will condense out to form clouds, dew or films of water over leaves. It is this last instance that makes VPD important for greenhouse regulation. If a film of water forms on a plant leaf, it becomes far more susceptible to rot. On the other hand, as the VPD increases, the plant needs to draw more water from its roots. In the case of cuttings, the plant may dry out and die. For this reason the ideal range for VPD in a greenhouse is from 0.45 kPa to 1.25 kPa, ideally sitting at around 0.85 kPa. As a general rule, most plants grow well at VPDs of between 0.8 and 0.95 kPa." ;
+  rdfs:label "Dampdruktekort"@nl ;
+  rdfs:label "Vapour Pressure Deficit"@en ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+  skos:altLabel "VPD" ;
+.
+cgo:Valve
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents different kind of valves of greenhouses" ;
+  rdfs:label "Klep"@nl ;
+  rdfs:label "Valve"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+.
+cgo:VenloGreenhouse
+  rdf:type owl:Class ;
+  rdfs:label "Venlo Greenhouse"@en ;
+  rdfs:label "Venlokas"@nl ;
+  rdfs:subClassOf cgo:Greenhouse ;
+.
+cgo:VentilationRestriction
+  rdf:type owl:NamedIndividual ;
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path cgo:hasDepth ;
+      sh:class om:Measure ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path cgo:hasWidth ;
+      sh:class om:Measure ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass cgo:VentilationWindow ;
+.
+cgo:VentilationSystem
+  rdf:type owl:Class ;
+  rdfs:comment """Ventilation is a crucial tool for growers to create a good growing climate in their greenhouses. Opening from the ridge, the ventilation vents are positioned at the highest place of the Dutch Venlo greenhouse, making it the best position to discharge hot air from the greenhouse.
+There are several options regarding the ventilation capacity of a Venlo greenhouse, choices can be made between 1 pane-, 2 pane, 3 pane- and 4 pane-ventialtion. The depth of the windows also largely influence the ventilation capacity of the greenhouse.
+Ventilation system could use fans too.""" ;
+  rdfs:label "Ventilatiesysteem"@nl ;
+  rdfs:label "Ventilation System"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/ventilation" ;
+  rdfs:subClassOf ssn:System ;
+  skos:altLabel "Luchtmechaniek"@nl ;
+  skos:altLabel "Ventilation Mechanism"@en ;
+.
+cgo:VentilationSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Ventilation System Part" ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:VentilationSystem ;
+    ] ;
+.
+cgo:VentilationVent
+  rdf:type owl:Class ;
+  rdfs:comment "Ventilation is a crucial tool for growers to create a good growing climate in their greenhouses. Opening from the ridge, the ventilation vents are positioned at the highest place of the Dutch Venlo greenhouse, making it the best position to discharge hot air from the greenhouse." ;
+  rdfs:label "Ventilatieopeningen"@nl ;
+  rdfs:label "Ventilation Vent"@en ;
+  rdfs:seeAlso "https://dutchgreenhouses.com/technology/ventilation" ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf cgo:VentilationSystemPart ;
+.
+cgo:VentilationWindow
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "Ventilatieraam"@nl ;
+  rdfs:label "Ventilation Window"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf cgo:VentilationSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass cgo:AntiInsectNet ;
+      owl:onProperty cgo:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasDepth ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasWidth ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:VerticalPipe
+  rdf:type owl:Class ;
+  rdfs:comment "Vertical pipes can reach a depth of several tens of metres. They do not occupy space horizontally, but they require the boring of suitable deep wells." ;
+  rdfs:label "Vertical Pipe"@en ;
+  rdfs:label "Verticale buis"@nl ;
+  rdfs:seeAlso "https://www.robur.com/Technology/technical_dossiers/heat_pumps_absorption_technology/heat_pumps_comparison_type_and_application" ;
+  rdfs:subClassOf cgo:HeatingPipe ;
+.
+cgo:Wall
+  rdf:type owl:Class ;
+  rdfs:label "Gevel"@nl ;
+  rdfs:label "Wall"@en ;
+  rdfs:subClassOf cgo:ConstructionPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCladding ;
+      owl:someValuesFrom cgo:Cladding ;
+    ] ;
+.
+cgo:WallHeating
+  rdf:type owl:Class ;
+  rdfs:label "Gevelverwarming"@nl ;
+  rdfs:label "Wall Heating"@en ;
+  rdfs:subClassOf cgo:HeatDistributionSystem ;
+.
+cgo:WallRod
+  rdf:type owl:Class ;
+  rdfs:label "Gevelroede"@nl ;
+  rdfs:label "Wall Rod"@en ;
+  rdfs:subClassOf cgo:Rod ;
+.
+cgo:Water
+  rdf:type owl:Class ;
+  rdfs:label "Water"@en ;
+  rdfs:label "Water"@nl ;
+  rdfs:subClassOf cgo:Source ;
+.
+cgo:WaterBuffer
+  rdf:type owl:Class ;
+  rdfs:label "Water Buffer" ;
+  rdfs:subClassOf cgo:WaterStorageSystemPart ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCapacity ;
+      owl:someValuesFrom om:Measure ;
+    ] ;
+.
+cgo:WaterDistributionPad
+  rdf:type owl:Class ;
+  rdfs:label "Water Distribution Pad" ;
+  rdfs:subClassOf cgo:PadAndFanSystemPart ;
+.
+cgo:WaterFilter
+  rdf:type owl:Class ;
+  rdfs:label "Water Filter" ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+.
+cgo:WaterPower
+  rdf:type owl:Class ;
+  rdfs:label "Water Energy"@en ;
+  rdfs:label "Waterenergie"@nl ;
+  rdfs:subClassOf cgo:PowerSource ;
+  skos:altLabel "Water Power"@en ;
+.
+cgo:WaterQuality
+  rdf:type owl:Class ;
+  rdfs:comment "Water can be classified in three levels of quality according to the levels of sodium and chloride." ;
+  rdfs:label "Water Quality"@en ;
+  rdfs:label "Waterkwaliteit"@nl ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+cgo:WaterSoftener
+  rdf:type owl:Class ;
+  rdfs:label "Water Softener" ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+.
+cgo:WaterStorageSystem
+  rdf:type owl:Class ;
+  rdfs:label "Water Storage System"@en ;
+  rdfs:label "Wateropslagsysteem"@nl ;
+  rdfs:subClassOf cgo:WaterSystem ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasCatchFactor ;
+      owl:someValuesFrom xsd:double ;
+    ] ;
+.
+cgo:WaterStorageSystemPart
+  rdf:type owl:Class ;
+  rdfs:label "Water Storage System Part" ;
+  rdfs:subClassOf cgo:WaterSystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:WaterStorageSystem ;
+    ] ;
+.
+cgo:WaterSupplyPadPump
+  rdf:type owl:Class ;
+  rdfs:comment "Used to pump water towards the evaporative cooling pad." ;
+  rdfs:label "Water Pump" ;
+  rdfs:label "Water Supply Pad Pump" ;
+  rdfs:subClassOf cgo:PadAndFanSystemPart ;
+.
+cgo:WaterSystem
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the systems in the greenhouse that deal with water. This includes the infrastructure of the systems as well as the management functionality." ;
+  rdfs:label "Water System"@en ;
+  rdfs:label "Watersysteem"@nl ;
+  rdfs:subClassOf ssn:System ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasPrimaryWaterSource ;
+      owl:someValuesFrom cgo:Water ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:hasSecondaryWaterSource ;
+      owl:someValuesFrom cgo:Water ;
+    ] ;
+.
+cgo:WaterSystemPart
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the parts found in heating systems" ;
+  rdfs:label "Water System Part" ;
+  rdfs:subClassOf cgo:SystemPart ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:WaterSystem ;
+    ] ;
+.
+cgo:WaterTemperatureReturnManifoldSensor
+  rdf:type owl:Class ;
+  rdfs:label "Water Temperature Return Manifold Sensor" ;
+  rdfs:subClassOf cgo:TemperatureSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:ReturnManifold ;
+    ] ;
+.
+cgo:WaterTemperatureSupplyManifoldSensor
+  rdf:type owl:Class ;
+  rdfs:label "Water Temperature Supply Manifold Sensor" ;
+  rdfs:subClassOf cgo:TemperatureSensor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty cgo:partOf ;
+      owl:someValuesFrom cgo:SupplyManifold ;
+    ] ;
+.
+cgo:WaterTreatmentSystem
+  rdf:type owl:Class ;
+  rdfs:comment "System to clean the water before sending it to the nozzles. Usually we use reverse osmosis, but we can also have ultrafiltration. Used for filtering and cleaning the water such that you can create a mist." ;
+  rdfs:label "Water Treatment System" ;
+  rdfs:subClassOf cgo:FoggingSystemPart ;
+.
+cgo:WaterTubeBoiler
+  rdf:type owl:Class ;
+  rdfs:label "Water-Tube Boiler"@en ;
+  rdfs:subClassOf cgo:Boiler ;
+.
+cgo:Weather
+  rdf:type owl:Class ;
+  rdfs:comment "The weather is a direct, day-to-day state of temperature, air pressure, moisture, and more factors outside of the greenhouse." ;
+  rdfs:label "Weather"@en ;
+  rdfs:label "Weer"@nl ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+.
+cgo:WeatherCircumstance
+  rdf:type owl:Class ;
+  rdfs:label "Weather Circumstance"@en ;
+  rdfs:subClassOf sosa:FeatureOfInterest ;
+  skos:altLabel "Weeromstandigheid"@nl ;
+.
+cgo:WellWater
+  rdf:type owl:Class ;
+  rdfs:label "Bronwater"@nl ;
+  rdfs:label "Well Water"@en ;
+  rdfs:subClassOf cgo:Water ;
+.
+cgo:WhitewashSolution
+  rdf:type owl:Class ;
+  rdfs:label "Whitewash Solution"@en ;
+  rdfs:label "Whitewash-oplossing"@nl ;
+  rdfs:subClassOf cgo:Part ;
+.
+cgo:WidespanGreenhouse
+  rdf:type owl:Class ;
+  rdfs:comment "The steel support halfway up the rod is typical for a widespan greenhouse"@en ;
+  rdfs:comment "Typisch is de stalen ondersteuning halverwege de roede"@nl ;
+  rdfs:label "Breedkapkas"@nl ;
+  rdfs:label "Widespan Greenhouse"@en ;
+  rdfs:subClassOf cgo:Greenhouse ;
+.
+cgo:Wind
+  rdf:type owl:Class ;
+  rdfs:label "Wind"@en ;
+  rdfs:label "Wind"@nl ;
+  rdfs:subClassOf cgo:WeatherCircumstance ;
+.
+cgo:WindEnergy
+  rdf:type owl:Class ;
+  rdfs:label "Wind Energy"@en ;
+  rdfs:label "Windenergie"@nl ;
+  rdfs:subClassOf cgo:PowerSource ;
+  skos:altLabel "Wind Power"@en ;
+.
+cgo:Zinc
+  rdf:type owl:Class ;
+  rdfs:comment "This is the level of zinc in a sample of water measured in µmol/l" ;
+  rdfs:comment "Zinc is involved in the activation of several enzymes in the plant and is required for the synthesis of indoleacetic acid, a growth regulator." ;
+  rdfs:label "Zinc"@en ;
+  rdfs:label "Zink"@nl ;
+  rdfs:subClassOf cgo:NutritionProperty ;
+  skos:altLabel "Zn" ;
+.
+cgo:Zone
+  rdf:type owl:Class ;
+  rdfs:comment "A zone is located inside a compartment. Therefore the climate is controlled in the same way. Inside a zone, the same irrigation strategy and fertilization strategy are applied." ;
+  rdfs:label "Zone"@en ;
+  rdfs:label "Zone"@nl ;
+  rdfs:subClassOf cgo:CompartmentPart ;
+  skos:altLabel "Greenhouse Zone"@en ;
+.
+cgo:competencyQuestion
+  rdf:type owl:AnnotationProperty ;
+.
+cgo:contains
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf cgo:hasPart ;
+.
+cgo:emptyPumpLine
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "A pump may be used to empty the drain manifold. This contributes in preventing frost damage and creates a small buffer capacity for rainwater."@en ;
+  rdfs:comment "Met behulp van een pomp kan de inhoud van de verzamelleiding worden leeggepompt. Dit helpt met voorkomen van vorstschade en creëert een kleine buffer voor regenwater."@nl ;
+  rdfs:domain cgo:RainWaterSystem ;
+  rdfs:label "afschot leegpompen"@nl ;
+  rdfs:label "empty pump line"@en ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasAbsorptionCooler
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has absorption cooler "@en ;
+  rdfs:label "heeft absorptiekoeler"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasActualPositionRatio
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:VentilationWindow ;
+  rdfs:label "has actual position ratio" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasAirOutletPipes
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:CollectionManifold ;
+  rdfs:label "has air outlet pipes"@en ;
+  rdfs:label "heeft ontluchters"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasAltitude
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Location ;
+  rdfs:label "has altitude" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasAngle
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has angle" ;
+  rdfs:range om:Angle ;
+.
+cgo:hasAngularDeflection
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:GreenhouseLocalGrid ;
+  rdfs:label "has angular deflection"@en ;
+  rdfs:label "heeft hoekverdraaiing"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasApplicationDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has application date" ;
+  rdfs:subPropertyOf cgo:hasDate ;
+.
+cgo:hasArea
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has area" ;
+  rdfs:range om:Area ;
+.
+cgo:hasBayWidth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "This is the width of a single bay of a greenhouse, i.e. the piece of a greenhouse that is overarched by a gabled roof" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has bay width"@en ;
+  rdfs:label "heeft kapbreedte"@nl ;
+  rdfs:range xsd:double ;
+.
+cgo:hasBlock
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf cgo:hasPart ;
+.
+cgo:hasCantileverDistance
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cgo:PipeworkHeatingSystem
+          cgo:SideWall
+          cgo:GableEnd
+        ) ;
+    ] ;
+  rdfs:label "has cantilever distance"@en ;
+  rdfs:label "heeft uitkraging"@nl ;
+  rdfs:range xsd:double ;
+  rdfs:subPropertyOf cgo:hasDistance ;
+.
+cgo:hasCapacity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has Capacity"@en ;
+.
+cgo:hasCatchFactor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:WaterStorageSystem ;
+  rdfs:label "has catch factor" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasCladding
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has cladding"@en ;
+  rdfs:label "heeft bekleding"@nl ;
+.
+cgo:hasClient
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The commissioner of the construction of the greenhouse"@en ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has commissioner"@en ;
+  rdfs:label "heeft opdrachtgever"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasCoefficientOfPerformance
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has coefficient of performance"@en ;
+  rdfs:label "heeft prestatiecoëfficiënt"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasColumnHeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "To be reviewed after domain expert input"@en ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cgo:Greenhouse
+          cgo:InnerField
+        ) ;
+    ] ;
+  rdfs:label "has column height"@en ;
+  rdfs:label "heeft kolomhoogte"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasCondensationGutterBeneathGutter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:CondensationSystem ;
+  rdfs:label "has condensation gutter beneath gutter"@en ;
+  rdfs:label "heeft condensgootjes onder de goot"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasConePenetrationTest
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Deze eigenschap is waar als er een sondering is uitgvoerd om de grondeigenschappen te bepalen."@nl ;
+  rdfs:comment "This property is true when a cone penetration test is performed to asses soil properties."@en ;
+  rdfs:domain cgo:Site ;
+  rdfs:label "has cone penetration test"@en ;
+  rdfs:label "heeft sondering"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasConstructionAddress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has construction address"@en ;
+  rdfs:label "heeft bouwadres"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasConstructionPlaceName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Place name of the construction site of the greenhouse. Part of the intake form for construction."@en ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has construction place name"@en ;
+  rdfs:label "heeft bouwplaats"@nl ;
+  rdfs:range xsd:string ;
+  skos:example "Amsterdam"@en ;
+.
+cgo:hasConstructionStart
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The construction start as defined in the intake form, is not neccesarily equal to the actual construction start."@en ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has construction start"@en ;
+  rdfs:label "heeft aanvang bouw"@nl ;
+  rdfs:range xsd:dateTime ;
+.
+cgo:hasConstructionType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:GreenhouseConstruction ;
+  rdfs:label "has construction type"@en ;
+  rdfs:label "heeft constructietype"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasCoolingCapacity
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment """Representative values are 40-50W/m2 for cold areas where cooling is not needed  to more than 200 W/m2 for hot areas. Please notice that when we have a mechanical cooling in SIOM this value represents the electrical power and not the cooling power.
+The cooling power is related to the performance (COP) of the cooling system and for simplicity we can assume that is 3 times more than the cooling power. So if we have 150 W/m2 electrical cooling power and COP=3, the max cooling power applied in the greenhouse is 150 * 3 = 450 W/m2."""@en ;
+  rdfs:domain cgo:CoolingSystem ;
+  rdfs:label "has cooling capacity" ;
+  rdfs:label "has cooling capacity"@en ;
+  rdfs:label "heeft koelingscapaciteit"@nl ;
+  rdfs:range om:Irradiance ;
+.
+cgo:hasCoverMaterialType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cgo:Cladding
+          cgo:CoverMaterial
+        ) ;
+    ] ;
+  rdfs:label "has cover material type" ;
+  rdfs:range xsd:string ;
+.
+cgo:hasCropLoad
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "N/m2" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has crop load"@en ;
+  rdfs:label "heeft gewasbelasting"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasCropLoadNormal
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het gaat hier om het gewicht van alle, aan de gewasdraden hangende, planten bij elkaar, per vierkante meter. Het Normal houdt in dat dit gewicht tijdens het berekenen van de constructie niet wordt gecombineerd met sneeuw op het dek." ;
+  rdfs:label "has crop load normal" ;
+  rdfs:subPropertyOf cgo:hasCropLoad ;
+.
+cgo:hasCropLoadWinter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Vaak is het niet realistisch dat er in de winter geen gewassen in de kas hangen. Daarom kan hier het gewicht opgegeven worden dat wél gecombineerd wordt met sneeuw op het dek." ;
+  rdfs:label "has crop load winter" ;
+  rdfs:subPropertyOf cgo:hasCropLoad ;
+.
+cgo:hasCropWireDip
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:CropWiresSystem ;
+  rdfs:label "has crop wire dip"@en ;
+  rdfs:label "heeft doorhang gewasdraden"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasCropWireDistance
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:CropWiresSystem ;
+  rdfs:label "has crop wire distance"@en ;
+  rdfs:label "heeft gewasdraadafstand"@nl ;
+  rdfs:range xsd:double ;
+  rdfs:subPropertyOf cgo:hasDistance ;
+.
+cgo:hasCropWireLowering
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:CropWiresSystem ;
+  rdfs:label "has crop wire lowering"@en ;
+  rdfs:label "heeft verlaging gewasdraden"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasCropWireSystem
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has crop wire system"@en ;
+  rdfs:label "heeft gewasdraadsysteem"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasCultivation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has cultivation"@en ;
+  rdfs:label "heeft teelt"@nl ;
+  rdfs:range xsd:string ;
+  skos:example "Tomato"@en ;
+.
+cgo:hasCultivationGutterDistance
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "mm" ;
+  rdfs:domain cgo:CultivationGutterSystem ;
+  rdfs:label "has cultivation gutter distance"@en ;
+  rdfs:label "heeft teeltgootafstand"@nl ;
+  rdfs:range xsd:float ;
+  rdfs:subPropertyOf cgo:hasDistance ;
+.
+cgo:hasCultivationGutterLoad
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "N/m2" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has cultivation gutter load"@en ;
+  rdfs:label "heeft teeltgootbelasting"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has date" ;
+.
+cgo:hasDepth
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:VentilationWindow ;
+  rdfs:label "has depth" ;
+  rdfs:range om:Depth ;
+.
+cgo:hasDesignRainIntensity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De regenintensiteit waar het systeem op ontworpen is in mm/h."@nl ;
+  rdfs:comment "The insensity of rain the system is designed for in mm/h."@en ;
+  rdfs:domain cgo:RainWaterSystem ;
+  rdfs:label "has design rain intensity"@en ;
+  rdfs:label "heeft ontwerp regenintensiteit"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasDesiredDrainageGradient
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has desired drainage gradient"@en ;
+  rdfs:label "heeft gewenst afschot" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasDiameter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Part ;
+  rdfs:label "has diameter"@en ;
+  rdfs:label "heeft diameter"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasDistance
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has distance"@en ;
+  rdfs:label "heeft afstand"@nl ;
+.
+cgo:hasDrain
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:RainWaterSystem ;
+  rdfs:label "has drain"@en ;
+  rdfs:label "heeft afvoer"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasDrainFactor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:GrowingSystem ;
+  rdfs:label "has drain factor" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasDrainOutletLevelHeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De netto hoogte tussen de onderrand van de spuileiding en het maaiveld."@nl ;
+  rdfs:comment "The height difference between lowest part of the water outlet and ground level."@en ;
+  rdfs:domain cgo:RainWaterSystem ;
+  rdfs:label "has drain outlet level height"@en ;
+  rdfs:label "heeft opvoer hoogte"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasEconomizer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has economizer"@en ;
+  rdfs:label "heeft economiser"@nl ;
+.
+cgo:hasElectricalPower
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has electrical power"@en ;
+  rdfs:label "heeft elektrisch vermogen"@nl ;
+.
+cgo:hasEndSectionLength
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has end section length"@en ;
+  rdfs:label "heeft eindvaklengte"@nl ;
+  rdfs:range xsd:double ;
+.
+cgo:hasEnergyScreenUsage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment """Some times to increase the isolation of the greenhouse (to reduce the heat losses) we apply both screens during the night. In this case we use both energy and shading screen for saving energy purposes.
+Most of modern greenhouse controllers have this option, to use both screens for both options. From a climate controller we can see that the shading screen has a value of 1 (which means closed or applied) at the same time when the energy screen is also 1.
+This depends on the configuration of the climate controller.""" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has energy screen usage" ;
+  rdfs:range xsd:int ;
+.
+cgo:hasEngineType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has engine type"@en ;
+  rdfs:label "heeft motor type"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasExcavationWorksIncludedInQuotation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:RainWaterSystem ;
+  rdfs:label "has excavation works included in quotation"@en ;
+  rdfs:label "heeft graafwerk inbegrepen in offerte"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasFlue-gasCondensor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has flue-gas condenser"@en ;
+  rdfs:label "heeft rookgascondensor"@nl ;
+.
+cgo:hasFuelType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has fuel type"@en ;
+  rdfs:label "heeft brandstoftype "@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasGeothermalStorage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has geothermal storage"@en ;
+  rdfs:label "heeft warmteopslag in bodem"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasGlassWidth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cgo:GableEnd
+          cgo:Roof
+          cgo:SideWall
+        ) ;
+    ] ;
+  rdfs:label "has glass width"@en ;
+  rdfs:label "heeft glasbreedte"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasGlassWidthEndZone
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:GableEnd ;
+  rdfs:label "has glass width end zone" ;
+  rdfs:range xsd:decimal ;
+  rdfs:subPropertyOf cgo:hasGlassWidth ;
+.
+cgo:hasGroundwaterLevelHigh
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De hoogste grondwaterstand gemeten vanaf het oppervlak."@nl ;
+  rdfs:comment "The highest level of the groundwater measured from the surface."@en ;
+  rdfs:domain cgo:Site ;
+  rdfs:label "has groundwater level high"@en ;
+  rdfs:label "heeft groundwaterstand hoog"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasGroundwaterLevelLow
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De laagste grondwaterstand gemeten vanaf het oppervlak."@nl ;
+  rdfs:comment "The lowest level of the groundwater measured from the surface."@en ;
+  rdfs:domain cgo:Site ;
+  rdfs:label "has groundwater level low"@en ;
+  rdfs:label "heeft groundwaterstand laag"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasHeatSource
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has heat source"@en ;
+  rdfs:label "heeft warmtebron"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasHeight
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has height" ;
+  rdfs:range om:Height ;
+.
+cgo:hasHortispotLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:range cgo:HortispotLocation ;
+.
+cgo:hasHortispotLocationX
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De locatie van een element in de kas ten opzichte van de hortispot: de X-richting staat daar loodrecht op in het horizontale vlak"@nl ;
+  rdfs:domain cgo:HortispotLocation ;
+  rdfs:label "has hortispot location x" ;
+  rdfs:range om:Distance ;
+.
+cgo:hasHortispotLocationY
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De locatie van een element in de kas ten opzichte van de hortispot: De Y-richting loopt parallel aan de kasgoot."@nl ;
+  rdfs:domain cgo:HortispotLocation ;
+  rdfs:label "has hortispot location y" ;
+  rdfs:range om:Distance ;
+.
+cgo:hasHortispotLocationZ
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De locatie van een element in de kas ten opzichte van de hortispot: de Z-richting staat loodrecht op het X-Y-vlak"@nl ;
+  rdfs:domain cgo:HortispotLocation ;
+  rdfs:label "has hortispot location z" ;
+  rdfs:range om:Distance ;
+.
+cgo:hasHortispotX
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "van het midden van de breedte (= X) van de afdeling"@nl ;
+  rdfs:domain cgo:Hortispot ;
+  rdfs:label "has hortispot x" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasHortispotY
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "het midden van de lengte (= Y) van de afdeling"@nl ;
+  rdfs:domain cgo:Hortispot ;
+  rdfs:label "has hortispot y" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasHortispotZ
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "en de onderkant van de kasgoot als de hoogte (=Z) van de afdeling"@nl ;
+  rdfs:domain cgo:Hortispot ;
+  rdfs:label "has hortispot z" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasLatitude
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Location ;
+  rdfs:label "has latitude" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasLeafAreaIndex
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:GrowingSystem ;
+  rdfs:label "has LAI" ;
+  rdfs:label "has leaf area index" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasLength
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has length" ;
+  rdfs:range om:Length ;
+.
+cgo:hasLengthOfPartitionBeneathGutter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has length of partition beneath gutter"@en ;
+  rdfs:label "heeft lengte aan zijtussengevel"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasLightingType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has lighting type" ;
+  rdfs:range xsd:string ;
+.
+cgo:hasLocation
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has Location" ;
+  rdfs:range cgo:Location ;
+.
+cgo:hasLongitude
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Location ;
+  rdfs:label "has longitude" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasManufacturer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has manufacturer"@en ;
+  rdfs:label "heeft fabrikant"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasMaxHeatingPower
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment """It is the max heating power applied in the greenhouse in units of W/m2. It is not measured. It is a value calculated according to the specifications / characteristics of the heating system. This is a max value which means that for example the boiler can not provide more that this. For example for a greenhouse of 10000m2 (1ha) if this value is 120W/m2, and the combinded efficiency of the boiler + distribution system is 85%, the max heating power can be provided by the boiler is 120*10000/85% = 1.41MW. This is a simple example without any heat storage. If we have a heat storage, which is very common, then the max heating power from the boiler can be different than 1.41MW.
+Heating capacity depends strongly from the area. There are areas where there are small heating needs and then this value can be even less than 50W/m2 and areas with high needs, this value can be even higher than 200W/m2.""" ;
+  rdfs:label "has Maximum Heating Power"@en ;
+  rdfs:label "maximaal verwarmingsvermogen"@nl ;
+  rdfs:range om:Irradiance ;
+  owl:deprecated "Deprecated because it is not used and doesn't occur in use cases" ;
+  skos:altLabel "has Maximum Heating Power Distributed"@en ;
+.
+cgo:hasNitrogenExpansionUnit
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has nitrogen expansion unit"@en ;
+  rdfs:label "heeft stikstofexpansiesysteem"@nl ;
+.
+cgo:hasNumberOfBayPartitions
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has number of bay partitions"@en ;
+  rdfs:label "heeft aantal koptussengevel"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasNumberOfBays
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "aantal kappen"@nl ;
+  rdfs:label "has number of bays"@en ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasNumberOfHolesThroughAndThrough
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De tralieliggers heb mogelijk gaten om bijvoorbeeld teeltgoten op te hangen."@nl ;
+  rdfs:comment "The trellis girders may have holes to suspend for exemple cultivation gutters."@en ;
+  rdfs:domain cgo:TrellisGirder ;
+  rdfs:label "has number of holes through and through"@en ;
+  rdfs:label "heef aantal gaten door en door"@nl ;
+  rdfs:range xsd:integer ;
+.
+cgo:hasNumberOfPanes
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:VentilationWindow ;
+  rdfs:label "has number of panes"@en ;
+  rdfs:label "heeft aantal ruiten"@nl ;
+  rdfs:range xsd:integer ;
+.
+cgo:hasNumberOfPipesPerBay
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:HeatDistributionSystem ;
+  rdfs:label "has number of pipes per bay "@en ;
+  rdfs:label "heeft aantal buizen per kap "@nl ;
+  rdfs:range xsd:integer ;
+.
+cgo:hasNumberOfRowsOfPurlins
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has number of rows of purlins"@en ;
+  rdfs:label "heeft aantal rijen gordingen"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasOpenBuffer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has open buffer"@en ;
+  rdfs:label "heeft open buffer"@nl ;
+.
+cgo:hasOrientation
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "has orientation" ;
+.
+cgo:hasPart
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has Part" ;
+  owl:inverseOf cgo:partOf ;
+.
+cgo:hasPathSectionLength
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has path section length"@en ;
+  rdfs:label "heeft padvaklengte" ;
+  rdfs:range xsd:double ;
+.
+cgo:hasPipesWeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het eigen gewicht van de leidingen kan van toepassing zijn voor de zij- en kopgevels. Er kunnen meerdere leidingen opgehangen zijn, het gaat hier om het totale gewicht per strekkende meter (N/m)" ;
+  rdfs:domain cgo:Wall ;
+  rdfs:label "has pipes weight" ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasPlantingDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Crop ;
+  rdfs:label "has planting date" ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf cgo:hasDate ;
+.
+cgo:hasPower
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has installed power" ;
+  rdfs:label "has power" ;
+  rdfs:range xsd:string ;
+.
+cgo:hasPrimaryWaterSource
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:WaterSystem ;
+  rdfs:label "has Primary Water Source" ;
+  rdfs:range cgo:Water ;
+.
+cgo:hasRemovalDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Crop ;
+  rdfs:label "has removal date" ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf cgo:hasDate ;
+.
+cgo:hasRiskClass
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has risk class"@en ;
+  rdfs:label "heeft risicoklasse"@nl ;
+.
+cgo:hasSecondaryWaterSource
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:WaterSystem ;
+  rdfs:label "has Secondary Water Source" ;
+  rdfs:range cgo:Water ;
+.
+cgo:hasSectionLength
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has section length"@en ;
+  rdfs:label "heeft vakmaat"@nl ;
+  rdfs:range xsd:double ;
+.
+cgo:hasSensorType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:GreenhouseSensor ;
+  rdfs:label "has sensor type"@en ;
+  rdfs:label "heeft sensor type"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasServiceLoad
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "N/m2" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has service load"@en ;
+  rdfs:label "heeft installatiebelasting"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasServiceRail
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has service rail"@en ;
+  rdfs:label "heeft service rail"@nl ;
+  rdfs:range [
+      rdf:type rdfs:Datatype ;
+      owl:oneOf [
+          rdf:type rdf:List ;
+          rdf:first "Double-sided" ;
+          rdf:rest [
+              rdf:type rdf:List ;
+              rdf:first "No" ;
+              rdf:rest [
+                  rdf:type rdf:List ;
+                  rdf:first "Single-sided" ;
+                  rdf:rest () ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+cgo:hasServiceRailProvisions
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Additional provisions to the gutter may be necessary is the strength is not sufficient."@en ;
+  rdfs:comment "Extra voorziening aan de goot kan nodig zijn indien de sterkte niet toereikt."@nl ;
+  rdfs:domain cgo:Gutter ;
+  rdfs:label "has service rail provisions"@en ;
+  rdfs:label "heeft servicerail voorziening"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasSinkSystem
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has sink system"@en ;
+  rdfs:label "heeft afnemersysteem"@nl ;
+  rdfs:range ssn:System ;
+  owl:inverseOf cgo:hasSourceSystem ;
+.
+cgo:hasSite
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has site"@en ;
+  rdfs:label "heeft bouwterrein"@nl ;
+  rdfs:range cgo:Site ;
+.
+cgo:hasSlope
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Foundation ;
+  rdfs:label "has Slope"@en ;
+  rdfs:range om:Measure ;
+.
+cgo:hasSlopeType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Gutter ;
+  rdfs:label "has slope type"@en ;
+  rdfs:label "heeft afschottype"@nl ;
+  rdfs:range [
+      rdf:type rdfs:Datatype ;
+      owl:oneOf [
+          rdf:type rdf:List ;
+          rdf:first "Double-sided" ;
+          rdf:rest [
+              rdf:type rdf:List ;
+              rdf:first "Single-sided" ;
+              rdf:rest () ;
+            ] ;
+        ] ;
+    ] ;
+.
+cgo:hasSoilType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cgo:Site
+          cgo:Surroundings
+        ) ;
+    ] ;
+  rdfs:label "has soil type"@en ;
+  rdfs:label "heeft grondsoort"@nl ;
+  rdfs:range xsd:string ;
+  skos:example "sand, clay, etc."@nl ;
+.
+cgo:hasSource
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has source"@en ;
+  rdfs:label "heeft bron"@nl ;
+  rdfs:range cgo:Source ;
+.
+cgo:hasSourceSystem
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has source system"@en ;
+  rdfs:label "heeft bronsysteem"@nl ;
+  rdfs:range ssn:System ;
+.
+cgo:hasSpanWidth
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "This is the width between two columns of the greenhouse in the direction orthogonal to the bays" ;
+  rdfs:domain cgo:Roof ;
+  rdfs:label "has span width"@en ;
+  rdfs:label "heeft spanwijdte"@nl ;
+  rdfs:range om:Measure ;
+  rdfs:subPropertyOf cgo:hasWidth ;
+.
+cgo:hasSupplier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Roof ;
+  rdfs:label "has supplier"@en ;
+  rdfs:label "heeft leverancier"@nl ;
+  rdfs:range xsd:string ;
+.
+cgo:hasSurroundings
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has Surroundings"@en ;
+  rdfs:range cgo:Surroundings ;
+  rdfs:subPropertyOf om:hasValue ;
+.
+cgo:hasSurroundingsType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Surroundings ;
+  rdfs:label "has surroundings type"@en ;
+  rdfs:label "heeft type omgeving"@nl ;
+  rdfs:range xsd:string ;
+  skos:example "bebouwd, onbebouwd, etc."@nl ;
+.
+cgo:hasSystem
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has system"@en ;
+  rdfs:label "heeft systeem"@nl ;
+.
+cgo:hasTerrainGradient
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het afschot van het terrain in gootrichting."@nl ;
+  rdfs:comment "The gradient of the terrain in direction of the gutter."@en ;
+  rdfs:domain cgo:Site ;
+  rdfs:label "has terrain gradient"@en ;
+  rdfs:label "heeft afschot in terrein"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasThermalPower
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has thermal power"@en ;
+  rdfs:label "heeft thermisch vermogen"@nl ;
+.
+cgo:hasTrackWidth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has track width"@en ;
+  rdfs:label "heeft spoorbreedte"@nl ;
+.
+cgo:hasTransportLoad
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Dit is het gewicht dat als puntlast door de kas kan bewegen. Denk aan een karretje of een robot. Standaard wordt hier uitgegaan van een gewicht van 1200N" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has transport load" ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasTransportLoadIncidental
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Dit is het gewicht dat als puntlast door de kas kan bewegen. Denk aan een karretje of een robot. Standaard wordt hier uitgegaan van een gewicht van 1200N" ;
+  rdfs:label "has transport load incidental" ;
+  rdfs:subPropertyOf cgo:hasTransportLoad ;
+.
+cgo:hasTransportLoadPermanent
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Hier worden de permanenten puntlasten (in tegenoverstelling tot gelijkmatig verdeeld) op gegeven. Dit zijn bijvoorbeeld de rails waar de robot of het karretje overheen gaan." ;
+  rdfs:label "has transport load permanent" ;
+  rdfs:subPropertyOf cgo:hasTransportLoad ;
+.
+cgo:hasTrellisGirders
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has trellis girders"@en ;
+  rdfs:label "heeft tralieliggers"@nl ;
+  rdfs:range xsd:int ;
+.
+cgo:hasTrussHeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "TrussHeight is the height of a truss measured orthogonally to the length of the truss. A standard value is 400mm." ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has truss height"@en ;
+  rdfs:label "heeft spanthoogte"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasTrussLowering
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Trusslowering is the distance between the lowest point of the gutter and upperside of the truss. A standard value is 150mm." ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has truss lowering"@en ;
+  rdfs:label "heeft spantverlaging"@nl ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasTypeName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has type name" ;
+  rdfs:range xsd:string ;
+.
+cgo:hasVentilationSections
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:VentilationSystem ;
+  rdfs:label "has ventilation sections"@en ;
+  rdfs:label "heeft luchtafdelingen"@nl ;
+  rdfs:range xsd:integer ;
+.
+cgo:hasVolume
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has volume"@en ;
+  rdfs:label "heeft volume"@nl ;
+.
+cgo:hasWaterDrainAtGableEnd
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:RainWaterSystem ;
+  rdfs:label "has water drain at gable end"@en ;
+  rdfs:label "heeft waterafvoer aan kopgevel"@nl ;
+  rdfs:range [
+      rdf:type rdfs:Datatype ;
+      owl:oneOf [
+          rdf:type rdf:List ;
+          rdf:first "Column" ;
+          rdf:rest [
+              rdf:type rdf:List ;
+              rdf:first "Down pipe" ;
+              rdf:rest () ;
+            ] ;
+        ] ;
+    ] ;
+.
+cgo:hasWaterFilter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has water filter"@en ;
+  rdfs:label "heeft waterfilter"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasWaterSoftener
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ssn:System ;
+  rdfs:label "has water softener"@en ;
+  rdfs:label "heeft ontharder"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:hasWeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has weight"@en ;
+  rdfs:label "heeft gewicht"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasWeightOfInstallations
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has weight of installations" ;
+  rdfs:range xsd:decimal ;
+.
+cgo:hasWidth
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has width" ;
+  rdfs:range om:Width ;
+.
+cgo:hasWinterCropLoad
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "N/m2" ;
+  rdfs:domain cgo:Greenhouse ;
+  rdfs:label "has winter crop load"@en ;
+  rdfs:label "heeft gewasbelasting in de winter"@nl ;
+  rdfs:range xsd:float ;
+.
+cgo:hasWireGauge
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:CropWire ;
+  rdfs:label "has wire gauge"@en ;
+  rdfs:label "heeft draadnummer"@nl ;
+  rdfs:range xsd:double ;
+.
+cgo:hasZone
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf cgo:hasPart ;
+.
+cgo:heightgreenhouse1
+  rdf:type om:Height ;
+  rdf:type owl:NamedIndividual ;
+  om:hasValue <https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#5m> ;
+.
+cgo:isAboveGround
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "is above ground"@en ;
+  rdfs:label "is bovengronds"@nl ;
+.
+cgo:isApplicated
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "is applicated"@en ;
+  rdfs:label "is toegepast"@nl ;
+  owl:deprecated "Deprecated: whitewash application no longer included" ;
+.
+cgo:isAppliedTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Treatment ;
+  rdfs:label "is applied to"@en ;
+  rdfs:label "is toegepast op"@nl ;
+  rdfs:range cgo:ConstructionPart ;
+  owl:inverseOf cgo:isTreatedWith ;
+.
+cgo:isContinuousVent
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Defines whether the ventilation windows are separate windows or a single continuous window"@en ;
+  rdfs:domain cgo:VentilationWindow ;
+  rdfs:label "is continuous vent"@en ;
+  rdfs:label "is doorlopende ventilatie"@nl ;
+  rdfs:range xsd:boolean ;
+.
+cgo:isHotWaterBoiler
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De ketel heeft een watertemperatuur boven de 110 °C en onder de 0,5 bar stoomdruk"@nl ;
+  rdfs:comment "The boiler has a water temperature above 110 °C and a pressure below 0,5 bar"@en ;
+  rdfs:label "is hot water boiler"@en ;
+  rdfs:label "is warmwaterketel"@nl ;
+.
+cgo:isInside
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "is binnen"@nl ;
+  rdfs:label "is inside"@en ;
+.
+cgo:isOpenToGroundLevel
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De standpijp loost water direct naar het maaiveld in bijvoorbeeld een sloot. Het water gaat niet verder naar een verzamelleiding."@nl ;
+  rdfs:comment "The downpipe discharges water directly to ground level into, for exemple, a ditch. The water is not colleted in a manifold."@en ;
+  rdfs:domain cgo:DownPipe ;
+  rdfs:label "is open naar maaiveld"@nl ;
+  rdfs:label "is open to ground level"@en ;
+  rdfs:range xsd:boolean ;
+.
+cgo:isPreventedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "is Prevented By" ;
+  owl:inverseOf cgo:prevents ;
+.
+cgo:isTreatedWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:ConstructionPart ;
+  rdfs:label "is behandeld met"@nl ;
+  rdfs:label "is treated with"@en ;
+  rdfs:range cgo:Treatment ;
+.
+cgo:lucht1
+  rdf:type owl:NamedIndividual ;
+  rdf:type cgo:Air ;
+.
+cgo:maintenanceOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:Maintenance ;
+  rdfs:label "maintenance of" ;
+  rdfs:range cgo:Part ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+cgo:observatie1
+  rdf:type owl:NamedIndividual ;
+  rdf:type sosa:Observation ;
+  sosa:hasFeatureOfInterest cgo:lucht1 ;
+  sosa:hasResult cgo:result1 ;
+  sosa:observedProperty cgo:temperature1 ;
+.
+cgo:pHSensor
+  rdf:type owl:Class ;
+  rdfs:comment "The fertigation unit has at least 1 pH sensor, in the Netherlands usually 2. The pH sensor measures the pH value in the water" ;
+  rdfs:label "pH Sensor"@en ;
+  rdfs:subClassOf cgo:FertigationSystemSensor ;
+  skos:altLabel "pH Control Sensor"@en ;
+  skos:altLabel "pH Measure Sensor"@en ;
+.
+cgo:partOf
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "part Of" ;
+.
+cgo:prevents
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain cgo:AntiInsectNet ;
+  rdfs:label "prevents" ;
+  rdfs:range cgo:Pest ;
+.
+cgo:requiresDeepFoundation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain cgo:Foundation ;
+  rdfs:label "heiwerk noodzakelijk"@nl ;
+  rdfs:label "requires deep foundation"@en ;
+  rdfs:range xsd:boolean ;
+.
+cgo:result1
+  rdf:type owl:NamedIndividual ;
+  rdf:type sosa:Result ;
+  sosa:hasSimpleResult "20 graden" ;
+.
+cgo:temperature1
+  rdf:type owl:NamedIndividual ;
+  rdf:type cgo:Temperature ;
+.
